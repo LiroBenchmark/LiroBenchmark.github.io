@@ -33,5 +33,5 @@ jobs:
     - name: Test upload file to github
       uses: actions/upload-artifact@v2
       with:
-        name: site/LEADERBOARD.xlsx
-        path: LEADERBOARD.xlsx
+        name: LEADERBOARD.xlsx
+        path: site/LEADERBOARD.xlsx
