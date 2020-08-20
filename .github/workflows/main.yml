@@ -30,3 +30,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
+    - name: Test upload file to github
+      uses: actions/upload-artifact@v2
+      with:
+        name: site/LEADERBOARD.xlsx
+        path: LEADERBOARD.xlsx
