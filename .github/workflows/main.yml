@@ -29,9 +29,17 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-    - name: Test upload file to github
-      uses: actions/upload-artifact@v2
+      run: echo `date` > test.txt#python -c "import sys; print(sys.version)" > test.txt
+    - uses: actions/checkout@master
       with:
-        name: LEADERBOARD.xlsx
-        path: site/LEADERBOARD.xlsx
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
