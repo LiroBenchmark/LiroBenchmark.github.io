@@ -31,7 +31,7 @@ jobs:
     - name: Display Python version
       run: |
         pwd
-        echo `date` > test.txt #python -c "import sys; print(sys.version)" > test.txt
+        echo `date` > /home/runner/work/ro_benchmark_leaderboard/ro_benchmark_leaderboard/test.txt #python -c "import sys; print(sys.version)" > test.txt
     - uses: actions/checkout@master
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
@@ -40,6 +40,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git add .
         git commit -m "Add changes" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
