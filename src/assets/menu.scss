@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;;
+}
+.logo-wrapper{
+    
+    svg{
+        margin-right: 10px;
+    }
+}
+
+.header-menu {
+    li{
+        display: inline-block;
+        margin-right: 15px;
+        
+        a {
+            color: #fff;
+            vertical-align: middle;
+        }
+        span{
+            vertical-align: middle;
+        }
+        svg {
+            margin-right: 5px;
+            fill: #fff;
+        }
+    }
+
+    .main-menu{
+        align-items: flex-end;
+    }
+}
