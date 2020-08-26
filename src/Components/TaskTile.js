@@ -3,8 +3,10 @@ import React from 'react';
 class TaskTile extends React.Component{
     render(){
         const data = {
-            href:"/task/"+this.props.id,
-            name:this.props.name
+            href: "/task/"+this.props.id,
+            name: this.props.name,
+            submissions: this.props.submissions,
+            datasets: this.props.datasets
         };
         return(
 	    <div className="col-md4 task-tile">
@@ -15,8 +17,8 @@ class TaskTile extends React.Component{
                 <hr/>
                 <div className="task-summary">
                   <ul>
-                    <li>10 submissions</li>
-                    <li>2 datasets</li>
+                    <li>{data.submissions ? data.submissions : "No"} submissions</li>
+                    <li>{data.datasets ? data.datasets : "No"} datasets</li>
                   </ul>
                 </div>
 	      </a>
