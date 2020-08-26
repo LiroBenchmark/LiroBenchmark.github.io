@@ -1,9 +1,10 @@
 import React from 'react';
 import TaskTile from './TaskTile.js';
 
+const DisplayedTasks = 5;
+
 class DomainTile extends React.Component{
     render(){
-        console.log(this.props);
         const data = {
             name: this.props.name,
             tasks: this.props.tasks,
@@ -17,13 +18,16 @@ class DomainTile extends React.Component{
                   </h4>
               </div>
               <div className="row task-tiles">
-                {data.tasks.map(t=>{
-                    return(<TaskTile id={t.id} name={t.name} description={t.description} />);
+                {data.tasks.slice(0, DisplayedTasks).map(t=>{
+                    return(<TaskTile id={t.id} name={t.name} description={t.description} submissions={t.submissions} datasets={t.datasets} />);
                 })}
               </div>
-              <div className="col-md-12 domain-tasks">
-                <a href={data.href}>See all tasks</a>
-              </div>
+              {
+                  data.tasks.length > DisplayedTasks &&
+                      <div className="col-md-12 domain-tasks">
+                        <a href={data.href}>See all {data.tasks.length} tasks</a>
+                      </div>
+                  }
             </div>
         );
     }
