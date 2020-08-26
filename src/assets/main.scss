@@ -24,6 +24,9 @@
     background-color: #fff;
     background-clip: border-box;
     box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1), 0 0.15rem 0.9rem rgba(0, 0, 0, 0.2);
+    width: 192px;
+    height: 146px;
+    padding: 5px;
 }
 
 .task-tile  a{
@@ -34,11 +37,27 @@
     text-decoration: none;
 }
 
+.tile-col{
+}
+
 .task-name{
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    word-break: break-all;
+    margin-left: 35px;
+}
+
+.task-logo{
+    width: 45px;
+    height: 45px;
+    border: solid 1px #ccccaa;
+    margin-left: 35px;
+    background-image: url('eeml.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .task-summary{
-
+    margin-left: 24px;
+    font-size: 12px;
 }

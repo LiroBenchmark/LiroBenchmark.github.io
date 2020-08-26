@@ -11,11 +11,17 @@ class TaskTile extends React.Component{
         return(
 	    <div className="col-md4 task-tile">
 	      <a href={data.href}>
-	        <div className="task-name">
-	          <span>{data.name}</span>
+	        <div className="row">
+                  <div className="col-xs-4 tile-col">
+                    <div className="task-logo">
+                    </div>
+                  </div>
+                  <div className="col-xs-8 task-name tile-col">
+	            {data.name}
+                  </div>
     	        </div>
                 <hr/>
-                <div className="task-summary">
+                <div className="row task-summary">
                   <ul>
                     <li>{data.submissions ? data.submissions : "No"} submissions</li>
                     <li>{data.datasets ? data.datasets : "No"} datasets</li>
