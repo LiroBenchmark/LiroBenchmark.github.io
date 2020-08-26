@@ -20,10 +20,23 @@
     display: flex;
     border: 1px solid #cccccc;
     margin-right: 35px;
+    padding: 10px;
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1), 0 0.15rem 0.9rem rgba(0, 0, 0, 0.2);
+}
+
+.task-tile  a{
+    color: inherit;
+}
+
+.task-tile a:hover{
+    text-decoration: none;
 }
 
 .task-name{
-
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .task-summary{
