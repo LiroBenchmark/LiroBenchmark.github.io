@@ -2,34 +2,26 @@ import React from 'react';
 
 class TaskTile extends React.Component{
     render(){
-        const data = {
-            href: "/task/"+this.props.id,
-            name: this.props.name,
-            submissions: this.props.submissions,
-            datasets: this.props.datasets
-        };
-        return(
-	    <div className="col-md4 task-tile">
-	      <a href={data.href}>
-	        <div className="row">
-                  <div className="col-xs-4 tile-col">
-                    <div className="task-logo">
-                    </div>
-                  </div>
-                  <div className="col-xs-8 task-name tile-col">
-	            {data.name}
-                  </div>
-    	        </div>
-                <hr/>
-                <div className="row task-summary">
-                  <ul>
-                    <li>{data.submissions ? data.submissions : "No"} submissions</li>
-                    <li>{data.datasets ? data.datasets : "No"} datasets</li>
-                  </ul>
+      const { id, name, submissions, datasets } = this.props.itemData;
+      return(
+        <div className="task-tile">
+          <a href={`/task/${id}`}>
+            <div>
+                <div className="task-name tile-col">
+                <div className="task-logo" />
+                  <p>{name}</p>
                 </div>
-	      </a>
-	    </div>
-        );
+              </div>
+              <hr/>
+              <div className="task-summary">
+                <ul>
+                  <li>{submissions ? submissions : "No"} submissions</li>
+                  <li>{datasets ? datasets : "No"} datasets</li>
+                </ul>
+              </div>
+          </a>
+        </div>
+      );
     }
 }
 

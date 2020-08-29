@@ -26,7 +26,7 @@ const Menu = () => {
       <ul>
         {menuOptions.map(currentItem => {
           return (
-          <li>
+          <li key={currentItem.url}>
             <NavLink exact to={currentItem.url} target={currentItem.target}>
                 {currentItem.icon}
                 <span>{currentItem.text}</span>
