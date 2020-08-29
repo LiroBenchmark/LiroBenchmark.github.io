@@ -1,3 +1,67 @@
 .main-content {
-    margin: 10px 15px ;
+    margin: 30px 15px ;
+}
+
+.domain-tile{
+    margin-bottom: 25px;
+    .domain-name{
+        font-size: 1.5rem;
+    }
+}
+
+
+.task-tiles{
+    margin-top: 15px;
+    display: flex;
+    
+    .task-tile{
+        display: flex;
+        border: 1px solid #cccccc;
+        margin-right: 25px;
+        background-color: #fff;
+        background-clip: border-box;
+        box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1), 0 0.15rem 0.9rem rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        &:last-child{
+            margin-right: 0;
+        }
+
+        a{
+            color: inherit;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+
+    .task-name{
+        font-size: 1rem;
+        word-break: break-all;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .task-logo{
+            width: 45px;
+            height: 45px;
+            border: solid 1px #ccccaa;
+            background-image: url('eeml.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            padding: 25px;
+        }
+
+        .task-summary{
+            font-size: 12px;
+        }
+    }
+}
+
+
+
+.domain-tasks{
+    width: 100%;
+    margin-top: 15px;
+    padding: 0 20px;
 }

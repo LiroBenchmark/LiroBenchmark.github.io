@@ -9,7 +9,7 @@ const App = (props) => {
   return (
     <div>
       <Header />
-      <div className="main-content">
+      <div className="container main-content">
         <Dashboard location={location }/>
       </div>
     </div>

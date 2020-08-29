@@ -5,45 +5,28 @@ import '../assets/menu.scss';
 
 const menuOptions= [
   {
-    text: "Homepage",
-    url: '/',
-    target: "",
-    icon: <GraphIcon />
-  },{
     // @TODO - need to investigate, current url is /http://...
     text: "Code",
     url: 'https://github.com/eemlcommunity/ro_benchmark_leaderboard',
     target: "_blank",
     icon: <GraphIcon />
   },{
-    text: "Tasks",
-    url: '/tasks',
-    target: "",
-    icon: <GraphIcon />
-  },{
-    text: "Leaderboard",
-    url: '/leaderboard',
-    target: "",
-    icon: <GraphIcon />
-  },{
     text: "Datasets",
     url: '/datasets',
     target: "",
-    icon: <GraphIcon />
   },{
-    text: "Submit",
-    url: '/submit',
+    text: "About",
+    url: '/about',
     target: "",
-    icon: <GraphIcon />
   }];
-  
+
 const Menu = () => {
   return(
     <div className="header-menu">
       <ul>
         {menuOptions.map(currentItem => {
           return (
-          <li>
+          <li key={currentItem.url}>
             <NavLink exact to={currentItem.url} target={currentItem.target}>
                 {currentItem.icon}
                 <span>{currentItem.text}</span>
