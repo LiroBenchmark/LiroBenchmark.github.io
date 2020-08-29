@@ -7,8 +7,8 @@
         {
           "name": "Text classification",
           "id": "text-classification",
-            "submissions": 9,
-            "datasets": 1
+          "submissions": 9,
+          "datasets": 1
         },
         {
           "name": "Sentence classification",
@@ -23,8 +23,8 @@
         {
           "name": "Named entity recognition",
           "id": "named-entity-recognition",
-            "submissions": 15,
-            "datasets": 3
+          "submissions": 15,
+          "datasets": 3
         }
       ]
     }

@@ -3,6 +3,8 @@ import {Switch, Route} from 'react-router-dom';
 import Homepage from './Homepage';
 import TaskDetails from './TaskDetails';
 
+const urlString = '/ro_benchmark_leatherboard/task/'
+
 const Dashboard = (props) => {
   const {location} = props;
   return (
