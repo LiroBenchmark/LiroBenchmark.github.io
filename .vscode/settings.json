@@ -1,0 +1,26 @@
+{
+    "editor.renderWhitespace": "all",
+    "[javascriptreact]":{
+        "editor.tabSize": 2,
+        "editor.defaultFormatter":"esbenp.prettier-vscode"
+    },
+    "[javascript]":{
+        "editor.tabSize": 2,
+        "editor.defaultFormatter":"esbenp.prettier-vscode"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "prettier.javascriptEnable": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "prettier.jsxSingleQuote": true,
+    "prettier.tabWidth": 2,
+    "prettier.trailingComma": "all",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
+}

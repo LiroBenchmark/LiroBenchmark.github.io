@@ -1,12 +1,10 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import TaskDetails from './TaskDetails';
 
-const urlString = '/ro_benchmark_leatherboard/task/'
-
 const Dashboard = (props) => {
-  const {location} = props;
+  const { location } = props;
   return (
     <Switch location={location}>
       <Route exact path="/task/:id" component={TaskDetails} />
