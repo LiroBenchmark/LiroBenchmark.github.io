@@ -1,37 +1,55 @@
-import React from 'react';
-import TaskTile from './TaskTile.js';
+import React, { Component } from 'react';
+import data from '../data/domains.json';
 
 const maxVisibleTaks = 5;
 
-class DomainTile extends React.Component{
-    render(){
-        const data = {
-            name: this.props.name,
-            tasks: this.props.tasks,
-            href: `/domain/${this.props.id}`
-        };
-
-        const maxItems = data.tasks.slice(0, maxVisibleTaks)
-
-        return(
-            <div className="row domain-tile">
-              <div className="col-md-12 domain-name">
-                  <h4>
-                    {data.name}
-                  </h4>
-              </div>
-              <div className="task-tiles">
-                {maxItems.map(currentItem => <TaskTile key={currentItem.id} itemData={currentItem} />)}
-              </div>
-              {
-                data.tasks.length > maxVisibleTaks &&
-                    <div className="col-md-12 domain-tasks">
-                        <a href={data.href}>See all {data.tasks.length} tasks</a>
-                    </div>
-                  }
+class DomainTile extends Component {
+  renderDomainTasks(domainTask) {
+    const { id, name, submissions, datasets } = domainTask;
+    return (
+      <div className="task-tile" key={id}>
+        <a href={`/task/${id}`}>
+          <div>
+            <div className="task-name tile-col">
+              <div className="task-logo" />
+              <p>{name}</p>
             </div>
-        );
-    }
+          </div>
+          <hr />
+          <div className="task-summary">
+            <ul>
+              <li>{submissions || 'No'} submissions</li>
+              <li>{datasets || 'No'} datasets</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    );
+  }
+
+  renderDataItem(currentDomain) {
+    const { domain, id, tasks } = currentDomain;
+    const maxItems = tasks.slice(0, maxVisibleTaks);
+
+    return (
+      <div className="domain-tile" key={id}>
+        <div className="domain-name">
+          <h4>{domain}</h4>
+        </div>
+        <div className="task-tiles">{maxItems.map((currentTask) => this.renderDomainTasks(currentTask))}</div>
+        {tasks.length > maxVisibleTaks && (
+          <div className="domain-tasks">
+            <a href={`/domain/${id}`}>See all {tasks.length} tasks</a>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  render() {
+    const { domains } = data;
+    return domains.map((currentDomain) => this.renderDataItem(currentDomain));
+  }
 }
 
 export default DomainTile;
