@@ -43,18 +43,18 @@ class TaskDetails extends React.Component {
                     </td>
                     <td>{score}</td>
                     <td>
-                      {submission.code &&
-                       <a href={submission.code} target="_blank">
-                         <CodeIcon/>
-                       </a>
-                      }
+                      {submission.code && (
+                        <a href={submission.code} target="_blank" rel="noopener noreferrer">
+                          <CodeIcon />
+                        </a>
+                      )}
                     </td>
                     <td>
-                    {submission.paper &&
-                     <a href={submission.paper} target="_blank">
-                       <PaperIcon/>
-                     </a>
-                    }
+                      {submission.paper && (
+                        <a href={submission.paper} target="_blank" rel="noopener noreferrer">
+                          <PaperIcon />
+                        </a>
+                      )}
                     </td>
                   </tr>
                 );
