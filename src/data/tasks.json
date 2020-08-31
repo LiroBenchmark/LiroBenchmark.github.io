@@ -11,14 +11,17 @@
 		"modelId": "qpd-v1",
 		"dataset": "MOROCO",
 		"datasetId": "moroco",
-		"score": 0.89
+		"score": 0.89,
+		"paper": "https://arxiv.org",
+		"code": "https://github.com"
 	    },
 	    {
 		"modelName": "Bang! You're classified!",
 		"modelId": "byac",
 		"dataset": "MOROCO",
 		"datasetId": "moroco",
-		"score": 0.91
+		"score": 0.91,
+		"paper": "https://arxiv.org"
 	    }
       ]
     },
