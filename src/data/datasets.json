@@ -1,0 +1,72 @@
+{
+    "datasets":[
+	{
+	    "name":"RONEC",
+	    "description": "Dataset description goes here.",
+	    "url": "https://github.com",
+	    "metrics":[
+		"F1",
+		"Accuracy"
+	    ],
+	    "models":[
+		{
+		    "name": "You're identified!",
+		    "metrics":[
+			{
+			    "name": "F1",
+			    "score": 0.89
+			},
+			{
+			    "name":"Accuracy",
+			    "score": 0.89
+			}
+		    ],
+		    "paperTitle":"You're identified! A new model for Romanian NER",
+		    "paperLink": "https://arxiv.org",
+		    "codeLink": "https://github.com",
+		    "submissionYear": 2019,
+		    "submissionMonth": 12
+		},
+		{
+		    "name": "You're an entity, Harry!",
+		    "metrics":[
+			{
+			    "name": "F1",
+			    "score": 0.89
+			}
+		    ],
+		    "paperTitle":"You're an entity, Harry! A new model for Romanian NER",
+		    "paperLink": "https://arxiv.org",
+		    "codeLink": "https://github.com",
+		    "submissionYear": 2020,
+		    "submissionMonth": 1
+		}
+	    ]
+	},
+	{
+	    "name":"RoDia",
+	    "description": "Dataset description goes here.",
+	    "url": "https://github.com",
+	    "metrics":[
+		"F1",
+		"Accuracy"
+	    ],
+	    "models":[
+		{
+		    "name": "Pomegranate pealed",
+		    "metrics":[
+			{
+			    "name": "Perplexity",
+			    "score": 0.4
+			}
+		    ],
+		    "paperTitle":"Pealing the RoDia corpus",
+		    "paperLink": "https://arxiv.org",
+		    "codeLink": "https://github.com",
+		    "submissionYear": 2019,
+		    "submissionMonth": 12
+		}
+	    ]
+	}
+    ]
+}
