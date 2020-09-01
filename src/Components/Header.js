@@ -6,7 +6,7 @@ import { LogoIcon } from '../assets/icons';
 const Header = () => (
   <Navbar bg="dark" variant="dark">
     <div className="logo-wrapper">
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/ro_benchmark_leaderboard">
         <LogoIcon />
         {/* <img
         alt=""
