@@ -1,11 +1,6 @@
 import React from 'react';
+import DomainTile from './DomainTile';
 
-const Homepage = () => {
-  return (
-    <div>
-      <p>Homepage here</p>
-    </div>
-  )
-}
+const Homepage = () => <DomainTile />;
 
 export default Homepage;

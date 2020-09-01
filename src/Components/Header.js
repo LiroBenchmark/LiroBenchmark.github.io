@@ -1,29 +1,27 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Menu from './Menu';
-import { LogoIcon } from '../assets/icons'
+import { LogoIcon } from '../assets/icons';
 
-const Header = () => {
-  return (
+const Header = () => (
   <Navbar bg="dark" variant="dark">
     <div className="logo-wrapper">
-    <Navbar.Brand href="/">
-      <LogoIcon />
-      {/* <img
+      <Navbar.Brand href="/ro_benchmark_leaderboard">
+        <LogoIcon />
+        {/* <img
         alt=""
         src={logo}
-        width="30" 
+        width="30"
         height="30"
         className="d-inline-block align-top"
       />{' '} */}
-      RoLa benchmark
-    </Navbar.Brand>
+        RoLa benchmark
+      </Navbar.Brand>
     </div>
     <div className="main-menu">
       <Menu />
     </div>
   </Navbar>
-  )
-}
+);
 
 export default Header;
