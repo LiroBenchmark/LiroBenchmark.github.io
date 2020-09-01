@@ -1,41 +1,25 @@
 {
   "tasks": [
-    {
-      "name": "Text classification",
-      "id": "text-classification",
-      "domainId": "text-classification",
-      "description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
-	"submissions": [
-	    {
-		"modelName": "Quack-pack and done!",
-		"modelId": "qpd-v1",
-		"dataset": "MOROCO",
-		"datasetId": "moroco",
-		"score": 0.89,
-		"paper": "https://arxiv.org",
-		"code": "https://github.com"
-	    },
-	    {
-		"modelName": "Bang! You're classified!",
-		"modelId": "byac",
-		"dataset": "MOROCO",
-		"datasetId": "moroco",
-		"score": 0.91,
-		"paper": "https://arxiv.org"
-	    }
-      ]
-    },
-    {
-      "name": "Sentence classification",
-      "id": "sentence-classification",
-      "domainId": "text-classification",
-      "description": "Sentence classification is the task of assigning a sentence an appropriate category."
-    },
-    {
-      "name": "Named entity recognition",
-      "id": "named-entity-recognition",
-      "domainId": "named-entity-recognition",
-      "description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens."
-    }
+      {
+	  "area": "NLP",
+	  "name": "Text classification",
+	  "description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
+	  "datasets":[
+	      {
+		  "name": "MOROCO",
+		  "model": "Best model for MOROCO",
+		  "paperTitle": "The paper that got best results for MOROCO dataset",
+		  "paperLink": "https://arxiv.org",
+		  "sourceLink": "https://github.com"
+	      },
+	      {
+		  "name": "Other dataset",
+		  "model": "Best model for other dataset",
+		  "paperTitle": "The paper that got best results for other dataset",
+		  "paperLink": "https://arxiv.org",
+		  "sourceLink": "https://github.com"
+	      }
+	  ]
+      }
   ]
 }
