@@ -34,7 +34,7 @@ jobs:
     - name: Run extract_data.py
       run: |
         pwd
-        python3 src/data/extract_data.py
+        cd src/data/ && python3 extract_data.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
