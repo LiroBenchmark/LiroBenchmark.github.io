@@ -7,7 +7,16 @@
     {
         "area": "NLP",
         "name": "NER",
-        "datasets": []
+        "datasets": [
+            {
+                "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+                "submission_count": 1
+            },
+            {
+                "dataset": "New NER DATASET (dummy)",
+                "submission_count": 0
+            }
+        ]
     },
     {
         "area": "NLP",
@@ -22,7 +31,12 @@
     {
         "area": "NLP",
         "name": "Sentence Segmentation",
-        "datasets": []
+        "datasets": [
+            {
+                "dataset": "Universal Dependencies - Romanian RRT Treebank",
+                "submission_count": 2
+            }
+        ]
     },
     {
         "area": "NLP",
