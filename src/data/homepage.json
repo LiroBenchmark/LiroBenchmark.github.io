@@ -1,0 +1,47 @@
+[
+    {
+        "area": "NLP",
+        "name": "Text Classification",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "NER",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Machine Translation",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Tokenization",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Sentence Segmentation",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Lemmatization",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "POS Tagging",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Dependency Parsing",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Language Modeling",
+        "datasets": []
+    }
+]

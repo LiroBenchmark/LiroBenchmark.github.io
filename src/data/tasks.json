@@ -1,41 +1,65 @@
-{
-  "tasks": [
+[
     {
-      "name": "Text classification",
-      "id": "text-classification",
-      "domainId": "text-classification",
-      "description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
-	"submissions": [
-	    {
-		"modelName": "Quack-pack and done!",
-		"modelId": "qpd-v1",
-		"dataset": "MOROCO",
-		"datasetId": "moroco",
-		"score": 0.89,
-		"paper": "https://arxiv.org",
-		"code": "https://github.com"
-	    },
-	    {
-		"modelName": "Bang! You're classified!",
-		"modelId": "byac",
-		"dataset": "MOROCO",
-		"datasetId": "moroco",
-		"score": 0.91,
-		"paper": "https://arxiv.org"
-	    }
-      ]
+        "area": "NLP",
+        "task_name": "Text Classification",
+        "task_description": "a",
+        "datasets": []
     },
     {
-      "name": "Sentence classification",
-      "id": "sentence-classification",
-      "domainId": "text-classification",
-      "description": "Sentence classification is the task of assigning a sentence an appropriate category."
+        "area": "NLP",
+        "task_name": "NER",
+        "task_description": "b",
+        "datasets": [
+            {
+                "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+                "metric": "F1",
+                "model_name": "dummy system 1",
+                "paper_title": "paper title here",
+                "paper_link": "http://www.google.com",
+                "source_link": "http://www.github.com"
+            }
+        ]
     },
     {
-      "name": "Named entity recognition",
-      "id": "named-entity-recognition",
-      "domainId": "named-entity-recognition",
-      "description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens."
+        "area": "NLP",
+        "task_name": "Machine Translation",
+        "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "Tokenization",
+        "task_description": "desc ",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "Sentence Segmentation",
+        "task_description": "",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "Lemmatization",
+        "task_description": "",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "POS Tagging",
+        "task_description": "",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "Dependency Parsing",
+        "task_description": "",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "task_name": "Language Modeling",
+        "task_description": "",
+        "datasets": []
     }
-  ]
-}
+]
