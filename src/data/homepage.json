@@ -1,0 +1,61 @@
+[
+    {
+        "area": "NLP",
+        "name": "Text Classification",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "NER",
+        "datasets": [
+            {
+                "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+                "submission_count": 1
+            },
+            {
+                "dataset": "New NER DATASET (dummy)",
+                "submission_count": 0
+            }
+        ]
+    },
+    {
+        "area": "NLP",
+        "name": "Machine Translation",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Tokenization",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Sentence Segmentation",
+        "datasets": [
+            {
+                "dataset": "Universal Dependencies - Romanian RRT Treebank",
+                "submission_count": 2
+            }
+        ]
+    },
+    {
+        "area": "NLP",
+        "name": "Lemmatization",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "POS Tagging",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Dependency Parsing",
+        "datasets": []
+    },
+    {
+        "area": "NLP",
+        "name": "Language Modeling",
+        "datasets": []
+    }
+]
