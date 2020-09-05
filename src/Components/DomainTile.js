@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from '../data/domains.json';
+import data from '../data/areas.json';
 
 const maxVisibleTaks = 5;
 
