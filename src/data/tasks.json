@@ -1,25 +1,67 @@
 {
   "tasks": [
-      {
-	  "area": "NLP",
-	  "name": "Text classification",
-	  "description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
-	  "datasets":[
-	      {
-		  "name": "MOROCO",
-		  "model": "Best model for MOROCO",
-		  "paperTitle": "The paper that got best results for MOROCO dataset",
-		  "paperLink": "https://arxiv.org",
-		  "sourceLink": "https://github.com"
-	      },
-	      {
-		  "name": "Other dataset",
-		  "model": "Best model for other dataset",
-		  "paperTitle": "The paper that got best results for other dataset",
-		  "paperLink": "https://arxiv.org",
-		  "sourceLink": "https://github.com"
-	      }
-	  ]
-      }
+    {
+      "area": "NLP",
+      "task_name": "Text Classification",
+      "task_description": "a",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "NER",
+      "task_description": "b",
+      "datasets": [
+        {
+          "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+          "metric": "F1",
+          "model_name": "dummy system 1",
+          "paper_title": "paper title here",
+          "paper_link": "http://www.google.com",
+          "source_link": "http://www.github.com"
+        }
+      ]
+    },
+    {
+      "area": "NLP",
+      "task_name": "Machine Translation",
+      "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "Tokenization",
+      "task_description": "desc ",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "Sentence Segmentation",
+      "task_description": "",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "Lemmatization",
+      "task_description": "",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "POS Tagging",
+      "task_description": "",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "Dependency Parsing",
+      "task_description": "",
+      "datasets": []
+    },
+    {
+      "area": "NLP",
+      "task_name": "Language Modeling",
+      "task_description": "",
+      "datasets": []
+    }
   ]
 }
