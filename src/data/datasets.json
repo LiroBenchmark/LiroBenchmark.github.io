@@ -1,87 +1,85 @@
-{
-  "datasets": [
+[
     {
-      "task": "NER",
-      "dataset_name": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
-      "dataset_description": "markdown description or just text?",
-      "dataset_link": "https://github.com/dumitrescustefan/ronec",
-      "preferred_metric": "F1",
-      "models": [
-        {
-          "model": "dummy system 1",
-          "metrics": [
-            [
-              "F1",
-              91.0
-            ],
-            [
-              "PRECISION",
-              90.0
-            ],
-            [
-              "RECALL",
-              92.0
-            ],
-            [
-              "XYZ",
-              23467.0
-            ]
-          ],
-          "extra_training_data": true,
-          "paper_title": "paper title here",
-          "paper_link": "http://www.google.com",
-          "source_link": "http://www.github.com",
-          "date_month": 1,
-          "date_year": 2020
-        }
-      ]
+        "task": "NER",
+        "dataset_name": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+        "dataset_description": "markdown description or just text?",
+        "dataset_link": "https://github.com/dumitrescustefan/ronec",
+        "preferred_metric": "F1",
+        "models": [
+            {
+                "model": "dummy system 1",
+                "metrics": [
+                    [
+                        "F1",
+                        91.0
+                    ],
+                    [
+                        "PRECISION",
+                        90.0
+                    ],
+                    [
+                        "RECALL",
+                        92.0
+                    ],
+                    [
+                        "XYZ",
+                        23467.0
+                    ]
+                ],
+                "extra_training_data": true,
+                "paper_title": "paper title here",
+                "paper_link": "http://www.google.com",
+                "source_link": "http://www.github.com",
+                "date_month": 1,
+                "date_year": 2020
+            }
+        ]
     },
     {
-      "task": "Sentence Segmentation",
-      "dataset_name": "Universal Dependencies - Romanian RRT Treebank",
-      "dataset_description": "",
-      "dataset_link": "",
-      "preferred_metric": "XYZ",
-      "models": [
-        {
-          "model": "dummy system for rrt",
-          "metrics": [
-            [
-              "ACCURACY",
-              78.67
-            ]
-          ],
-          "extra_training_data": true,
-          "paper_title": "",
-          "paper_link": "",
-          "source_link": "http://www.abc.com",
-          "date_month": 11,
-          "date_year": 2018
-        },
-        {
-          "model": "dummy system for rrt 2",
-          "metrics": [
-            [
-              "ACCURACY",
-              80.01
-            ]
-          ],
-          "extra_training_data": false,
-          "paper_title": "",
-          "paper_link": "",
-          "source_link": "http://www.other.com",
-          "date_month": 12,
-          "date_year": 2019
-        }
-      ]
+        "task": "Sentence Segmentation",
+        "dataset_name": "Universal Dependencies - Romanian RRT Treebank",
+        "dataset_description": "",
+        "dataset_link": "",
+        "preferred_metric": "XYZ",
+        "models": [
+            {
+                "model": "dummy system for rrt",
+                "metrics": [
+                    [
+                        "ACCURACY",
+                        78.67
+                    ]
+                ],
+                "extra_training_data": true,
+                "paper_title": "",
+                "paper_link": "",
+                "source_link": "http://www.abc.com",
+                "date_month": 11,
+                "date_year": 2018
+            },
+            {
+                "model": "dummy system for rrt 2",
+                "metrics": [
+                    [
+                        "ACCURACY",
+                        80.01
+                    ]
+                ],
+                "extra_training_data": false,
+                "paper_title": "",
+                "paper_link": "",
+                "source_link": "http://www.other.com",
+                "date_month": 12,
+                "date_year": 2019
+            }
+        ]
     },
     {
-      "task": "NER",
-      "dataset_name": "New NER DATASET (dummy)",
-      "dataset_description": "",
-      "dataset_link": "",
-      "preferred_metric": "PRECISION",
-      "models": []
+        "task": "NER",
+        "dataset_name": "New NER DATASET (dummy)",
+        "dataset_description": "",
+        "dataset_link": "",
+        "preferred_metric": "PRECISION",
+        "models": []
     }
-  ]
-}
+]
