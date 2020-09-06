@@ -1,5 +1,7 @@
 import React from 'react';
 import data from '../data/tasks.json';
+import { CodeIcon } from '../assets/icons';
+import { PaperIcon } from '../assets/icons';
 
 class TaskDetails extends React.Component {
   constructor(props) {
@@ -16,12 +18,14 @@ class TaskDetails extends React.Component {
         <p>{this.task.description}</p>
 
         {submissions && (
-          <table className="table table-striped">
+          <table className="table">
             <thead>
               <tr>
                 <td>Model</td>
                 <td>Dataset</td>
                 <td>Score</td>
+                <td>Code</td>
+                <td>Paper</td>
               </tr>
             </thead>
             <tbody>
@@ -38,6 +42,20 @@ class TaskDetails extends React.Component {
                       <a href={datasetLink}>{dataset}</a>
                     </td>
                     <td>{score}</td>
+                    <td>
+                      {submission.code && (
+                        <a href={submission.code} target="_blank" rel="noopener noreferrer">
+                          <CodeIcon />
+                        </a>
+                      )}
+                    </td>
+                    <td>
+                      {submission.paper && (
+                        <a href={submission.paper} target="_blank" rel="noopener noreferrer">
+                          <PaperIcon />
+                        </a>
+                      )}
+                    </td>
                   </tr>
                 );
               })}

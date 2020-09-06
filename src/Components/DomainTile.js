@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from '../data/domains.json';
+import data from '../data/areas.json';
 
 const maxVisibleTaks = 5;
 
@@ -8,7 +8,7 @@ class DomainTile extends Component {
     const { id, name, submissions, datasets } = domainTask;
     return (
       <div className="task-tile" key={id}>
-        <a href={`/task/${id}`}>
+        <a href={`/ro_benchmark_leaderboard/task/${id}`}>
           <div>
             <div className="task-name tile-col">
               <div className="task-logo" />

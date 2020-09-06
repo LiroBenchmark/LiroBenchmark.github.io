@@ -1,0 +1,49 @@
+{
+    "areas":[
+	{
+	    "name": "NLP",
+	    "tasks":[
+		{
+		    "name": "Named entity recognition",
+		    "dataset": "RONEC",
+		    "submissions": 4
+		},
+		{
+		    "name": "Text classification",
+		    "dataset": "MOROCO",
+		    "submissions": 5
+		},
+		{
+		    "name": "Named entity recognition 2",
+		    "dataset": "RONEC",
+		    "submissions": 4
+		},
+		{
+		    "name": "Text classification 2",
+		    "dataset": "MOROCO",
+		    "submissions": 5
+		}
+	    ]
+	},
+	{
+	    "name": "AREA",
+	    "tasks":[
+		{
+		    "name": "Task 1",
+		    "dataset": "Dataset for task 1",
+		    "submissions": 4
+		}
+	    ]
+	},
+	{
+	    "name": "Some test area that should be deleted",
+	    "tasks":[
+		{
+		    "name": "Some other task",
+		    "dataset": "Dataset for task 1",
+		    "submissions": 4
+		}
+	    ]
+	}
+    ]
+}
