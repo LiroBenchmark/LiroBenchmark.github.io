@@ -1,30 +1,73 @@
 import React from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { Collapse } from 'react-collapse';
 import data from '../data/areas.json';
+import './Homepage.scss';
 
 class Homepage extends React.Component {
-  renderArea(area) {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeArea: null,
+    };
+  }
+
+  updateactiveArea(name) {
+    const { activeArea } = this.state;
+    this.setState({
+      activeArea: name !== activeArea ? name : null,
+    });
+  }
+
+  renderAreaTask(task) {
     return (
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
-            <h3>{area.name}</h3>
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>
-            <p>Tasks here.</p>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <div className="task-tile" key={task.name}>
+        <div className="task-data">
+          <table>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td> {task.name}</td>
+              </tr>
+              <tr>
+                <td>Dataset:</td>
+                <td>{task.dataset}</td>
+              </tr>
+              <tr>
+                <td>Submissions: </td>
+                <td>{task.submissions}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+
+  renderArea(area) {
+    const { activeArea } = this.state;
+    const { tasks, name } = area;
+
+    const isTileOpened = activeArea === name;
+
+    return (
+      <div className="tile-wrapper">
+        <div onClick={() => this.updateactiveArea(name)} className="collapse-trigger">
+          <h4>{area.name}</h4>
+        </div>
+        <Collapse isOpened={isTileOpened}>
+          <div className="task-wrapper">
+            {tasks.map((currentTask) => this.renderAreaTask(currentTask))}
+            <div className="clear" />
+          </div>
+        </Collapse>
+      </div>
     );
   }
 
   render() {
     const { areas } = data;
-    return <Accordion>{areas.map((area) => this.renderArea(area))}</Accordion>;
+    return areas.map((area) => this.renderArea(area));
   }
 }
 
