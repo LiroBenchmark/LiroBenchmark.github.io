@@ -2,7 +2,14 @@ import json, os, sys
 import pandas as pd
 import numpy as np
 from pprint import pprint
+from itertools import groupby
 
+def process_homepage_data(homepage_data):
+    result = {"areas": []}
+    for area_name, tasks in groupby(homepage_data, lambda x: x["area"]):
+        area_tasks = [{"name": t[name], "datasets": t["datasets"]} for t in tasks]
+        result["areas"].append(area_tasks)
+        
 excel_file = "LEADERBOARD.xlsx"
 
 LEADERBOARD = pd.read_excel(excel_file, sheet_name="LEADERBOARD").replace(np.nan, '', regex=True)
@@ -127,6 +134,7 @@ for index, row in TASKS.iterrows():
     task["datasets"] = datasets_list
     homepage_json.append(task)
 
+process_homepage_data(homepage_json)
 # WRITE DATA
 print("WRITING DATA ...")
 json.dump(datasets_json, open("datasets.json","w", encoding="utf8"), indent=4)
