@@ -6,7 +6,7 @@ const Menu = () => (
   <div className="header-menu">
     <ul>
       <li>
-        <a href="https://github.com/eemlcommunity/ro_benchmark_leaderboard" target="_blank">
+        <a href="https://github.com/eemlcommunity/ro_benchmark_leaderboard" target="_blank" rel="noopener noreferrer">
           <CodeIcon />
           <span>Code</span>
         </a>
