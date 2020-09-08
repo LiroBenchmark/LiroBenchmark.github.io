@@ -2,11 +2,13 @@ import React from 'react';
 import { Collapse } from 'react-collapse';
 import data from '../data/homepage.json';
 import './Homepage.scss';
+import UrlBuilder from './UrlBuilder.js';
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.urlBuilder = new UrlBuilder();
     this.state = {
       activeArea: null,
     };
@@ -30,21 +32,23 @@ class Homepage extends React.Component {
 
   renderAreaTask(task) {
     return (
-      <div className="task-tile" key={task.name}>
-        <h5>{task.name}</h5>
-        <hr />
-        <div className="task-data">
-          <table>
-            <thead>
-              <tr>
-                <th>Dataset</th>
-                <th>Submissions</th>
-              </tr>
-            </thead>
-            <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
-          </table>
+      <a href={this.urlBuilder.buildTaskUrl(task.name)} className="task-tile-link">
+        <div className="task-tile" key={task.name}>
+          <h5>{task.name}</h5>
+          <hr />
+          <div className="task-data">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Submissions</th>
+                </tr>
+              </thead>
+              <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </a>
     );
   }
 
