@@ -1,15 +1,33 @@
-import json, os, sys
+import json
 import pandas as pd
 import numpy as np
-from pprint import pprint
 from itertools import groupby
 
+
 def process_homepage_data(homepage_data):
+    """Groups the homepage data by area.
+
+    Parameters
+    ----------
+    homepage_data: iterable
+        An iterable of tasks and their areas.
+
+    Returns
+    -------
+    dict
+        A dictionary with a single key named 'areas'
+        and a list of areas with their tasks.
+    """
     result = {"areas": []}
     for area_name, tasks in groupby(homepage_data, lambda x: x["area"]):
-        area_tasks = [{"name": t[name], "datasets": t["datasets"]} for t in tasks]
+        area_tasks = [{
+            "name": t["name"],
+            "datasets": t["datasets"]
+        } for t in tasks]
         result["areas"].append(area_tasks)
-        
+    return result
+
+
 excel_file = "LEADERBOARD.xlsx"
 
 LEADERBOARD = pd.read_excel(excel_file, sheet_name="LEADERBOARD").replace(np.nan, '', regex=True)
