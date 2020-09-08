@@ -42,20 +42,5 @@
         "area": "NLP",
         "name": "Lemmatization",
         "datasets": []
-    },
-    {
-        "area": "NLP",
-        "name": "POS Tagging",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "name": "Dependency Parsing",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "name": "Language Modeling",
-        "datasets": []
     }
 ]
