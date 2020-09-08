@@ -24,7 +24,7 @@ def process_homepage_data(homepage_data):
             "name": t["name"],
             "datasets": t["datasets"]
         } for t in tasks]
-        result["areas"].append(area_tasks)
+        result["areas"].append({"name": area_name, "tasks": area_tasks})
     return result
 
 
@@ -152,7 +152,7 @@ for index, row in TASKS.iterrows():
     task["datasets"] = datasets_list
     homepage_json.append(task)
 
-process_homepage_data(homepage_json)
+homepage_json = process_homepage_data(homepage_json)
 # WRITE DATA
 print("WRITING DATA ...")
 json.dump(datasets_json, open("datasets.json","w", encoding="utf8"), indent=4)
