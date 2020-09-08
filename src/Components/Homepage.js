@@ -1,6 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
-import data from '../data/areas.json';
+import data from '../data/homepage.json';
 import './Homepage.scss';
 
 class Homepage extends React.Component {
@@ -19,25 +19,29 @@ class Homepage extends React.Component {
     });
   }
 
+  renderDataset(dataset) {
+    return (
+      <tr>
+        <td>{dataset.dataset}</td>
+        <td>{dataset.submission_count}</td>
+      </tr>
+    );
+  }
+
   renderAreaTask(task) {
     return (
       <div className="task-tile" key={task.name}>
+        <h5>{task.name}</h5>
+        <hr />
         <div className="task-data">
           <table>
-            <tbody>
+            <thead>
               <tr>
-                <td>Name</td>
-                <td> {task.name}</td>
+                <th>Dataset</th>
+                <th>Submissions</th>
               </tr>
-              <tr>
-                <td>Dataset:</td>
-                <td>{task.dataset}</td>
-              </tr>
-              <tr>
-                <td>Submissions: </td>
-                <td>{task.submissions}</td>
-              </tr>
-            </tbody>
+            </thead>
+            <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
           </table>
         </div>
       </div>
