@@ -4,10 +4,12 @@
             "name": "NLP",
             "tasks": [
                 {
+                    "id": "text-classification",
                     "name": "Text Classification",
                     "datasets": []
                 },
                 {
+                    "id": "ner",
                     "name": "NER",
                     "datasets": [
                         {
@@ -21,14 +23,17 @@
                     ]
                 },
                 {
+                    "id": "machine-translation",
                     "name": "Machine Translation",
                     "datasets": []
                 },
                 {
+                    "id": "tokenization",
                     "name": "Tokenization",
                     "datasets": []
                 },
                 {
+                    "id": "sentence-segmentation",
                     "name": "Sentence Segmentation",
                     "datasets": [
                         {
@@ -38,18 +43,22 @@
                     ]
                 },
                 {
+                    "id": "lemmatization",
                     "name": "Lemmatization",
                     "datasets": []
                 },
                 {
+                    "id": "pos-tagging",
                     "name": "POS Tagging",
                     "datasets": []
                 },
                 {
+                    "id": "dependency-parsing",
                     "name": "Dependency Parsing",
                     "datasets": []
                 },
                 {
+                    "id": "language-modeling",
                     "name": "Language Modeling",
                     "datasets": []
                 }
