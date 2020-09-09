@@ -11,50 +11,48 @@ class TaskDetails extends React.Component {
   }
 
   render() {
-    const { submissions } = this.task;
+    const { datasets } = this.task;
     return (
-      <div>
-        <h3>{this.task.name}</h3>
-        <p>{this.task.description}</p>
+      <div className="task-details">
+        <h3>{this.task.task_name}</h3>
+        <p className="task-description">{this.task.task_description}</p>
 
-        {submissions && (
+        {datasets && (
           <table className="table">
             <thead>
               <tr>
-                <td>Model</td>
                 <td>Dataset</td>
-                <td>Score</td>
-                <td>Code</td>
+                <td>Best model</td>
+                <td>Paper title</td>
                 <td>Paper</td>
+                <td>Code</td>
+                <td>&nbsp;</td>
               </tr>
             </thead>
             <tbody>
-              {submissions.map((submission) => {
-                const { modelId, datasetId, modelName, dataset, score } = submission;
-                const modelLink = `/model/${modelId}`;
-                const datasetLink = `/dataset/${datasetId}`;
+              {datasets.map((ds) => {
+                const { dataset, model_name, paper_title, paper_link, source_link } = ds;
                 return (
-                  <tr key={modelId}>
+                  <tr key={model_name}>
+                    <td>{dataset}</td>
+                    <td>{model_name}</td>
+                    <td>{paper_title}</td>
                     <td>
-                      <a href={modelLink}>{modelName}</a>
+                      {paper_link && (
+                        <a href={paper_link} target="_blank" rel="noopener noreferrer">
+                          <PaperIcon />
+                        </a>
+                      )}
                     </td>
                     <td>
-                      <a href={datasetLink}>{dataset}</a>
-                    </td>
-                    <td>{score}</td>
-                    <td>
-                      {submission.code && (
-                        <a href={submission.code} target="_blank" rel="noopener noreferrer">
+                      {source_link && (
+                        <a href={source_link} target="_blank" rel="noopener noreferrer">
                           <CodeIcon />
                         </a>
                       )}
                     </td>
                     <td>
-                      {submission.paper && (
-                        <a href={submission.paper} target="_blank" rel="noopener noreferrer">
-                          <PaperIcon />
-                        </a>
-                      )}
+                      <a href="#">See all</a>
                     </td>
                   </tr>
                 );
