@@ -3,6 +3,10 @@ class UrlBuilder {
     this.basePath = '/ro_leaderboard_benchmark';
   }
 
+  static get taskUrlTemplate() {
+    return '/ro_leaderboard_benchmark/task/:id';
+  }
+
   normalizeUrl(url) {
     return url.toLowerCase();
   }
