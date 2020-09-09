@@ -1,65 +1,76 @@
-[
-    {
-        "area": "NLP",
-        "task_name": "Text Classification",
-        "task_description": "a",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "NER",
-        "task_description": "b",
-        "datasets": [
-            {
-                "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
-                "metric": "F1",
-                "model_name": "dummy system 1",
-                "paper_title": "paper title here",
-                "paper_link": "http://www.google.com",
-                "source_link": "http://www.github.com"
-            }
-        ]
-    },
-    {
-        "area": "NLP",
-        "task_name": "Machine Translation",
-        "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "Tokenization",
-        "task_description": "desc ",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "Sentence Segmentation",
-        "task_description": "",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "Lemmatization",
-        "task_description": "",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "POS Tagging",
-        "task_description": "",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "Dependency Parsing",
-        "task_description": "",
-        "datasets": []
-    },
-    {
-        "area": "NLP",
-        "task_name": "Language Modeling",
-        "task_description": "",
-        "datasets": []
-    }
-]
+{
+    "tasks": [
+        {
+            "area": "NLP",
+            "id": "text-classification",
+            "task_name": "Text Classification",
+            "task_description": "a",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "ner",
+            "task_name": "NER",
+            "task_description": "b",
+            "datasets": [
+                {
+                    "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
+                    "metric": "F1",
+                    "model_name": "dummy system 1",
+                    "paper_title": "paper title here",
+                    "paper_link": "http://www.google.com",
+                    "source_link": "http://www.github.com"
+                }
+            ]
+        },
+        {
+            "area": "NLP",
+            "id": "machine-translation",
+            "task_name": "Machine Translation",
+            "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "tokenization",
+            "task_name": "Tokenization",
+            "task_description": "desc ",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "sentence-segmentation",
+            "task_name": "Sentence Segmentation",
+            "task_description": "",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "lemmatization",
+            "task_name": "Lemmatization",
+            "task_description": "",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "pos-tagging",
+            "task_name": "POS Tagging",
+            "task_description": "",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "dependency-parsing",
+            "task_name": "Dependency Parsing",
+            "task_description": "",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "language-modeling",
+            "task_name": "Language Modeling",
+            "task_description": "",
+            "datasets": []
+        }
+    ]
+}
