@@ -50,7 +50,7 @@ class Homepage extends React.Component {
 
   renderAreaTask(task) {
     return (
-      <a href={this.urlBuilder.buildTaskUrl(task.name)} className="task-tile-link">
+      <a href={this.urlBuilder.buildTaskUrl(task)} className="task-tile-link">
         <div className="task-tile" key={task.name}>
           <h5>{task.name}</h5>
           <hr />

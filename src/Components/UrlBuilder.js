@@ -3,18 +3,13 @@ class UrlBuilder {
     this.basePath = '/ro_leaderboard_benchmark';
   }
 
-  buildCanonicalUrl(name) {
-    var url = name.replace(/[\W_]+/g, '-');
-    url = url.replace(/[-]+/g, '-');
-    return url;
-  }
-
   normalizeUrl(url) {
     return url.toLowerCase();
   }
 
-  buildTaskUrl(taskName) {
-    var url = this.basePath + '/task/' + this.buildCanonicalUrl(taskName);
+  buildTaskUrl(task) {
+    const { id } = task;
+    var url = this.basePath + '/task/' + id;
     return this.normalizeUrl(url);
   }
 }
