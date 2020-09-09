@@ -2,6 +2,28 @@ import json
 import pandas as pd
 import numpy as np
 from itertools import groupby
+import re
+
+
+def build_id_string(name):
+    """Builds an URL-friendly id from the name
+
+    This method replaces non-alphanumeric characters with a dash
+    and collapses sequences of dashes into a single one.
+
+    Parameters
+    ----------
+    name: string
+        The name for which to build an id.
+
+    Returns
+    -------
+    string
+        The id string.
+    """
+    url = re.sub(r"[\W_]+", "-", name, flags=re.MULTILINE)
+    url = re.sub(r"[-]+", "-", url)
+    return url.lower()
 
 
 def process_homepage_data(homepage_data):
@@ -21,6 +43,7 @@ def process_homepage_data(homepage_data):
     result = {"areas": []}
     for area_name, tasks in groupby(homepage_data, lambda x: x["area"]):
         area_tasks = [{
+            "id": build_id_string(t["name"]),
             "name": t["name"],
             "datasets": t["datasets"]
         } for t in tasks]
