@@ -30,23 +30,31 @@ class Homepage extends React.Component {
     );
   }
 
+  renderTaskSubmissions(task) {
+    if (!task.datasets || task.datasets.length == 0) {
+      return <span>No submissions</span>;
+    }
+
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Submissions</th>
+          </tr>
+        </thead>
+        <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
+      </table>
+    );
+  }
+
   renderAreaTask(task) {
     return (
       <a href={this.urlBuilder.buildTaskUrl(task.name)} className="task-tile-link">
         <div className="task-tile" key={task.name}>
           <h5>{task.name}</h5>
           <hr />
-          <div className="task-data">
-            <table>
-              <thead>
-                <tr>
-                  <th>Dataset</th>
-                  <th>Submissions</th>
-                </tr>
-              </thead>
-              <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
-            </table>
-          </div>
+          <div className="task-data">{this.renderTaskSubmissions(task)}</div>
         </div>
       </a>
     );
