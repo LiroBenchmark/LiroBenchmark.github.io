@@ -105,53 +105,72 @@ for index, row in DATASETS.iterrows():
     #pprint(dataset_json_object)
 
 # CREATE TASKS_JSON OBJECT
-print("CREATE TASKS_JSON OBJECT ...")
-tasks_json = []
-for index, row in TASKS.iterrows():
-    task_json_object = {
-        "area": row['AREA'],
-        "task_name": row['NAME'],
-        "task_description": row['DESCRIPTION'],
-        "datasets": []
-    }
-    # get all datasets for this particular task
-    datasets_unique = DATASETS[DATASETS['TASK'].eq(row['NAME'])]['DATASET NAME'].unique()
-    datasets_list = []
-    for dataset in datasets_unique:
-        # get best model for this dataset, with attributes: model_name, paper_title, paper_link, source_link by PREFERRED METRIC
-        preffered_metric = DATASETS[DATASETS['DATASET NAME'].eq(dataset)]['PREFERRED METRIC'].iloc[0].strip()
-        print("\tFor task {}, dataset {} has preferred metric [{}]".format(row['NAME'], dataset, preffered_metric))
-        model_results_df = RESULTS[RESULTS['DATASET'].eq(dataset) & RESULTS['METRIC'].eq(preffered_metric)]
-        if model_results_df.shape[0]==0:
-            print("\t\tCould not find any models that have results for this dataset with the preferred metric!")
-            continue
-        # get metric type (higher or lower)
-        metric_type = METRICS[METRICS['METRICS'].eq(preffered_metric)]['TYPE'].iloc[0]
-        print("\t\tMetric type is: {}".format(metric_type))
-        print("\t\tSorting {} models, here's the list:".format(model_results_df.shape[0]))
-        if "high" in metric_type.lower():
-            ascending=False
-        else:
-            ascending=True
-        # sort according to metric type, get 1st result
-        model_results_df = model_results_df.sort_values(by='VALUE', ascending=ascending)
-        print(model_results_df)
 
-        # get model properties from LEADERBOARD
-        model_properties_df = LEADERBOARD[LEADERBOARD['MODEL NAME'].eq(model_results_df['MODEL'].iloc[0])]
 
-        # NOTE: we take the model with the best score irrespective of extra training data
-        dataset_object = {
-            "dataset": dataset,
-            "metric": preffered_metric,
-            "model_name": model_results_df['MODEL'].iloc[0],
-            "paper_title": model_properties_df['PAPER TITLE'].iloc[0],
-            "paper_link": model_properties_df['PAPER LINK'].iloc[0],
-            "source_link": model_properties_df['SOURCE LINK'].iloc[0],
+def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
+    print("CREATE TASKS_JSON OBJECT ...")
+    tasks_json = []
+    for index, row in tasks.iterrows():
+        task_json_object = {
+            "area": row['AREA'],
+            "id": build_id_string(row['NAME']),
+            "task_name": row['NAME'],
+            "task_description": row['DESCRIPTION'],
+            "datasets": []
         }
-        datasets_list.append(dataset_object)
-    task_json_object["datasets"] = datasets_list
-    tasks_json.append(task_json_object)
+        # get all datasets for this particular task
+        datasets_unique = datasets[datasets['TASK'].eq(
+            row['NAME'])]['DATASET NAME'].unique()
+        datasets_list = []
+        for dataset in datasets_unique:
+            # get best model for this dataset, with attributes: model_name, paper_title, paper_link, source_link by PREFERRED METRIC
+            preffered_metric = datasets[datasets['DATASET NAME'].eq(
+                dataset)]['PREFERRED METRIC'].iloc[0].strip()
+            print("\tFor task {}, dataset {} has preferred metric [{}]".format(
+                row['NAME'], dataset, preffered_metric))
+            model_results_df = results[
+                results['DATASET'].eq(dataset)
+                & results['METRIC'].eq(preffered_metric)]
+            if model_results_df.shape[0] == 0:
+                print(
+                    "\t\tCould not find any models that have results for this dataset with the preferred metric!"
+                )
+                continue
+            # get metric type (higher or lower)
+            metric_type = metrics[metrics['METRICS'].eq(
+                preffered_metric)]['TYPE'].iloc[0]
+            print("\t\tMetric type is: {}".format(metric_type))
+            print("\t\tSorting {} models, here's the list:".format(
+                model_results_df.shape[0]))
+            if "high" in metric_type.lower():
+                ascending = False
+            else:
+                ascending = True
+            # sort according to metric type, get 1st result
+            model_results_df = model_results_df.sort_values(
+                by='VALUE', ascending=ascending)
+            print(model_results_df)
+
+            # get model properties from leaderboard
+            model_properties_df = leaderboard[leaderboard['MODEL NAME'].eq(
+                model_results_df['MODEL'].iloc[0])]
+
+            # NOTE: we take the model with the best score irrespective of extra training data
+            dataset_object = {
+                "dataset": dataset,
+                "metric": preffered_metric,
+                "model_name": model_results_df['MODEL'].iloc[0],
+                "paper_title": model_properties_df['PAPER TITLE'].iloc[0],
+                "paper_link": model_properties_df['PAPER LINK'].iloc[0],
+                "source_link": model_properties_df['SOURCE LINK'].iloc[0],
+            }
+            datasets_list.append(dataset_object)
+        task_json_object["datasets"] = datasets_list
+        tasks_json.append(task_json_object)
+    return {"tasks": tasks_json}
+
+
+tasks_json = build_tasks_json(TASKS, DATASETS, RESULTS, METRICS, LEADERBOARD)
 
 # CREATE HOMEPAGE_JSON OBJECT
 print("CREATE HOMEPAGE_JSON OBJECT ...")
