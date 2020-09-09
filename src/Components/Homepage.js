@@ -31,7 +31,7 @@ class Homepage extends React.Component {
   }
 
   renderTaskSubmissions(task) {
-    if (!task.datasets || task.datasets.length == 0) {
+    if (!task.datasets || task.datasets.length === 0) {
       return <span>No submissions</span>;
     }
 
