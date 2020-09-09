@@ -23,6 +23,10 @@ a.task-tile-link{
     }
 }
 
+.task-tile{
+    width: 350px;
+    height: 200px;
+}
 
 .task-tiles{
     margin-top: 15px;
@@ -65,12 +69,4 @@ a.task-tile-link{
             font-size: 12px;
         }
     }
-}
-
-
-
-.domain-tasks{
-    width: 100%;
-    margin-top: 15px;
-    padding: 0 20px;
 }
