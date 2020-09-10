@@ -23,7 +23,7 @@ class Homepage extends React.Component {
 
   renderDataset(dataset) {
     return (
-      <tr>
+      <tr key={dataset.dataset}>
         <td>{dataset.dataset}</td>
         <td>{dataset.submission_count}</td>
       </tr>
@@ -67,7 +67,7 @@ class Homepage extends React.Component {
     const isTileOpened = activeArea === name;
 
     return (
-      <div className="tile-wrapper">
+      <div key={area.name} className="tile-wrapper">
         <div onClick={() => this.updateactiveArea(name)} className="collapse-trigger">
           <h4>{area.name}</h4>
         </div>
