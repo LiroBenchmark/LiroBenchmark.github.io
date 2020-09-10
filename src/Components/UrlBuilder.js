@@ -6,6 +6,9 @@ class UrlBuilder {
   static get taskUrlTemplate() {
     return '/task/:id';
   }
+  static get datasetUrlTemplate() {
+    return '/dataset/:id';
+  }
 
   normalizeUrl(url) {
     return url.toLowerCase();
@@ -14,6 +17,12 @@ class UrlBuilder {
   buildTaskUrl(task) {
     const { id } = task;
     var url = this.basePath + '/task/' + id;
+    return this.normalizeUrl(url);
+  }
+
+  buildDatasetUrl(dataset) {
+    const { id } = dataset;
+    var url = this.basePath + '/dataset/' + id;
     return this.normalizeUrl(url);
   }
 }
