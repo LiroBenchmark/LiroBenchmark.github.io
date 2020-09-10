@@ -149,7 +149,7 @@ def build_datasets_json(datasets, results, leaderboard):
             models_list.append(model_dict)
         dataset_json_object["models"] = models_list
         datasets_json.append(dataset_json_object)
-    return datasets_json
+    return {"datasets": datasets_json}
 
 
 datasets_json = build_datasets_json(DATASETS, RESULTS, LEADERBOARD)
