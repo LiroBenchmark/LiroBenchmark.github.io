@@ -11,7 +11,7 @@ class TaskDetails extends React.Component {
   }
 
   renderTaskDatasets(datasets) {
-    if (!datasets || datasets.length == 0) {
+    if (!datasets || datasets.length === 0) {
       return <p>There are no submissions for this task.</p>;
     }
 
