@@ -206,7 +206,8 @@ def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
 
             # NOTE: we take the model with the best score irrespective of extra training data
             dataset_object = {
-                "dataset": dataset,
+                "dataset_id": build_id_string(dataset),
+                "dataset_name": dataset,
                 "metric": preffered_metric,
                 "model_name": model_results_df['MODEL'].iloc[0],
                 "paper_title": model_properties_df['PAPER TITLE'].iloc[0],
