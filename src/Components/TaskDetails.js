@@ -10,6 +10,33 @@ class TaskDetails extends React.Component {
     this.task = data.tasks.find((t) => t.id === this.taskId);
   }
 
+  renderModelRow(dataset, modelName, paperTitle, paperLink, sourceLink) {
+    return (
+      <tr key={modelName}>
+        <td>{dataset}</td>
+        <td>{modelName}</td>
+        <td>{paperTitle}</td>
+        <td>
+          {paperLink && (
+            <a href={paperLink} target="_blank" rel="noopener noreferrer">
+              <PaperIcon />
+            </a>
+          )}
+        </td>
+        <td>
+          {sourceLink && (
+            <a href={sourceLink} target="_blank" rel="noopener noreferrer">
+              <CodeIcon />
+            </a>
+          )}
+        </td>
+        <td>
+          <a href="#">See all models</a>
+        </td>
+      </tr>
+    );
+  }
+
   renderTaskDatasets(datasets) {
     if (!datasets || datasets.length === 0) {
       return <p>There are no submissions for this task.</p>;
@@ -30,30 +57,7 @@ class TaskDetails extends React.Component {
         <tbody>
           {datasets.map((ds) => {
             const { dataset, model_name, paper_title, paper_link, source_link } = ds;
-            return (
-              <tr key={model_name}>
-                <td>{dataset}</td>
-                <td>{model_name}</td>
-                <td>{paper_title}</td>
-                <td>
-                  {paper_link && (
-                    <a href={paper_link} target="_blank" rel="noopener noreferrer">
-                      <PaperIcon />
-                    </a>
-                  )}
-                </td>
-                <td>
-                  {source_link && (
-                    <a href={source_link} target="_blank" rel="noopener noreferrer">
-                      <CodeIcon />
-                    </a>
-                  )}
-                </td>
-                <td>
-                  <a href="#">See all</a>
-                </td>
-              </tr>
-            );
+            return this.renderModelRow(dataset, model_name, paper_title, paper_link, source_link);
           })}
         </tbody>
       </table>
