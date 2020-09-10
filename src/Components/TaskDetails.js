@@ -2,36 +2,39 @@ import React from 'react';
 import data from '../data/tasks.json';
 import { CodeIcon } from '../assets/icons';
 import { PaperIcon } from '../assets/icons';
+import UrlBuilder from './UrlBuilder';
 
 class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
     this.taskId = props.match.params.id;
     this.task = data.tasks.find((t) => t.id === this.taskId);
+    this.urlBuilder = new UrlBuilder();
   }
 
-  renderModelRow(dataset, modelName, paperTitle, paperLink, sourceLink) {
+  renderModelRow(dataset) {
+    const { dataset_name, dataset_id, model_name, paper_title, paper_link, source_link } = dataset;
     return (
-      <tr key={modelName}>
-        <td>{dataset}</td>
-        <td>{modelName}</td>
-        <td>{paperTitle}</td>
+      <tr key={model_name}>
+        <td>{dataset_name}</td>
+        <td>{model_name}</td>
+        <td>{paper_title}</td>
         <td>
-          {paperLink && (
-            <a href={paperLink} target="_blank" rel="noopener noreferrer">
+          {paper_link && (
+            <a href={paper_link} target="_blank" rel="noopener noreferrer">
               <PaperIcon />
             </a>
           )}
         </td>
         <td>
-          {sourceLink && (
-            <a href={sourceLink} target="_blank" rel="noopener noreferrer">
+          {source_link && (
+            <a href={source_link} target="_blank" rel="noopener noreferrer">
               <CodeIcon />
             </a>
           )}
         </td>
         <td>
-          <a href="#">See all models</a>
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>See all models</a>
         </td>
       </tr>
     );
@@ -54,12 +57,7 @@ class TaskDetails extends React.Component {
             <td>&nbsp;</td>
           </tr>
         </thead>
-        <tbody>
-          {datasets.map((ds) => {
-            const { dataset, model_name, paper_title, paper_link, source_link } = ds;
-            return this.renderModelRow(dataset, model_name, paper_title, paper_link, source_link);
-          })}
-        </tbody>
+        <tbody>{datasets.map((ds) => this.renderModelRow(ds))}</tbody>
       </table>
     );
   }
