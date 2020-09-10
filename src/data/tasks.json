@@ -4,14 +4,14 @@
             "area": "NLP",
             "id": "text-classification",
             "task_name": "Text Classification",
-            "task_description": "a",
+            "task_description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "ner",
             "task_name": "NER",
-            "task_description": "b",
+            "task_description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens.",
             "datasets": [
                 {
                     "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
@@ -34,42 +34,42 @@
             "area": "NLP",
             "id": "tokenization",
             "task_name": "Tokenization",
-            "task_description": "desc ",
+            "task_description": "Tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. The list of tokens becomes input for further processing such as parsing or text mining.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "sentence-segmentation",
             "task_name": "Sentence Segmentation",
-            "task_description": "",
+            "task_description": "Sentence segmentation is the task of splitting a sentence into its component phrases.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "lemmatization",
             "task_name": "Lemmatization",
-            "task_description": "",
+            "task_description": "Lemmatization is the process of identifying the lemma of a given word or sequence of words.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "pos-tagging",
             "task_name": "POS Tagging",
-            "task_description": "",
+            "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "dependency-parsing",
             "task_name": "Dependency Parsing",
-            "task_description": "",
+            "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
             "datasets": []
         },
         {
             "area": "NLP",
             "id": "language-modeling",
             "task_name": "Language Modeling",
-            "task_description": "",
+            "task_description": "Language modeling is the task of predicting the next word or character in a document.",
             "datasets": []
         }
     ]
