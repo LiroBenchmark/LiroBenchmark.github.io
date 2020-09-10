@@ -93,7 +93,7 @@ def build_datasets_json(datasets, results, leaderboard):
     for index, row in datasets.iterrows():
         dataset_json_object = {
             "task": row['TASK'],
-            # "id": build_id_string(row['DATASET NAME']),
+            "id": build_id_string(row['DATASET NAME']),
             "dataset_name": row['DATASET NAME'],
             "dataset_description": row['DATASET DESCRIPTION'],
             "dataset_link": row['DATASET LINK'],
