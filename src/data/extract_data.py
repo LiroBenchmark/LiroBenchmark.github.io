@@ -59,7 +59,32 @@ DATASETS = pd.read_excel(excel_file, sheet_name="DATASETS").replace(np.nan, '', 
 TASKS = pd.read_excel(excel_file, sheet_name="TASKS").replace(np.nan, '', regex=True)
 METRICS = pd.read_excel(excel_file, sheet_name="METRICS").replace(np.nan, '', regex=True)
 
+
 # CREATE DATASETS_JSON OBJECT
+def build_metrics_dict(metrics_df):
+    """Build a dict of metrics from the input data.
+
+    Parameters
+    ----------
+    metrics_df: pandas.DataFrame
+        The data frame containing properties of metrics.
+
+    Returns
+    -------
+    dict
+        A dict where the key is metric name and the value is
+        a tuple of (type, range, description).
+
+    Remarks
+    -------
+    The type of the metric is denoted by two constants:
+    - 'Higher-is-better' and
+    - 'Lower-is-better'.
+    """
+    return {
+        m['METRICS']: [m['TYPE'], m['RANGE'], m['DESCRIPTION']]
+        for _, m in metrics_df.iterrows()
+    }
 
 
 def build_datasets_json(datasets, results, leaderboard):
@@ -124,10 +149,10 @@ def build_datasets_json(datasets, results, leaderboard):
             models_list.append(model_dict)
         dataset_json_object["models"] = models_list
         datasets_json.append(dataset_json_object)
-    return metrics, datasets_json
+    return datasets_json
 
 
-metrics, datasets_json = build_datasets_json(DATASETS, RESULTS, LEADERBOARD)
+datasets_json = build_datasets_json(DATASETS, RESULTS, LEADERBOARD)
 
 # CREATE TASKS_JSON OBJECT
 
@@ -162,8 +187,7 @@ def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
                 )
                 continue
             # get metric type (higher or lower)
-            metric_type = metrics[metrics['METRICS'].eq(
-                preffered_metric)]['TYPE'].iloc[0]
+            metric_type, _, _ = metrics[preffered_metric]
             print("\t\tMetric type is: {}".format(metric_type))
             print("\t\tSorting {} models, here's the list:".format(
                 model_results_df.shape[0]))
@@ -195,7 +219,8 @@ def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
     return {"tasks": tasks_json}
 
 
-tasks_json = build_tasks_json(TASKS, DATASETS, RESULTS, METRICS, LEADERBOARD)
+tasks_json = build_tasks_json(TASKS, DATASETS, RESULTS,
+                              build_metrics_dict(METRICS), LEADERBOARD)
 
 # CREATE HOMEPAGE_JSON OBJECT
 print("CREATE HOMEPAGE_JSON OBJECT ...")
