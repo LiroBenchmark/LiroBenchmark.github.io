@@ -2,12 +2,6 @@
     margin: 30px 15px ;
 }
 
-a.task-tile-link{
-    color: inherit;
-    &:hover{
-        text-decoration: none;
-    }
-}
 
 .task-details{
     p{
@@ -21,11 +15,6 @@ a.task-tile-link{
     .domain-name{
         font-size: 1.5rem;
     }
-}
-
-.task-tile{
-    width: 350px;
-    height: 200px;
 }
 
 .task-tiles{
