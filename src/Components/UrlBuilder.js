@@ -1,10 +1,10 @@
 class UrlBuilder {
   constructor() {
-    this.basePath = '/ro_leaderboard_benchmark';
+    this.basePath = '/ro_benchmark_leaderboard';
   }
 
   static get taskUrlTemplate() {
-    return '/ro_leaderboard_benchmark/task/:id';
+    return '/task/:id';
   }
 
   normalizeUrl(url) {
