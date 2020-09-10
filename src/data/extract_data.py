@@ -22,7 +22,7 @@ def build_id_string(name):
         The id string.
     """
     url = re.sub(r"[\W_]+", "-", name, flags=re.MULTILINE)
-    url = re.sub(r"[-]+", "-", url)
+    url = re.sub(r"[-]+", "-", url).strip('-')
     return url.lower()
 
 
