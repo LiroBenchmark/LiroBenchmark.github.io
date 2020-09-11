@@ -30,6 +30,26 @@ def build_id_string(name):
     return url.lower()
 
 
+def save_json(data, file_name, encoding="utf8", indent=4):
+    """Writes the data to the json file specified by file_name.
+
+    Parameters
+    ----------
+    data: object
+        The data to write in json format.
+    file_name: string
+        The name of the file where to write data.
+    encoding:string, optional
+        The encoding of the output file.
+        Default is 'utf8'.
+    indent:int, optional
+        The indent of the output json.
+        Default is 4.
+    """
+    with open(file_name, mode="w", encoding=encoding) as f:
+        json.dump(data, f, indent=indent)
+
+
 excel_file = "LEADERBOARD.xlsx"
 
 LEADERBOARD = pd.read_excel(excel_file, sheet_name="LEADERBOARD").replace(np.nan, '', regex=True)
@@ -381,9 +401,10 @@ class AreasDetailsBuilder(object):
 # CREATE HOMEPAGE_JSON OBJECT
 ab = AreasDetailsBuilder(DATASETS, TASKS, RESULTS, LEADERBOARD)
 homepage_json = {"areas": ab.build_area_details()}
+
 # WRITE DATA
 print("WRITING DATA ...")
-json.dump(datasets_json, open("datasets.json","w", encoding="utf8"), indent=4)
-json.dump(tasks_json, open("tasks.json","w", encoding="utf8"), indent=4)
-json.dump(homepage_json, open("homepage.json","w", encoding="utf8"), indent=4)
+save_json(datasets_json, "datasets.json")
+save_json(tasks_json, "tasks.json")
+save_json(homepage_json, "homepage.json")
 print("All DONE.")
