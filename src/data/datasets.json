@@ -14,8 +14,7 @@
                     "paper_title": "paper title here",
                     "paper_link": "http://www.google.com",
                     "source_link": "http://www.github.com",
-                    "date_month": 1,
-                    "date_year": 2020,
+                    "submission_date": "2020-01",
                     "results": {
                         "F1": 91.0,
                         "PRECISION": 90.0,
@@ -45,8 +44,7 @@
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "http://www.abc.com",
-                    "date_month": 11,
-                    "date_year": 2018,
+                    "submission_date": "2018-11",
                     "results": {
                         "ACCURACY": 78.67
                     }
@@ -57,8 +55,7 @@
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "http://www.other.com",
-                    "date_month": 12,
-                    "date_year": 2019,
+                    "submission_date": "2019-12",
                     "results": {
                         "ACCURACY": 80.01
                     }
