@@ -30,31 +30,6 @@ def build_id_string(name):
     return url.lower()
 
 
-def process_homepage_data(homepage_data):
-    """Groups the homepage data by area.
-
-    Parameters
-    ----------
-    homepage_data: iterable
-        An iterable of tasks and their areas.
-
-    Returns
-    -------
-    dict
-        A dictionary with a single key named 'areas'
-        and a list of areas with their tasks.
-    """
-    result = {"areas": []}
-    for area_name, tasks in groupby(homepage_data, lambda x: x["area"]):
-        area_tasks = [{
-            "id": build_id_string(t["name"]),
-            "name": t["name"],
-            "datasets": t["datasets"]
-        } for t in tasks]
-        result["areas"].append({"name": area_name, "tasks": area_tasks})
-    return result
-
-
 excel_file = "LEADERBOARD.xlsx"
 
 LEADERBOARD = pd.read_excel(excel_file, sheet_name="LEADERBOARD").replace(np.nan, '', regex=True)
