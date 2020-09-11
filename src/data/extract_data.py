@@ -397,23 +397,23 @@ class AreasDetailsBuilder(object):
 
 def run(args):
     logging.info("Start extracting data from {}...".format(args.excel_file))
-    LEADERBOARD = read_excel(args.excel_file, args.leaderboard_sheet)
-    RESULTS = read_excel(args.excel_file, args.results_sheet)
-    DATASETS = read_excel(args.excel_file, args.datasets_sheet)
-    TASKS = read_excel(args.excel_file, args.tasks_sheet)
-    METRICS = read_excel(args.excel_file, args.metrics_sheet)
+    leaderboard = read_excel(args.excel_file, args.leaderboard_sheet)
+    results = read_excel(args.excel_file, args.results_sheet)
+    datasets = read_excel(args.excel_file, args.datasets_sheet)
+    tasks = read_excel(args.excel_file, args.tasks_sheet)
+    metrics = read_excel(args.excel_file, args.metrics_sheet)
 
     logging.info("Building dataset details...")
-    ds_builder = DatasetsDetailsBuilder(DATASETS, RESULTS, LEADERBOARD)
+    ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard)
     datasets_json = {"datasets": ds_builder.build_dataset_details()}
 
     logging.info("Building task details...")
-    t_builder = TasksDetailsBuilder(TASKS, DATASETS, RESULTS, METRICS,
-                                    LEADERBOARD)
+    t_builder = TasksDetailsBuilder(tasks, datasets, results, metrics,
+                                    leaderboard)
     tasks_json = {"tasks": t_builder.build_task_details()}
 
     logging.info("Building area details...")
-    ab = AreasDetailsBuilder(DATASETS, TASKS, RESULTS, LEADERBOARD)
+    ab = AreasDetailsBuilder(datasets, tasks, results, leaderboard)
     homepage_json = {"areas": ab.build_area_details()}
 
     logging.info("Writing data...")
