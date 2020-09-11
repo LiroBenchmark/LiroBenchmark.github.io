@@ -404,28 +404,8 @@ class AreasDetailsBuilder(object):
 
 
 # CREATE HOMEPAGE_JSON OBJECT
-print("CREATE HOMEPAGE_JSON OBJECT ...")
-homepage_json = []
-for index, row in TASKS.iterrows():
-    print("\tFound task: [{}]".format(row['NAME']))
-    task = {
-        "area": row['AREA'],
-        "name": row['NAME'], # this is the name of the TASK
-        "datasets": []
-    }
-    # get datasets for this task
-    datasets = DATASETS[DATASETS['TASK'].eq(row['NAME'])]['DATASET NAME'].unique()
-    print("\t\tFound {} datasets for this task.".format(len(datasets)))
-    datasets_list = []
-    # for each dataset, count the number of submissions
-    for dataset in datasets:
-        models_df = RESULTS[RESULTS['DATASET'].eq(dataset)]['MODEL'].unique()
-        datasets_list.append({"dataset":dataset, "submission_count":models_df.shape[0]})
-        print("\t\t\tDataset [{}] has {} submissions.".format(dataset,models_df.shape[0]))
-    task["datasets"] = datasets_list
-    homepage_json.append(task)
-
-homepage_json = process_homepage_data(homepage_json)
+ab = AreasDetailsBuilder(DATASETS, TASKS, RESULTS, LEADERBOARD)
+homepage_json = {"areas": ab.build_area_details()}
 # WRITE DATA
 print("WRITING DATA ...")
 json.dump(datasets_json, open("datasets.json","w", encoding="utf8"), indent=4)
