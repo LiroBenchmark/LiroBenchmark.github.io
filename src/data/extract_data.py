@@ -5,6 +5,7 @@ from itertools import groupby
 import re
 import logging
 from argparse import ArgumentParser
+import datetime
 
 
 def build_id_string(name):
@@ -137,8 +138,7 @@ class DatasetsDetailsBuilder(object):
                 "paper_title": model_info['PAPER TITLE'],
                 "paper_link": model_info['PAPER LINK'],
                 "source_link": model_info['SOURCE LINK'],
-                "date_month": int(model_info['DATE MONTH']),
-                "date_year": int(model_info['DATE YEAR']),
+                "submission_date": self._build_submission_date(model_info),
                 "results": {
                     row['METRIC']: row['VALUE']
                     for _, row in model_results.iterrows()
@@ -147,6 +147,23 @@ class DatasetsDetailsBuilder(object):
             results.append(item)
 
         return results
+
+    def _build_submission_date(self, model):
+        """Builds the submission date from model row.
+
+        Parameters
+        ----------
+        model: pandas.Series
+            The row containing model info.
+
+        Returns
+        -------
+        string
+            The year and month of the submission.
+        """
+        date = datetime.date(int(model['DATE YEAR']), int(model['DATE MONTH']),
+                             1)
+        return date.strftime("%Y-%m")
 
     def _get_dataset_metrics(self, dataset_name):
         """Builds a list of metrics for the dataset.
