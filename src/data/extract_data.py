@@ -4,9 +4,7 @@ import numpy as np
 from itertools import groupby
 import re
 import logging
-
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',
-                    level=logging.INFO)
+from argparse import ArgumentParser
 
 
 def build_id_string(name):
@@ -45,7 +43,7 @@ def read_excel(file_name, sheet_name):
     pandas.DataFrame
         The DataFrame containing the sheet data.
     """
-    df = pd.read_excel(excel_file, sheet_name=sheet_name)
+    df = pd.read_excel(file_name, sheet_name=sheet_name)
     return df.replace(np.nan, '', regex=True)
 
 
@@ -69,16 +67,6 @@ def save_json(data, file_name, encoding="utf8", indent=4):
         json.dump(data, f, indent=indent)
 
 
-excel_file = "LEADERBOARD.xlsx"
-
-LEADERBOARD = read_excel(excel_file, "LEADERBOARD")
-RESULTS = read_excel(excel_file, "RESULTS")
-DATASETS = read_excel(excel_file, "DATASETS")
-TASKS = read_excel(excel_file, "TASKS")
-METRICS = read_excel(excel_file, "METRICS")
-
-
-# CREATE DATASETS_JSON OBJECT
 class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
@@ -202,12 +190,6 @@ class DatasetsDetailsBuilder(object):
             "preferred_metric": row['PREFERRED METRIC'],
             "models": []
         }
-
-
-ds_builder = DatasetsDetailsBuilder(DATASETS, RESULTS, LEADERBOARD)
-datasets_json = {"datasets": ds_builder.build_dataset_details()}
-
-# CREATE TASKS_JSON OBJECT
 
 
 class TasksDetailsBuilder(object):
@@ -337,10 +319,6 @@ class TasksDetailsBuilder(object):
         return model
 
 
-t_builder = TasksDetailsBuilder(TASKS, DATASETS, RESULTS, METRICS, LEADERBOARD)
-tasks_json = {"tasks": t_builder.build_task_details()}
-
-
 class AreasDetailsBuilder(object):
     """Builds details for areas.
 
@@ -417,13 +395,71 @@ class AreasDetailsBuilder(object):
         } for name, value in results.items()]
 
 
-# CREATE HOMEPAGE_JSON OBJECT
-ab = AreasDetailsBuilder(DATASETS, TASKS, RESULTS, LEADERBOARD)
-homepage_json = {"areas": ab.build_area_details()}
+def run(args):
+    logging.info("Start extracting data from {}...".format(args.excel_file))
+    LEADERBOARD = read_excel(args.excel_file, args.leaderboard_sheet)
+    RESULTS = read_excel(args.excel_file, args.results_sheet)
+    DATASETS = read_excel(args.excel_file, args.datasets_sheet)
+    TASKS = read_excel(args.excel_file, args.tasks_sheet)
+    METRICS = read_excel(args.excel_file, args.metrics_sheet)
 
-# WRITE DATA
-print("WRITING DATA ...")
-save_json(datasets_json, "datasets.json")
-save_json(tasks_json, "tasks.json")
-save_json(homepage_json, "homepage.json")
-print("All DONE.")
+    logging.info("Building dataset details...")
+    ds_builder = DatasetsDetailsBuilder(DATASETS, RESULTS, LEADERBOARD)
+    datasets_json = {"datasets": ds_builder.build_dataset_details()}
+
+    logging.info("Building task details...")
+    t_builder = TasksDetailsBuilder(TASKS, DATASETS, RESULTS, METRICS,
+                                    LEADERBOARD)
+    tasks_json = {"tasks": t_builder.build_task_details()}
+
+    logging.info("Building area details...")
+    ab = AreasDetailsBuilder(DATASETS, TASKS, RESULTS, LEADERBOARD)
+    homepage_json = {"areas": ab.build_area_details()}
+
+    logging.info("Writing data...")
+    save_json(datasets_json, args.dataset_details_file)
+    save_json(tasks_json, args.task_details_file)
+    save_json(homepage_json, args.area_details_file)
+    logging.info("All done.")
+
+
+def parse_arguments():
+    parser = ArgumentParser()
+    parser.add_argument('--excel-file',
+                        help="The path to the input Excel file.",
+                        default="LEADERBOARD.xlsx")
+    parser.add_argument(
+        '--area-details-file',
+        help="The path to the output file containing area details.",
+        default="homepage.json")
+    parser.add_argument(
+        '--task-details-file',
+        help="The path to the output file containing task details.",
+        default="tasks.json")
+    parser.add_argument(
+        '--dataset-details-file',
+        help="The path to the output file containing dataset details.",
+        default="datasets.json")
+    parser.add_argument('--leaderboard-sheet',
+                        help="The name of the leaderboard sheet.",
+                        default="LEADERBOARD")
+    parser.add_argument('--results-sheet',
+                        help="The name of the results sheet.",
+                        default="RESULTS")
+    parser.add_argument('--datasets-sheet',
+                        help="The name of the datasets sheet.",
+                        default="DATASETS")
+    parser.add_argument('--tasks-sheet',
+                        help="The name of the tasks sheet.",
+                        default="TASKS")
+    parser.add_argument('--metrics-sheet',
+                        help="The name of the metrics sheet.",
+                        default="METRICS")
+    return parser.parse_args()
+
+
+if __name__ == '__main__':
+    logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',
+                        level=logging.INFO)
+    args = parse_arguments()
+    run(args)
