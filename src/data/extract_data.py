@@ -87,6 +87,131 @@ def build_metrics_dict(metrics_df):
     }
 
 
+class DatasetsDetailsBuilder(object):
+    """Builds dataset details.
+
+    """
+    def __init__(self, datasets, results, leaderboard):
+        """Creates a new instance of DatasetsDetailsBuilder.
+
+        Parameters
+        ----------
+        datasets: pandas.DataFrame
+            The dataframe containing dataset definitions with their
+            associated task, name, description etc.
+        results: pandas.DataFrame
+            The dataframe containing model scores.
+        leaderboard: pandas.DataFrame
+            The dataframe containing best performing model per task.
+        """
+        super(DatasetsDetailsBuilder, self).__init__()
+        self.datasets = datasets
+        self.results = results
+        self.leaderboard = leaderboard
+
+    def build_dataset_details(self):
+        """Builds the details of datasets in the format required for front-end.
+
+        Returns
+        -------
+        list
+            The list of datasets with their details.
+        """
+        datasets = []
+        for _, row in self.datasets.iterrows():
+            dataset = self._build_dataset(row)
+            dataset_name = dataset['dataset_name']
+
+            dataset['metrics'] = self._get_dataset_metrics(dataset_name)
+            dataset['models'] = self._get_dataset_models(dataset_name)
+            datasets.append(dataset)
+        return datasets
+
+    def _get_dataset_models(self, dataset_name):
+        """Gets all the models for specified dataset from results dataframe.
+
+        Parameters
+        ----------
+        dataset_name: string
+            The name of the dataset.
+
+        Returns
+        list of objects
+            The list of models with their data.
+        """
+        df = self.results[self.results['DATASET'] == dataset_name]
+        models = list(df['MODEL'].unique())
+        results = []
+        for model in models:
+            leaderboard = self.leaderboard
+            model_info = leaderboard[(leaderboard['MODEL NAME'] == model) &
+                                     (leaderboard['DATASET'] == dataset_name)]
+            if model_info.empty:
+                err = "No rows in leaderboard for model '{}' and dataset '{}'"
+                raise AssertionError(err.format(model, dataset_name))
+            model_info = model_info.iloc[0]
+            model_results = df[df['MODEL'] == model]
+            item = {
+                "model": model,
+                "extra_training_data": bool(model_info['EXTRA TRAINING DATA']),
+                "paper_title": model_info['PAPER TITLE'],
+                "paper_link": model_info['PAPER LINK'],
+                "source_link": model_info['SOURCE LINK'],
+                "date_month": int(model_info['DATE MONTH']),
+                "date_year": int(model_info['DATE YEAR']),
+                "results": {
+                    row['METRIC']: row['VALUE']
+                    for _, row in model_results.iterrows()
+                }
+            }
+            results.append(item)
+
+        return results
+
+    def _get_dataset_metrics(self, dataset_name):
+        """Builds a list of metrics for the dataset.
+
+        Iterates through all results for the specified dataset
+        and builds a collection of all metrics.
+
+        Parameters
+        ----------
+        dataset_name: string
+            The name of the dataset for which to find metrics.
+
+        Returns
+        -------
+        list of str
+            The metrics of the dataset.
+        """
+        df = self.results[self.results['DATASET'] == dataset_name]
+        metrics = list(df['METRIC'].unique())
+        return metrics
+
+    def _build_dataset(self, row):
+        """Builds the dataset object from a dataframe row.
+
+        Parameters
+        ----------
+        row: pandas.Series
+            The series containing dataset properties.
+
+        Returns
+        -------
+        dict
+            The dataset object as a dictionary.
+        """
+        return {
+            "task": row['TASK'],
+            "id": build_id_string(row['DATASET NAME']),
+            "dataset_name": row['DATASET NAME'],
+            "dataset_description": row['DATASET DESCRIPTION'],
+            "dataset_link": row['DATASET LINK'],
+            "preferred_metric": row['PREFERRED METRIC'],
+            "models": []
+        }
+
+
 def build_datasets_json(datasets, results, leaderboard):
     print("CREATE DATASETS_JSON OBJECT ...")
     datasets_json = []
