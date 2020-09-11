@@ -212,72 +212,8 @@ class DatasetsDetailsBuilder(object):
         }
 
 
-def build_datasets_json(datasets, results, leaderboard):
-    print("CREATE DATASETS_JSON OBJECT ...")
-    datasets_json = []
-    for index, row in datasets.iterrows():
-        dataset_json_object = {
-            "task": row['TASK'],
-            "id": build_id_string(row['DATASET NAME']),
-            "dataset_name": row['DATASET NAME'],
-            "dataset_description": row['DATASET DESCRIPTION'],
-            "dataset_link": row['DATASET LINK'],
-            "preferred_metric": row['PREFERRED METRIC'],
-            "models": []
-        }
-        # find all models in results that we have for this dataset
-        models = results[results['DATASET'] ==
-                         row['DATASET NAME']]['MODEL'].unique()
-        models_list = []
-        for model in models:
-            # for each model get properties from leaderboard
-            model_properties_df = leaderboard[leaderboard['MODEL NAME'] ==
-                                              model]
-            assert model_properties_df.shape[
-                0] == 1, "ERROR: Model [{}] not found in leaderboard!".format(
-                    model)
-            model_dict = {
-                "model":
-                model_properties_df["MODEL NAME"].iloc[0],
-                "metrics": [],
-                "extra_training_data":
-                False
-                if model_properties_df["EXTRA TRAINING DATA"].iloc[0].strip()
-                == "" else True,
-                "paper_title":
-                model_properties_df["PAPER TITLE"].iloc[0],
-                "paper_link":
-                model_properties_df["PAPER LINK"].iloc[0],
-                "source_link":
-                model_properties_df["SOURCE LINK"].iloc[0],
-                "date_month":
-                int(model_properties_df["DATE MONTH"].iloc[0]),
-                "date_year":
-                int(model_properties_df["DATE YEAR"].iloc[0]),
-            }
-
-            # for each model get all metrics from results
-            model_results_df = results[
-                results['MODEL'].eq(model)
-                & results['DATASET'].eq(row['DATASET NAME'])]
-            metrics = []
-            for r_index, r_row in model_results_df.iterrows():
-                metric = [r_row['METRIC'], r_row['VALUE']]
-                assert r_row[
-                    'METRIC'] != '', "ERROR: Please fill in metric for model [{}] for dataset [{}] in sheet results!".format(
-                        model, row['DATASET NAME'])
-                assert r_row[
-                    'VALUE'] != '', "ERROR: Please fill in metric for model [{}] for dataset [{}] in sheet results!".format(
-                        model, row['DATASET NAME'])
-                metrics.append(metric)
-            model_dict["metrics"] = metrics
-            models_list.append(model_dict)
-        dataset_json_object["models"] = models_list
-        datasets_json.append(dataset_json_object)
-    return {"datasets": datasets_json}
-
-
-datasets_json = build_datasets_json(DATASETS, RESULTS, LEADERBOARD)
+ds_builder = DatasetsDetailsBuilder(DATASETS, RESULTS, LEADERBOARD)
+datasets_json = {"datasets": ds_builder.build_dataset_details()}
 
 # CREATE TASKS_JSON OBJECT
 
