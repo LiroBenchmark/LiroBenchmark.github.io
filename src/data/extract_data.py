@@ -326,6 +326,83 @@ class TasksDetailsBuilder(object):
 t_builder = TasksDetailsBuilder(TASKS, DATASETS, RESULTS, METRICS, LEADERBOARD)
 tasks_json = {"tasks": t_builder.build_task_details()}
 
+
+class AreasDetailsBuilder(object):
+    """Builds details for areas.
+
+    """
+    def __init__(self, datasets, tasks, results, leaderboard):
+        """Creates a new instance of AreasDetailsBuilder.
+
+        Parameters
+        ----------
+        datasets: pandas.DataFrame
+            The dataframe containing dataset definitions with their
+            associated task, name, description etc.
+        tasks: pandas.DataFrame
+            The dataframe containing tasks definitions.
+        results: pandas.DataFrame
+            The dataframe containing model scores.
+        leaderboard: pandas.DataFrame
+            The dataframe containing best performing model per task.
+        """
+        super(AreasDetailsBuilder, self).__init__()
+        self.datasets = datasets
+        self.tasks = tasks
+        self.results = results
+        self.leaderboard = leaderboard
+
+    def build_area_details(self):
+        """Builds the details of areas in the format required for front-end.
+
+        Returns
+        -------
+        list
+            The list of areas and their associated tasks.
+        """
+        task_details = [{
+            "area": row['AREA'],
+            "id": build_id_string(row['NAME']),
+            "name": row['NAME'],
+            "datasets": self._build_task_datasets(row['NAME'])
+        } for _, row in self.tasks.iterrows()]
+
+        result = []
+        for area, tasks in groupby(task_details, lambda t: t["area"]):
+            area_tasks = [{
+                "id": t["id"],
+                "name": t["name"],
+                "datasets": t["datasets"]
+            } for t in tasks]
+            result.append({"name": area, "tasks": area_tasks})
+        return result
+
+    def _build_task_datasets(self, task):
+        """Build the collection of datasets for current task.
+
+        Parameters
+        ----------
+        task: string
+            The name of the current task.
+
+        Returns
+        -------
+        list
+            The datasets associated with the current task.
+        """
+        datasets = self.datasets[self.datasets['TASK'] == task]
+        results = pd.merge(datasets,
+                           self.results,
+                           how='inner',
+                           left_on='DATASET NAME',
+                           right_on='DATASET')
+        results = results.groupby(by='DATASET')['MODEL'].nunique()
+        return [{
+            "dataset": name,
+            "submission_count": value
+        } for name, value in results.items()]
+
+
 # CREATE HOMEPAGE_JSON OBJECT
 print("CREATE HOMEPAGE_JSON OBJECT ...")
 homepage_json = []
