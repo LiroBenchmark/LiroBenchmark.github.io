@@ -65,32 +65,6 @@ METRICS = pd.read_excel(excel_file, sheet_name="METRICS").replace(np.nan, '', re
 
 
 # CREATE DATASETS_JSON OBJECT
-def build_metrics_dict(metrics_df):
-    """Build a dict of metrics from the input data.
-
-    Parameters
-    ----------
-    metrics_df: pandas.DataFrame
-        The data frame containing properties of metrics.
-
-    Returns
-    -------
-    dict
-        A dict where the key is metric name and the value is
-        a tuple of (type, range, description).
-
-    Remarks
-    -------
-    The type of the metric is denoted by two constants:
-    - 'Higher-is-better' and
-    - 'Lower-is-better'.
-    """
-    return {
-        m['METRICS']: [m['TYPE'], m['RANGE'], m['DESCRIPTION']]
-        for _, m in metrics_df.iterrows()
-    }
-
-
 class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
