@@ -30,6 +30,25 @@ def build_id_string(name):
     return url.lower()
 
 
+def read_excel(file_name, sheet_name):
+    """Imports the data from the specified file and sheet into a DataFrame.
+
+    Parameters
+    ----------
+    file_name: string
+        The name of the Excel file.
+    sheet_name: string
+        The name of the sheet from where to load data.
+
+    Returns
+    -------
+    pandas.DataFrame
+        The DataFrame containing the sheet data.
+    """
+    df = pd.read_excel(excel_file, sheet_name=sheet_name)
+    return df.replace(np.nan, '', regex=True)
+
+
 def save_json(data, file_name, encoding="utf8", indent=4):
     """Writes the data to the json file specified by file_name.
 
@@ -52,11 +71,11 @@ def save_json(data, file_name, encoding="utf8", indent=4):
 
 excel_file = "LEADERBOARD.xlsx"
 
-LEADERBOARD = pd.read_excel(excel_file, sheet_name="LEADERBOARD").replace(np.nan, '', regex=True)
-RESULTS = pd.read_excel(excel_file, sheet_name="RESULTS").replace(np.nan, '', regex=True)
-DATASETS = pd.read_excel(excel_file, sheet_name="DATASETS").replace(np.nan, '', regex=True)
-TASKS = pd.read_excel(excel_file, sheet_name="TASKS").replace(np.nan, '', regex=True)
-METRICS = pd.read_excel(excel_file, sheet_name="METRICS").replace(np.nan, '', regex=True)
+LEADERBOARD = read_excel(excel_file, "LEADERBOARD")
+RESULTS = read_excel(excel_file, "RESULTS")
+DATASETS = read_excel(excel_file, "DATASETS")
+TASKS = read_excel(excel_file, "TASKS")
+METRICS = read_excel(excel_file, "METRICS")
 
 
 # CREATE DATASETS_JSON OBJECT
