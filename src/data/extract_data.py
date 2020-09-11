@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 from itertools import groupby
 import re
+import logging
+
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',
+                    level=logging.INFO)
 
 
 def build_id_string(name):
@@ -218,6 +222,133 @@ datasets_json = {"datasets": ds_builder.build_dataset_details()}
 # CREATE TASKS_JSON OBJECT
 
 
+class TasksDetailsBuilder(object):
+    """Builds task details.
+
+    """
+    def __init__(self, tasks, datasets, results, metrics, leaderboard):
+        """Creates a new instance of TasksDetailsBuilder.
+
+        Parameters
+        ----------
+        tasks: pandas.DataFrame
+            The dataframe containing tasks definitions.
+        datasets: pandas.DataFrame
+            The dataframe containing dataset definitions with their
+            associated task, name, description etc.
+        results: pandas.DataFrame
+            The dataframe containing model scores.
+        metrics: pandas.DataFrame
+            The dataframe containing metrics.
+        leaderboard: pandas.DataFrame
+            The dataframe containing best performing model per task.
+        """
+        super(TasksDetailsBuilder, self).__init__()
+        self.tasks = tasks
+        self.datasets = datasets
+        self.results = results
+        self.metrics = metrics
+        self.leaderboard = leaderboard
+
+    def build_task_details(self):
+        """Builds the details of tasks in the format required for front-end.
+
+        Returns
+        -------
+        list
+            The list of tasks and their details.
+        """
+        return [{
+            "area": row['AREA'],
+            "id": build_id_string(row['NAME']),
+            "task_name": row['NAME'],
+            "task_description": row['DESCRIPTION'],
+            "datasets": self._build_task_datasets(row['NAME'])
+        } for _, row in self.tasks.iterrows()]
+
+    def _build_task_datasets(self, task_name):
+        """Builds the list of the datasets for current task with their best model.
+
+        Parameters
+        ----------
+        task_name: string
+            The name of the task.
+
+        Returns
+        -------
+        list
+            The list of datasets for current task.
+        """
+        datasets = []
+        df = self.datasets[self.datasets['TASK'] == task_name]
+        for _, row in df.iterrows():
+            dataset = row['DATASET NAME']
+            pref_metric = row['PREFERRED METRIC']
+            model = self._get_best_model(dataset, pref_metric)
+            if not model:
+                logging.warning(
+                    "No best model found for dataset '{}' and metric '{}'.".
+                    format(dataset, pref_metric))
+                continue
+            paper_title, paper_link, source_link = self._get_model_properties(
+                model)
+            datasets.append({
+                "dataset_id": build_id_string(dataset),
+                "dataset_name": dataset,
+                "metric": pref_metric,
+                "model_name": model,
+                "paper_title": paper_title,
+                "paper_link": paper_link,
+                "source_link": source_link
+            })
+        return datasets
+
+    def _get_model_properties(self, model):
+        """Gets the model properties from leaderboard.
+
+        Parameters
+        ----------
+        model: string
+            The name of the model for which to retrieve properties.
+
+        Returns
+        -------
+        (paper_title:string, paper_link:string, source_link:string)
+            The properties of the model.
+        """
+        props = self.leaderboard[self.leaderboard['MODEL NAME'] ==
+                                 model].iloc[0]
+        return props['PAPER TITLE'], props['PAPER LINK'], props['SOURCE LINK']
+
+    def _get_best_model(self, dataset, metric):
+        """Finds the best model for the specified dataset and metric.
+
+        Parameters
+        ----------
+        dataset: string
+            The name of the dataset.
+        metric: string
+            The name of the metric.
+
+        Returns
+        -------
+        string
+            The name of the best model.
+        """
+        results = self.results
+        results = results[(results['DATASET'] == dataset)
+                          & (results['METRIC'] == metric)]
+        metric = self.metrics[self.metrics['METRICS'] == metric]
+        metric = metric.iloc[0]
+        metric_type = metric['TYPE']
+        sort_ascending = True if "high" in metric_type.lower() else False
+        results = results.sort_values(by='VALUE', ascending=sort_ascending)
+        if results.empty:
+            return None
+        model = results.iloc[0]['MODEL']
+        return model
+
+
 def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
     print("CREATE TASKS_JSON OBJECT ...")
     tasks_json = []
@@ -281,8 +412,8 @@ def build_tasks_json(tasks, datasets, results, metrics, leaderboard):
     return {"tasks": tasks_json}
 
 
-tasks_json = build_tasks_json(TASKS, DATASETS, RESULTS,
-                              build_metrics_dict(METRICS), LEADERBOARD)
+t_builder = TasksDetailsBuilder(TASKS, DATASETS, RESULTS, METRICS, LEADERBOARD)
+tasks_json = {"tasks": t_builder.build_task_details()}
 
 # CREATE HOMEPAGE_JSON OBJECT
 print("CREATE HOMEPAGE_JSON OBJECT ...")
