@@ -15,10 +15,6 @@
                         {
                             "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
                             "submission_count": 1
-                        },
-                        {
-                            "dataset": "New NER DATASET (dummy)",
-                            "submission_count": 0
                         }
                     ]
                 },
