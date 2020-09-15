@@ -6,57 +6,74 @@
                 {
                     "id": "text-classification",
                     "name": "Text Classification",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "ner",
                     "name": "NER",
-                    "datasets": [
-                        {
-                            "dataset": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
-                            "submission_count": 1
-                        }
-                    ]
+                    "summary": {
+                        "dataset_count": 2,
+                        "submission_count": 1
+                    }
                 },
                 {
                     "id": "machine-translation",
                     "name": "Machine Translation",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "tokenization",
                     "name": "Tokenization",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "sentence-segmentation",
                     "name": "Sentence Segmentation",
-                    "datasets": [
-                        {
-                            "dataset": "Universal Dependencies - Romanian RRT Treebank",
-                            "submission_count": 2
-                        }
-                    ]
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 2
+                    }
                 },
                 {
                     "id": "lemmatization",
                     "name": "Lemmatization",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "pos-tagging",
                     "name": "POS Tagging",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "dependency-parsing",
                     "name": "Dependency Parsing",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 },
                 {
                     "id": "language-modeling",
                     "name": "Language Modeling",
-                    "datasets": []
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
                 }
             ]
         }
