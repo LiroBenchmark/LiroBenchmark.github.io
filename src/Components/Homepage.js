@@ -31,19 +31,22 @@ class Homepage extends React.Component {
   }
 
   renderTaskSubmissions(task) {
-    if (!task.datasets || task.datasets.length === 0) {
+    if (!task.summary) {
       return <span>No submissions</span>;
     }
-
+    const { summary } = task;
     return (
       <table>
-        <thead>
+        <tbody>
           <tr>
-            <th>Dataset</th>
-            <th>Submissions</th>
+            <td>{summary.dataset_count}</td>
+            <td>{summary.dataset_count === 1 ? 'dataset' : 'datasets'}</td>
           </tr>
-        </thead>
-        <tbody>{task.datasets.map((ds) => this.renderDataset(ds))}</tbody>
+          <tr>
+            <td>{summary.submission_count}</td>
+            <td>{summary.submission_count === 1 ? 'submission' : 'submissions'}</td>
+          </tr>
+        </tbody>
       </table>
     );
   }
@@ -53,7 +56,6 @@ class Homepage extends React.Component {
       <a href={this.urlBuilder.buildTaskUrl(task)} className="task-tile-link">
         <div className="task-tile" key={task.name}>
           <h5>{task.name}</h5>
-          <hr />
           <div className="task-data">{this.renderTaskSubmissions(task)}</div>
         </div>
       </a>
