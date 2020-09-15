@@ -340,7 +340,7 @@ class AreasDetailsBuilder(object):
     """Builds details for areas.
 
     """
-    def __init__(self, datasets, tasks, results, leaderboard):
+    def __init__(self, datasets, tasks, results):
         """Creates a new instance of AreasDetailsBuilder.
 
         Parameters
@@ -352,14 +352,11 @@ class AreasDetailsBuilder(object):
             The dataframe containing tasks definitions.
         results: pandas.DataFrame
             The dataframe containing model scores.
-        leaderboard: pandas.DataFrame
-            The dataframe containing best performing model per task.
         """
         super(AreasDetailsBuilder, self).__init__()
         self.datasets = datasets
         self.tasks = tasks
         self.results = results
-        self.leaderboard = leaderboard
 
     def build_area_details(self):
         """Builds the details of areas in the format required for front-end.
@@ -373,7 +370,7 @@ class AreasDetailsBuilder(object):
             "area": row['AREA'],
             "id": build_id_string(row['NAME']),
             "name": row['NAME'],
-            "datasets": self._build_task_datasets(row['NAME'])
+            "summary": self._build_task_summary(row['NAME'])
         } for _, row in self.tasks.iterrows()]
 
         result = []
@@ -381,13 +378,13 @@ class AreasDetailsBuilder(object):
             area_tasks = [{
                 "id": t["id"],
                 "name": t["name"],
-                "datasets": t["datasets"]
+                "summary": t["summary"]
             } for t in tasks]
             result.append({"name": area, "tasks": area_tasks})
         return result
 
-    def _build_task_datasets(self, task):
-        """Build the collection of datasets for current task.
+    def _build_task_summary(self, task):
+        """Counts the number of datasets and submissions for current task.
 
         Parameters
         ----------
@@ -396,8 +393,8 @@ class AreasDetailsBuilder(object):
 
         Returns
         -------
-        list
-            The datasets associated with the current task.
+        dict
+            The number of datasets for this task and sumbission count.
         """
         datasets = self.datasets[self.datasets['TASK'] == task]
         results = pd.merge(datasets,
@@ -405,11 +402,10 @@ class AreasDetailsBuilder(object):
                            how='inner',
                            left_on='DATASET NAME',
                            right_on='DATASET')
-        results = results.groupby(by='DATASET')['MODEL'].nunique()
-        return [{
-            "dataset": name,
-            "submission_count": value
-        } for name, value in results.items()]
+        return {
+            "dataset_count": int(datasets['DATASET NAME'].count()),
+            "submission_count": int(results['MODEL'].nunique())
+        }
 
 
 def run(args):
@@ -430,7 +426,7 @@ def run(args):
     tasks_json = {"tasks": t_builder.build_task_details()}
 
     logging.info("Building area details...")
-    ab = AreasDetailsBuilder(datasets, tasks, results, leaderboard)
+    ab = AreasDetailsBuilder(datasets, tasks, results)
     homepage_json = {"areas": ab.build_area_details()}
 
     logging.info("Writing data...")
