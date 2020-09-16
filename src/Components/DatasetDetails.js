@@ -5,6 +5,7 @@ import { CodeIcon } from '../assets/icons';
 import { CheckIcon } from '../assets/icons';
 import { CrossIcon } from '../assets/icons';
 import UrlBuilder from './UrlBuilder';
+import ScatterPlot from './ScatterPlot';
 
 class DatasetDetails extends React.Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class DatasetDetails extends React.Component {
             </tr>
           </tbody>
         </table>
+        <ScatterPlot />
         {this.renderModels()}
       </>
     );

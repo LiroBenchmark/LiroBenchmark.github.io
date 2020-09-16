@@ -12,3 +12,31 @@
 	width: 80px;
     }
 }
+
+circle {
+  fill: red;
+  opacity: 0.3;
+}
+
+text {
+  font-family: sans-serif;
+}
+
+.tick text {
+  font-size: 1.2em;
+  fill: #635F5D;
+}
+
+.tick line {
+  stroke: #C0C0BB;
+}
+
+.axis-label {
+  font-size: 1.4em;
+  fill: #8E8883;
+}
+
+.title {
+  font-size: 1.6em;
+  fill: #635F5D;
+}
