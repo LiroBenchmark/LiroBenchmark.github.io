@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { select, csv, scaleLinear, extent, axisLeft, axisBottom, format } from 'd3';
+import { select, scaleLinear, extent, axisLeft, axisBottom, format, pointer } from 'd3';
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
   return {
@@ -15,7 +15,6 @@ class ScatterPlot extends Component {
     this.drawScatterPlot(data);
   }
   drawScatterPlot(data) {
-    console.log(data);
     const scale = 20;
     const width = 1110;
     const height = 300;
@@ -68,13 +67,36 @@ class ScatterPlot extends Component {
       .attr('fill', 'black')
       .text(xAxisLabel);
 
+    const tooltip = select(this.refs.canvas)
+      .append('div')
+      .style('opacity', 0)
+      .attr('class', 'tooltip')
+      .style('background-color', 'white')
+      .style('border', 'solid')
+      .style('border-width', '1px')
+      .style('border-radius', '5px')
+      .style('padding', '10px');
+
+    const mouseOver = (evt, data) => {
+      return tooltip.style('opacity', 1).html(`<b>${data.model}</b>: ${yValue(data)}`);
+    };
+
+    const mouseMove = (evt) => {
+      return tooltip.style('left', evt.clientX + 10 + 'px').style('top', evt.clientY + 'px');
+    };
+
+    const mouseLeave = (d) => tooltip.transition().duration(200).style('opacity', 0);
+
     g.selectAll('circle')
       .data(data)
       .enter()
       .append('circle')
       .attr('cy', (d) => yScale(yValue(d)))
       .attr('cx', (d) => xScale(xValue(d)))
-      .attr('r', circleRadius);
+      .attr('r', circleRadius)
+      .on('mouseover', mouseOver)
+      .on('mousemove', mouseMove)
+      .on('mouseleave', mouseLeave);
 
     g.append('text')
       .attr('class', 'title')
