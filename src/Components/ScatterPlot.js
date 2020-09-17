@@ -1,16 +1,36 @@
 import React, { Component } from 'react';
-import { select, scaleLinear, extent, axisLeft, axisBottom, format, pointer } from 'd3';
+import { select, scaleLinear, scalePoint, extent, axisLeft, axisBottom, format, pointer } from 'd3';
+
+const submissionDates = [
+  "Dec '19",
+  "Jan '20",
+  "Feb '20",
+  "Mar '20",
+  "Apr '20",
+  "May '20",
+  "Jun '20",
+  "Jul '20",
+  "Aug '20",
+  "Sep '20",
+  "Oct '20",
+  "Nov '20",
+  "Dec '20",
+  "Jan '21",
+];
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
   return {
     model: 'Model number ' + i,
-    submission_date: i,
+    submission_date: submissionDates[i],
     F1: Math.round(Math.random() * 100) / 100,
     PRECISION: Math.round(Math.random() * 100) / 100,
   };
 });
 
 class ScatterPlot extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     this.drawScatterPlot(data);
   }
@@ -32,7 +52,7 @@ class ScatterPlot extends Component {
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const xScale = scaleLinear().domain(extent(data, xValue)).range([0, innerWidth]).nice();
+    const xScale = scalePoint().domain(submissionDates).range([0, innerWidth]);
 
     const yScale = scaleLinear().domain(extent(data, yValue)).range([innerHeight, 0]).nice();
 
