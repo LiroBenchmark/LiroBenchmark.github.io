@@ -171,18 +171,25 @@ class ScatterPlot extends Component {
     return (
       <>
         <div ref="canvas" width="100%" height="30%"></div>
-        <label htmlFor="metrics">View scores for:</label>
-        <select
-          name="metrics"
-          defaultValue={this.dataset.preferred_metric}
-          onChange={this.handleSelectedMetricChange}
-        >
-          {this.dataset.metrics.map((m) => (
-            <option key={m} value={m}>
-              {m}
-            </option>
-          ))}
-        </select>
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <label className="input-group-text" htmlFor="metrics">
+              View scores for:
+            </label>
+          </div>
+          <select
+            className="custom-select"
+            name="metrics"
+            defaultValue={this.dataset.preferred_metric}
+            onChange={this.handleSelectedMetricChange}
+          >
+            {this.dataset.metrics.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </div>
       </>
     );
   }
