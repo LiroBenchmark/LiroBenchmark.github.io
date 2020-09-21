@@ -1,11 +1,11 @@
-import React from "react";
-import data from "../data/datasets.json";
-import "./DatasetDetails.scss";
-import { CodeIcon } from "../assets/icons";
-import { CheckIcon } from "../assets/icons";
-import { CrossIcon } from "../assets/icons";
-import UrlBuilder from "./UrlBuilder";
-import ScatterPlot from "./ScatterPlot";
+import React from 'react';
+import data from '../data/datasets.json';
+import './DatasetDetails.scss';
+import { CodeIcon } from '../assets/icons';
+import { CheckIcon } from '../assets/icons';
+import { CrossIcon } from '../assets/icons';
+import UrlBuilder from './UrlBuilder';
+import PlotBuilder from './PlotBuilder';
 
 class DatasetDetails extends React.Component {
   constructor(props) {
@@ -22,9 +22,7 @@ class DatasetDetails extends React.Component {
         {this.dataset.metrics.map((m) => {
           return <td>{model.results[m]}</td>;
         })}
-        <td className="td-extra-training-data">
-          {model.extra_training_data ? <CheckIcon /> : <CrossIcon />}
-        </td>
+        <td className="td-extra-training-data">{model.extra_training_data ? <CheckIcon /> : <CrossIcon />}</td>
         <td>
           <a href={model.paper_link} target="_blank" rel="noopener noreferrer">
             {model.paper_title}
@@ -32,11 +30,7 @@ class DatasetDetails extends React.Component {
         </td>
         <td>
           {model.source_link && (
-            <a
-              href={model.source_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={model.source_link} target="_blank" rel="noopener noreferrer">
               <CodeIcon />
             </a>
           )}
@@ -76,11 +70,7 @@ class DatasetDetails extends React.Component {
             <tr>
               <th>Source</th>
               <td>
-                <a
-                  href={this.dataset.dataset_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={this.dataset.dataset_link} target="_blank" rel="noopener noreferrer">
                   {this.dataset.dataset_link}
                 </a>
               </td>
@@ -91,7 +81,7 @@ class DatasetDetails extends React.Component {
             </tr>
           </tbody>
         </table>
-        <ScatterPlot datasetId={this.datasetId} />
+        <PlotBuilder datasetId={this.datasetId} />
         {this.renderModels()}
       </>
     );
