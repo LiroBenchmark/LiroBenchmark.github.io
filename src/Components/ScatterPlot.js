@@ -1,44 +1,21 @@
 import React, { Component } from 'react';
-import { select, scaleLinear, scalePoint, extent, axisLeft, axisBottom, format, pointer } from 'd3';
-import data from '../data/datasets.json';
-const submissionDates = [
-  "Dec '19",
-  "Jan '20",
-  "Feb '20",
-  "Mar '20",
-  "Apr '20",
-  "May '20",
-  "Jun '20",
-  "Jul '20",
-  "Aug '20",
-  "Sep '20",
-  "Oct '20",
-  "Nov '20",
-  "Dec '20",
-  "Jan '21",
-];
-
-const points = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
-  return {
-    model: 'Model number ' + i,
-    submission_date: submissionDates[i],
-    F1: Math.round(Math.random() * 100) / 100,
-    PRECISION: Math.round(Math.random() * 100) / 100,
-    RECALL: Math.round(Math.random() * 100) / 100,
-    XYZ: Math.round(Math.random() * 100) / 100,
-  };
-});
+import { select, scaleLinear, scalePoint, extent, axisLeft, axisBottom } from 'd3';
 
 class ScatterPlot extends Component {
   constructor(props) {
     super(props);
-    this.metric = props.metric;
   }
 
   componentDidMount() {
-    this.drawScatterPlot(points);
+    const { timeRange, dataPoints } = this.props;
+    this.drawScatterPlot(timeRange, dataPoints);
   }
-  drawScatterPlot(data) {
+
+  componentDidUpdate() {
+    const { timeRange, dataPoints } = this.props;
+    this.drawScatterPlot(timeRange, dataPoints);
+  }
+  drawScatterPlot(xScaleDomain, dataPoints) {
     const width = 1110;
     const height = 300;
     const circleRadius = 5;
@@ -49,19 +26,18 @@ class ScatterPlot extends Component {
 
     const title = 'Task leaderboard';
 
-    const xValue = (d) => d.submission_date;
+    const xValue = (d) => d.submissionDate;
     const xAxisLabel = 'Submission date';
-    console.log(`Drawing plot with metric ${this.metric}`);
-    const yValue = (d) => d[this.metric];
+    const yValue = (d) => d.score;
     const yAxisLabel = 'Score';
 
     const margin = { top: 60, right: 40, bottom: 88, left: 150 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const xScale = scalePoint().domain(submissionDates).range([0, innerWidth]);
+    const xScale = scalePoint().domain(xScaleDomain).range([0, innerWidth]);
 
-    const yScale = scaleLinear().domain(extent(data, yValue)).range([innerHeight, 0]).nice();
+    const yScale = scaleLinear().domain(extent(dataPoints, yValue)).range([innerHeight, 0]).nice();
 
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
@@ -115,7 +91,7 @@ class ScatterPlot extends Component {
     const mouseLeave = (d) => tooltip.transition().duration(200).style('opacity', 0);
 
     g.selectAll('circle')
-      .data(data)
+      .data(dataPoints)
       .enter()
       .append('circle')
       .attr('cy', (d) => yScale(yValue(d)))
