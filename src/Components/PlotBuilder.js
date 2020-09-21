@@ -22,6 +22,7 @@ class PlotBuilder extends Component {
     super(props);
     this.dataset = props.dataset;
     this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(this);
+    this.canvas = React.createRef();
     this.onWindowResize = this.onWindowResize.bind(this);
     this.dataset.dataPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
       return {
@@ -75,10 +76,16 @@ class PlotBuilder extends Component {
   }
 
   render() {
-    console.log(this.state.dataPoints);
     return (
       <>
-        <ScatterPlot timeRange={this.state.timeRange} dataPoints={this.state.dataPoints} />
+        <div ref={this.canvas} className="canvas">
+          <ScatterPlot
+            timeRange={this.state.timeRange}
+            dataPoints={this.state.dataPoints}
+            width={this.state.width}
+            height={this.state.height}
+          />
+        </div>
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text" htmlFor="metrics">

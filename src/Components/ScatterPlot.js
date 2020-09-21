@@ -4,25 +4,23 @@ import { select, scaleLinear, scalePoint, extent, axisLeft, axisBottom } from 'd
 class ScatterPlot extends Component {
   constructor(props) {
     super(props);
+    this.svgRef = React.createRef();
   }
 
   componentDidMount() {
-    const { timeRange, dataPoints } = this.props;
-    this.drawScatterPlot(timeRange, dataPoints);
+    const { timeRange, dataPoints, width, height } = this.props;
+    this.drawScatterPlot(timeRange, dataPoints, width, height);
   }
 
   componentDidUpdate() {
-    const { timeRange, dataPoints } = this.props;
-    this.drawScatterPlot(timeRange, dataPoints);
+    const { timeRange, dataPoints, width, height } = this.props;
+    this.drawScatterPlot(timeRange, dataPoints, width, height);
   }
-  drawScatterPlot(xScaleDomain, dataPoints) {
-    const width = 1110;
-    const height = 300;
+  drawScatterPlot(xScaleDomain, dataPoints, width, height) {
     const circleRadius = 5;
 
-    const canvas = select(this.refs.canvas);
-    canvas.select('svg').remove();
-    const svg = select(this.refs.canvas).append('svg').attr('width', width).attr('height', height);
+    const svg = select(this.svgRef.current).attr('width', width).attr('height', height);
+    svg.selectAll('*').remove();
 
     const title = 'Task leaderboard';
 
@@ -70,7 +68,7 @@ class ScatterPlot extends Component {
       .attr('fill', 'black')
       .text(xAxisLabel);
 
-    const tooltip = select(this.refs.canvas)
+    const tooltip = select('.canvas')
       .append('div')
       .style('opacity', 0)
       .attr('class', 'tooltip')
@@ -111,7 +109,7 @@ class ScatterPlot extends Component {
   render() {
     return (
       <>
-        <div ref="canvas" width="100%" height="30%"></div>
+        <svg ref={this.svgRef}></svg>
       </>
     );
   }
