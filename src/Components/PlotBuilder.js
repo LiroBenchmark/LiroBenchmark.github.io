@@ -4,9 +4,7 @@ import ScatterPlot from './ScatterPlot';
 class PlotBuilder extends Component {
   constructor(props) {
     super(props);
-    this.datasetId = props.datasetId;
-    this.dataset = data.datasets.find((ds) => ds.id === this.datasetId);
-    this.state = { metric: this.dataset.preferred_metric };
+    this.dataset = props.dataset;
     this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(this);
   }
 

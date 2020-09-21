@@ -81,7 +81,7 @@ class DatasetDetails extends React.Component {
             </tr>
           </tbody>
         </table>
-        <PlotBuilder datasetId={this.datasetId} />
+        <PlotBuilder dataset={this.dataset} />
         {this.renderModels()}
       </>
     );
