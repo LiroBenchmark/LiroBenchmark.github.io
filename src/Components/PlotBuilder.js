@@ -22,6 +22,7 @@ class PlotBuilder extends Component {
     super(props);
     this.dataset = props.dataset;
     this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
     this.dataset.dataPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
       return {
         model: 'Model number ' + i,
@@ -36,8 +37,20 @@ class PlotBuilder extends Component {
     this.state = {
       timeRange: this.dataset.timeRange,
       dataPoints: this.buildDataPoints(this.dataset.preferred_metric),
+      width: undefined,
+      height: undefined,
     };
   }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onWindowResize);
+    this.onWindowResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
+
   buildDataPoints(metric) {
     return this.dataset.dataPoints.map((p) => {
       return {
@@ -46,6 +59,11 @@ class PlotBuilder extends Component {
         score: p[metric],
       };
     });
+  }
+  onWindowResize() {
+    const canvas = this.canvas.current;
+    const bounds = canvas.getBoundingClientRect();
+    this.setState({ width: bounds.width, height: bounds.height });
   }
   handleSelectedMetricChange(e) {
     console.log(`Setting display metric to ${e.target.value}`);
