@@ -12,17 +12,7 @@
             "id": "ner",
             "task_name": "NER",
             "task_description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens.",
-            "datasets": [
-                {
-                    "dataset_id": "ronec-romanian-named-entity-corpus",
-                    "dataset_name": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
-                    "metric": "F1",
-                    "model_name": "dummy system 1",
-                    "paper_title": "paper title here",
-                    "paper_link": "http://www.google.com",
-                    "source_link": "http://www.github.com"
-                }
-            ]
+            "datasets": []
         },
         {
             "area": "NLP",
@@ -36,35 +26,85 @@
             "id": "tokenization",
             "task_name": "Tokenization",
             "task_description": "Tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. The list of tokens becomes input for further processing such as parsing or text mining.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-tokenization",
+                    "dataset_name": "UD Romanian RRT Treebank - Tokenization",
+                    "metric": "F1",
+                    "model_name": "NLP-Cube v1.1 [end-to-end]",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube"
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "sentence-segmentation",
             "task_name": "Sentence Segmentation",
             "task_description": "Sentence segmentation is the task of splitting a sentence into its component phrases.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-sentence-segmentation",
+                    "dataset_name": "UD Romanian RRT Treebank - Sentence Segmentation",
+                    "metric": "F1",
+                    "model_name": "NLP-Cube v1.1 [end-to-end]",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube"
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "lemmatization",
             "task_name": "Lemmatization",
             "task_description": "Lemmatization is the process of identifying the lemma of a given word or sequence of words.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-lemmatization",
+                    "dataset_name": "UD Romanian RRT Treebank - Lemmatization",
+                    "metric": "F1",
+                    "model_name": "NLP-Cube v1.1 [end-to-end]",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube"
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "pos-tagging",
             "task_name": "POS Tagging",
             "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-part-of-speech-tagging",
+                    "dataset_name": "UD Romanian RRT Treebank - Part of Speech Tagging",
+                    "metric": "F1",
+                    "model_name": "NLP-Cube v1.1 [end-to-end]",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube"
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "dependency-parsing",
             "task_name": "Dependency Parsing",
             "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-dependency-parsing",
+                    "dataset_name": "UD Romanian RRT Treebank - Dependency Parsing",
+                    "metric": "UAS",
+                    "model_name": "NLP-Cube v1.1 [end-to-end]",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube"
+                }
+            ]
         },
         {
             "area": "NLP",

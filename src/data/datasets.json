@@ -2,78 +2,202 @@
     "datasets": [
         {
             "task": "NER",
-            "id": "ronec-romanian-named-entity-corpus",
-            "dataset_name": "RONEC - ROMANIAN NAMED ENTITY CORPUS",
-            "dataset_description": "markdown description or just text?",
+            "id": "ronec-romanian-named-entity-corpus-v1",
+            "dataset_name": "RONEC - Romanian Named Entity Corpus v1",
+            "dataset_description": "Version 1.0 of this free corpus holds 5127 sentences, annotated with 16 classes, with a total of 26376 annotated entities. The corpus comes into two formats: BRAT and CONLLUP, both are text formats for easy access.<br><br>\nFor evaluation metrics please see <a href=\"http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/\">http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/</a>. Please report F1, Precision and Recall.\n",
             "dataset_link": "https://github.com/dumitrescustefan/ronec",
+            "preferred_metric": "F1",
+            "models": [],
+            "metrics": []
+        },
+        {
+            "task": "Tokenization",
+            "id": "ud-romanian-rrt-treebank-tokenization",
+            "dataset_name": "UD Romanian RRT Treebank - Tokenization",
+            "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>tokenization</b>. Your submitted system should start with the raw text file and output a CoNLL-U file. Please report only the <b>Word Segmentation</b> F1, Precision and Recall scores.",
+            "dataset_link": "https://universaldependencies.org/",
             "preferred_metric": "F1",
             "models": [
                 {
-                    "model": "dummy system 1",
+                    "model": "NLP-Cube v1.0 [end-to-end]",
                     "extra_training_data": true,
-                    "paper_title": "paper title here",
-                    "paper_link": "http://www.google.com",
-                    "source_link": "http://www.github.com",
-                    "submission_date": "2020-01",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2018-10",
                     "results": {
-                        "F1": 91.0,
-                        "PRECISION": 90.0,
-                        "RECALL": 92.0,
-                        "XYZ": 23467.0
+                        "F1": 99.74
+                    }
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2019-04",
+                    "results": {
+                        "F1": 99.71
                     }
                 }
             ],
             "metrics": [
-                "F1",
-                "PRECISION",
-                "RECALL",
-                "XYZ"
+                "F1"
             ]
         },
         {
             "task": "Sentence Segmentation",
-            "id": "universal-dependencies-romanian-rrt-treebank",
-            "dataset_name": "Universal Dependencies - Romanian RRT Treebank",
-            "dataset_description": "",
-            "dataset_link": "",
-            "preferred_metric": "XYZ",
+            "id": "ud-romanian-rrt-treebank-sentence-segmentation",
+            "dataset_name": "UD Romanian RRT Treebank - Sentence Segmentation",
+            "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>sentence segmentation</b>.  Your submitted system should start with the raw text file and output a CoNLL-U file. Please report only the <b>sentence segmentation</b> F1, Precision and Recall scores.",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "F1",
             "models": [
                 {
-                    "model": "dummy system for rrt",
+                    "model": "NLP-Cube v1.0 [end-to-end]",
                     "extra_training_data": true,
-                    "paper_title": "",
-                    "paper_link": "",
-                    "source_link": "http://www.abc.com",
-                    "submission_date": "2018-11",
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2018-10",
                     "results": {
-                        "ACCURACY": 78.67
+                        "F1": 95.56
                     }
                 },
                 {
-                    "model": "dummy system for rrt 2",
-                    "extra_training_data": false,
-                    "paper_title": "",
-                    "paper_link": "",
-                    "source_link": "http://www.other.com",
-                    "submission_date": "2019-12",
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2019-04",
                     "results": {
-                        "ACCURACY": 80.01
+                        "F1": 95.42
                     }
                 }
             ],
             "metrics": [
-                "ACCURACY"
+                "F1"
             ]
         },
         {
-            "task": "NER",
-            "id": "new-ner-dataset-dummy",
-            "dataset_name": "New NER DATASET (dummy)",
-            "dataset_description": "",
-            "dataset_link": "",
-            "preferred_metric": "PRECISION",
-            "models": [],
-            "metrics": []
+            "task": "Lemmatization",
+            "id": "ud-romanian-rrt-treebank-lemmatization",
+            "dataset_name": "UD Romanian RRT Treebank - Lemmatization",
+            "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>lemmatization</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the lemma column filled in. All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "F1",
+            "models": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2018-10",
+                    "results": {
+                        "F1": 96.91
+                    }
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2019-04",
+                    "results": {
+                        "F1": 96.57
+                    }
+                }
+            ],
+            "metrics": [
+                "F1"
+            ]
+        },
+        {
+            "task": "POS Tagging",
+            "id": "ud-romanian-rrt-treebank-part-of-speech-tagging",
+            "dataset_name": "UD Romanian RRT Treebank - Part of Speech Tagging",
+            "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>part-of-speech tagging</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the UPOS column filled in. All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "F1",
+            "models": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2018-10",
+                    "results": {
+                        "F1": 97.42
+                    }
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2019-04",
+                    "results": {
+                        "F1": 96.96
+                    }
+                },
+                {
+                    "model": "Romanian BERT Baseline (bert-base-romanian-uncased-v1)",
+                    "extra_training_data": true,
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers",
+                    "submission_date": "2020-05",
+                    "results": {
+                        "F1": 98.18
+                    }
+                }
+            ],
+            "metrics": [
+                "F1"
+            ]
+        },
+        {
+            "task": "Dependency Parsing",
+            "id": "ud-romanian-rrt-treebank-dependency-parsing",
+            "dataset_name": "UD Romanian RRT Treebank - Dependency Parsing",
+            "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>dependency parsing</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the appropriate columns filled in (head and deps). All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "UAS",
+            "models": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2018-10",
+                    "results": {
+                        "UAS": 90.38,
+                        "LAS": 85.23
+                    }
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "extra_training_data": true,
+                    "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
+                    "paper_link": "http://www.aclweb.org/anthology/K18-2017",
+                    "source_link": "https://github.com/adobe/NLP-Cube",
+                    "submission_date": "2019-04",
+                    "results": {
+                        "UAS": 90.14,
+                        "LAS": 85.06
+                    }
+                }
+            ],
+            "metrics": [
+                "UAS",
+                "LAS"
+            ]
         }
     ]
 }
