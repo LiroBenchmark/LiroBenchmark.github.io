@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import data from '../data/datasets.json';
-import ScatterPlot from './ScatterPlot';
+import React, { Component } from "react";
+
+import ScatterPlot from "./ScatterPlot";
 const submissionDates = [
   "Dec '19",
   "Jan '20",
@@ -21,19 +21,23 @@ class PlotBuilder extends Component {
   constructor(props) {
     super(props);
     this.dataset = props.dataset;
-    this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(this);
+    this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(
+      this
+    );
     this.canvas = React.createRef();
     this.onWindowResize = this.onWindowResize.bind(this);
-    this.dataset.dataPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => {
-      return {
-        model: 'Model number ' + i,
-        submission_date: submissionDates[i],
-        F1: Math.round(Math.random() * 100) / 100,
-        PRECISION: Math.round(Math.random() * 100) / 100,
-        RECALL: Math.round(Math.random() * 100) / 100,
-        XYZ: Math.round(Math.random() * 100) / 100,
-      };
-    });
+    this.dataset.dataPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+      (i) => {
+        return {
+          model: "Model number " + i,
+          submission_date: submissionDates[i],
+          F1: Math.round(Math.random() * 100) / 100,
+          PRECISION: Math.round(Math.random() * 100) / 100,
+          RECALL: Math.round(Math.random() * 100) / 100,
+          XYZ: Math.round(Math.random() * 100) / 100,
+        };
+      }
+    );
     this.dataset.timeRange = submissionDates;
     this.state = {
       timeRange: this.dataset.timeRange,
@@ -44,12 +48,12 @@ class PlotBuilder extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.onWindowResize);
+    window.addEventListener("resize", this.onWindowResize);
     this.onWindowResize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onWindowResize);
+    window.removeEventListener("resize", this.onWindowResize);
   }
 
   buildDataPoints(metric) {
