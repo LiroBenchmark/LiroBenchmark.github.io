@@ -8,7 +8,12 @@
             "dataset_link": "https://github.com/dumitrescustefan/ronec",
             "preferred_metric": "F1",
             "models": [],
-            "metrics": []
+            "metrics": [],
+            "time_range": [
+                "Aug '20",
+                "Sep '20"
+            ],
+            "data_points": []
         },
         {
             "task": "Tokenization",
@@ -43,6 +48,24 @@
             ],
             "metrics": [
                 "F1"
+            ],
+            "time_range": [
+                "Sep '18",
+                "Oct '18",
+                "Apr '19",
+                "May '19"
+            ],
+            "data_points": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "submission_date": "Oct '18",
+                    "F1": 99.74
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "submission_date": "Apr '19",
+                    "F1": 99.71
+                }
             ]
         },
         {
@@ -78,6 +101,24 @@
             ],
             "metrics": [
                 "F1"
+            ],
+            "time_range": [
+                "Sep '18",
+                "Oct '18",
+                "Apr '19",
+                "May '19"
+            ],
+            "data_points": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "submission_date": "Oct '18",
+                    "F1": 95.56
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "submission_date": "Apr '19",
+                    "F1": 95.42
+                }
             ]
         },
         {
@@ -113,6 +154,24 @@
             ],
             "metrics": [
                 "F1"
+            ],
+            "time_range": [
+                "Sep '18",
+                "Oct '18",
+                "Apr '19",
+                "May '19"
+            ],
+            "data_points": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "submission_date": "Oct '18",
+                    "F1": 96.91
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "submission_date": "Apr '19",
+                    "F1": 96.57
+                }
             ]
         },
         {
@@ -159,6 +218,30 @@
             ],
             "metrics": [
                 "F1"
+            ],
+            "time_range": [
+                "Sep '18",
+                "Oct '18",
+                "Apr '19",
+                "May '20",
+                "Jun '20"
+            ],
+            "data_points": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "submission_date": "Oct '18",
+                    "F1": 97.42
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "submission_date": "Apr '19",
+                    "F1": 96.96
+                },
+                {
+                    "model": "Romanian BERT Baseline (bert-base-romanian-uncased-v1)",
+                    "submission_date": "May '20",
+                    "F1": 98.18
+                }
             ]
         },
         {
@@ -197,6 +280,26 @@
             "metrics": [
                 "UAS",
                 "LAS"
+            ],
+            "time_range": [
+                "Sep '18",
+                "Oct '18",
+                "Apr '19",
+                "May '19"
+            ],
+            "data_points": [
+                {
+                    "model": "NLP-Cube v1.0 [end-to-end]",
+                    "submission_date": "Oct '18",
+                    "UAS": 90.38,
+                    "LAS": 85.23
+                },
+                {
+                    "model": "NLP-Cube v1.1 [end-to-end]",
+                    "submission_date": "Apr '19",
+                    "UAS": 90.14,
+                    "LAS": 85.06
+                }
             ]
         }
     ]
