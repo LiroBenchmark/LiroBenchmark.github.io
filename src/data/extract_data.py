@@ -6,6 +6,7 @@ import re
 import logging
 from argparse import ArgumentParser
 import datetime
+import functools
 
 
 def build_id_string(name):
@@ -68,6 +69,118 @@ def save_json(data, file_name, encoding="utf8", indent=4):
         json.dump(data, f, indent=indent)
 
 
+class ChartDataBuilder(object):
+    """Builds the data for displaying dataset results in a chart.
+
+    """
+    def __init__(self, models, date_format="%b '%y"):
+        """Creates a new instance of ChartDataBuilder.
+
+        Parameters
+        ----------
+        models: list of dict
+            The collection of dataset models with their results.
+        date_format: string, optional
+            The format in which to display dates in the horizontal axis.
+            Default value is `%b '%y` which displays three-character month
+            name and two digit year separated by apostrophe.
+            Example: September 10, 2020 => Sep '20
+        """
+        super(ChartDataBuilder, self).__init__()
+        self.models = models
+        self.date_format = date_format
+
+    def build_display_range(self):
+        """Builds the list of ticks for the horizontal axis of the chart.
+
+        Returns
+        -------
+        list of strings
+            The list of ticks in the format specified by `date_format` field.
+        """
+        dates = functools.reduce(self._accumulate_dates, self.models, set())
+        self._expand_dates(dates)
+        dates = sorted(dates)
+        return [d.strftime(self.date_format) for d in dates]
+
+    def build_data_points(self):
+        """Builds the list of chart data points.
+
+        Returns
+        -------
+        list of dict
+            The list of data points.
+        """
+        data_points = []
+        for m in self.models:
+            submission_date = self._parse_submission_date(m)
+            submission_date = submission_date.strftime(self.date_format)
+            model = {
+                "model": m['model'],
+                "submission_date": submission_date,
+            }
+            for metric, score in m['results'].items():
+                model[metric] = score
+            data_points.append(model)
+        return data_points
+
+    def _expand_dates(self, dates):
+        """Adds one date before the minimum and one after the maximum.
+
+        Parameters
+        ----------
+        dates: set of dates
+            The dates to expand.
+        """
+        current_month = datetime.date.today().replace(day=1)
+        min_date = min(dates) if len(dates) > 0 else current_month
+        year = min_date.year - 1 if min_date.month == 1 else min_date.year
+        min_date = min_date.replace(year=year, month=min_date.month - 1)
+        dates.add(min_date)
+
+        max_date = max(dates) if len(dates) > 0 else current_month
+        year = max_date.year + 1 if max_date.month == 12 else max_date.year
+        dates.add(max_date.replace(year=year, month=max_date.month + 1))
+
+    def _accumulate_dates(self, accumulator, model):
+        """Adds the submission date of the model to the accumulator
+           and returns the accumulator.
+
+        Parameters
+        ----------
+        accumulator: set
+            The set of all the dates encountered so far.
+        model: dict
+            The model for which to parse the date and add to accumulator.
+
+        Returns
+        -------
+        set
+            The set of all distinct dates.
+        """
+        date = self._parse_submission_date(model)
+        accumulator.add(date)
+        return accumulator
+
+    def _parse_submission_date(self, model):
+        """Parses the sumbission_date property of the model to a proper date.
+
+        Parameters
+        ----------
+        model: dict
+            The information of the model.
+
+        Returns
+        -------
+        datetime.date
+            The submission date with day set to 1.
+            Example: "2020-09" => date(year=2020, month=9, day=1)
+        """
+        year, month = model['submission_date'].split('-')
+        date = datetime.date(int(year), int(month), 1)
+        return date
+
+
 class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
@@ -105,6 +218,9 @@ class DatasetsDetailsBuilder(object):
 
             dataset['metrics'] = self._get_dataset_metrics(dataset_name)
             dataset['models'] = self._get_dataset_models(dataset_name)
+            points_builder = ChartDataBuilder(dataset['models'])
+            dataset['time_range'] = points_builder.build_display_range()
+            dataset['data_points'] = points_builder.build_data_points()
             datasets.append(dataset)
         return datasets
 
