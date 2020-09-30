@@ -1,12 +1,12 @@
-import React from "react";
-import data from "../data/datasets.json";
-import "./DatasetDetails.scss";
-import { CodeIcon } from "../assets/icons";
-import { CheckIcon } from "../assets/icons";
-import { CrossIcon } from "../assets/icons";
-import UrlBuilder from "./UrlBuilder";
-import PlotBuilder from "./PlotBuilder";
-import ReactHtmlParser from "react-html-parser";
+import React from 'react';
+import data from '../data/datasets.json';
+import './DatasetDetails.scss';
+import { CodeIcon } from '../assets/icons';
+import { CheckIcon } from '../assets/icons';
+import { CrossIcon } from '../assets/icons';
+import UrlBuilder from './UrlBuilder';
+import PlotBuilder from './PlotBuilder';
+import ReactHtmlParser from 'react-html-parser';
 
 class DatasetDetails extends React.Component {
   constructor(props) {
@@ -23,9 +23,7 @@ class DatasetDetails extends React.Component {
         {this.dataset.metrics.map((m) => {
           return <td>{model.results[m]}</td>;
         })}
-        <td className="td-extra-training-data">
-          {model.extra_training_data ? <CheckIcon /> : <CrossIcon />}
-        </td>
+        <td className="td-extra-training-data">{model.extra_training_data ? <CheckIcon /> : <CrossIcon />}</td>
         <td>
           <a href={model.paper_link} target="_blank" rel="noopener noreferrer">
             {model.paper_title}
@@ -33,11 +31,7 @@ class DatasetDetails extends React.Component {
         </td>
         <td>
           {model.source_link && (
-            <a
-              href={model.source_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={model.source_link} target="_blank" rel="noopener noreferrer">
               <CodeIcon />
             </a>
           )}
@@ -71,26 +65,28 @@ class DatasetDetails extends React.Component {
     return (
       <>
         <h3>{this.dataset.dataset_name}</h3>
-        <div className="dataset-description">
-          {ReactHtmlParser(this.dataset.dataset_description)}
-        </div>
-        <table>
+        <div className="dataset-description">{ReactHtmlParser(this.dataset.dataset_description)}</div>
+        <table className="dataset-info">
           <tbody>
             <tr>
               <th>Source</th>
               <td>
-                <a
-                  href={this.dataset.dataset_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={this.dataset.dataset_link} target="_blank" rel="noopener noreferrer">
                   {this.dataset.dataset_link}
                 </a>
               </td>
             </tr>
             <tr>
               <th>Licence</th>
-              <td>MIT</td>
+              <td>
+                {this.dataset.license_url ? (
+                  <a href={this.dataset.license_url} target="_blank" rel="noopener noreferrer">
+                    {this.dataset.license}
+                  </a>
+                ) : (
+                  this.dataset.license
+                )}
+              </td>
             </tr>
           </tbody>
         </table>
