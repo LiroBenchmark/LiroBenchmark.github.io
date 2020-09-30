@@ -321,6 +321,8 @@ class DatasetsDetailsBuilder(object):
             "dataset_description": row['DATASET DESCRIPTION'],
             "dataset_link": row['DATASET LINK'],
             "preferred_metric": row['PREFERRED METRIC'],
+            "license": row['LICENSE'] if row['LICENSE'] else "Not specified",
+            "license_url": row['LICENSE URL'],
             "models": []
         }
 
