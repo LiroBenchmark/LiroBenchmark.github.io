@@ -1,7 +1,8 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Menu from './Menu';
-import { LogoIcon } from '../assets/icons';
+import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import { LogoIcon, CodeIcon } from "../assets/icons";
+import "../assets/menu.scss";
 
 const Header = () => (
   <Navbar bg="dark" variant="dark">
@@ -18,9 +19,17 @@ const Header = () => (
         RoLa benchmark
       </Navbar.Brand>
     </div>
-    <div className="main-menu">
-      <Menu />
-    </div>
+    <Nav className="justify-content-end">
+      <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link
+        href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <CodeIcon />
+        <span>Code</span>
+      </Nav.Link>
+    </Nav>
   </Navbar>
 );
 
