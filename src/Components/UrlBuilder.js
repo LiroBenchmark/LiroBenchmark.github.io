@@ -6,12 +6,19 @@ class UrlBuilder {
   static get taskUrlTemplate() {
     return "/task/:id";
   }
+
   static get datasetUrlTemplate() {
     return "/dataset/:id";
   }
+
   static get aboutPageUrl() {
     return "/about";
   }
+
+  static get termsPageUrl() {
+    return "/terms";
+  }
+
   normalizeUrl(url) {
     return url.toLowerCase();
   }
