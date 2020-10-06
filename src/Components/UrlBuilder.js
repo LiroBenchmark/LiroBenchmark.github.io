@@ -1,28 +1,30 @@
 class UrlBuilder {
   constructor() {
-    this.basePath = '/ro_benchmark_leaderboard';
+    this.basePath = "/ro_benchmark_leaderboard";
   }
 
   static get taskUrlTemplate() {
-    return '/task/:id';
+    return "/task/:id";
   }
   static get datasetUrlTemplate() {
-    return '/dataset/:id';
+    return "/dataset/:id";
   }
-
+  static get aboutPageUrl() {
+    return "/about";
+  }
   normalizeUrl(url) {
     return url.toLowerCase();
   }
 
   buildTaskUrl(task) {
     const { id } = task;
-    var url = this.basePath + '/task/' + id;
+    var url = this.basePath + "/task/" + id;
     return this.normalizeUrl(url);
   }
 
   buildDatasetUrl(dataset) {
     const { id } = dataset;
-    var url = this.basePath + '/dataset/' + id;
+    var url = this.basePath + "/dataset/" + id;
     return this.normalizeUrl(url);
   }
 }
