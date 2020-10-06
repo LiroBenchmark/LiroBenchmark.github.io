@@ -9,13 +9,6 @@ const Header = () => (
     <div className="logo-wrapper">
       <Navbar.Brand href="/ro_benchmark_leaderboard">
         <LogoIcon />
-        {/* <img
-        alt=""
-        src={logo}
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-      />{' '} */}
         RoLa benchmark
       </Navbar.Brand>
     </div>
