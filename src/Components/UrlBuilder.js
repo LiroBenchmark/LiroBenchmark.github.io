@@ -12,11 +12,11 @@ class UrlBuilder {
   }
 
   static get aboutPageUrl() {
-    return "/about";
+    return "/ro_benchmark_leaderboard/about";
   }
 
   static get termsPageUrl() {
-    return "/terms";
+    return "/ro_benchmark_leaderboard/terms";
   }
 
   normalizeUrl(url) {
