@@ -6,7 +6,7 @@ import "../assets/menu.scss";
 import UrlBuilder from "./UrlBuilder";
 
 const Header = () => (
-  <Navbar bg="dark" variant="dark">
+  <Navbar bg="light" >
     <div className="logo-wrapper">
       <Navbar.Brand href="/ro_benchmark_leaderboard">
         <LogoIcon />
