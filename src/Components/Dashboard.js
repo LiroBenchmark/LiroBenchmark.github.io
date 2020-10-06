@@ -5,6 +5,7 @@ import UrlBuilder from "./UrlBuilder";
 import TaskDetails from "./TaskDetails";
 import DatasetDetails from "./DatasetDetails";
 import AboutPage from "./AboutPage";
+import TermsPage from "./TermsPage";
 
 const Dashboard = (props) => {
   const { location } = props;
@@ -17,6 +18,7 @@ const Dashboard = (props) => {
         component={DatasetDetails}
       />
       <Route exact path={UrlBuilder.aboutPageUrl} component={AboutPage} />
+      <Route exact path={UrlBuilder.termsPageUrl} component={TermsPage} />
       <Route path="/" component={Homepage} />
     </Switch>
   );
