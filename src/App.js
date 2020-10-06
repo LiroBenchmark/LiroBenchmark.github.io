@@ -1,7 +1,8 @@
-import React from 'react';
-import Dashboard from './Components/Dashboard';
-import Header from './Components/Header';
-import './assets/root.scss';
+import React from "react";
+import Dashboard from "./Components/Dashboard";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import "./assets/root.scss";
 
 const App = (props) => {
   const { location } = props;
@@ -11,6 +12,7 @@ const App = (props) => {
       <div className="container main-content">
         <Dashboard location={location} />
       </div>
+      <Footer />
     </div>
   );
 };
