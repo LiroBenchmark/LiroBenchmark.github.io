@@ -1,7 +1,7 @@
 // Custom.scss
 // Option A: Include all of Bootstrap
 
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 .ReactCollapse--collapse{
     transition: all .2s ease-in-out;
@@ -27,7 +27,7 @@ a.task-tile-link{
 .main-content{
     @extend .container-fluid;
     max-width: none;
-    display: flex;      
+    display: flex;
     margin: 0;
     padding: 0;
 }
@@ -35,11 +35,11 @@ a.task-tile-link{
 $task-wrapper-max-width: 1500px;
 $task-wrapper-padding: calc(100% - $task-wrapper-max-width);
 .tile-wrapper{
-    
+
     width: 100%;
 
     .collapse-trigger{
-        
+
         width: 100%;
         padding: 7em 0 0 2em;
         //margin-bottom: 2px;
