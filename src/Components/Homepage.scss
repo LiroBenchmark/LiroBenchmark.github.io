@@ -6,6 +6,7 @@
 .ReactCollapse--collapse{
     transition: all .2s ease-in-out;
 }
+
 .clear{
     clear: both;
     width: 100%;
@@ -25,10 +26,9 @@ a.task-tile-link{
 }
 
 .main-content{
-    @extend .container-fluid;
-    max-width: none;
-    display: flex;
-    margin: 0;
+    //@extend .container-fluid;
+    //max-width: none;
+    margin: 0 15% 0 15%;
     padding: 0;
 }
 
@@ -36,12 +36,12 @@ $task-wrapper-max-width: 1500px;
 $task-wrapper-padding: calc(100% - $task-wrapper-max-width);
 .tile-wrapper{
 
-    width: 100%;
+    //width: 100%;
 
     .collapse-trigger{
 
-        width: 100%;
-        padding: 7em 0 0 2em;
+        //width: 100%;
+        padding: 7em 0 0 1em;
         //margin-bottom: 2px;
         //border-radius: 4px;
         //border: 1px solid rgba(gray, 0.3);
@@ -50,12 +50,12 @@ $task-wrapper-padding: calc(100% - $task-wrapper-max-width);
         h4{
             font-size: 5em;
             color: #fff;
-            margin: 0 15% 0 15%;
+            margin: 0;
         }
     }
 
     .task-wrapper{
-        margin: 0 15% 0 15%;
+        
         @extend .flex-row;
         padding: 0 $task-wrapper-padding 0 $task-wrapper-padding;
         max-width: $task-wrapper-max-width;

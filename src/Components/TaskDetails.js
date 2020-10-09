@@ -3,6 +3,7 @@ import data from '../data/tasks.json';
 import { CodeIcon } from '../assets/icons';
 import { PaperIcon } from '../assets/icons';
 import UrlBuilder from './UrlBuilder';
+import './TaskDetails.scss';
 
 class TaskDetails extends React.Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class TaskDetails extends React.Component {
       <div className="task-details">
         <h3>{this.task.task_name}</h3>
         <p className="task-description">{this.task.task_description}</p>
+        <h4> Benchmarks</h4>
         {this.renderTaskDatasets(datasets)}
       </div>
     );
