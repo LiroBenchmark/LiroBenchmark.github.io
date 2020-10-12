@@ -33,7 +33,7 @@ a.task-tile-link{
 }
 
 $task-wrapper-max-width: 1500px;
-$task-wrapper-padding: calc(100% - $task-wrapper-max-width);
+$task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
 .tile-wrapper{
 
     //width: 100%;
@@ -55,7 +55,7 @@ $task-wrapper-padding: calc(100% - $task-wrapper-max-width);
     }
 
     .task-wrapper{
-        
+
         @extend .flex-row;
         padding: 0 $task-wrapper-padding 0 $task-wrapper-padding;
         max-width: $task-wrapper-max-width;
