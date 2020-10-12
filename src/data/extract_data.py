@@ -249,7 +249,8 @@ class DatasetsDetailsBuilder(object):
             model_info = model_info.iloc[0]
             model_results = df[df['MODEL'] == model]
             model_size = model_info['MODEL SIZE']
-            model_size = int(model_size) if model_size else None
+            if model_size:
+                model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
             item = {
                 "model": model,
                 "extra_training_data": bool(model_info['EXTRA TRAINING DATA']),
