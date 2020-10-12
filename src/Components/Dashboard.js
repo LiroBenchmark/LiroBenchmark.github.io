@@ -18,7 +18,7 @@ const Dashboard = (props) => {
         path={UrlBuilder.datasetUrlTemplate}
         component={DatasetDetails}
       />
-      <Route exact path={UrlBuilder.termsPageUrl} component={TermsPage} />
+      <Route exact path="/terms" component={TermsPage} />
       <Route path="/" component={Homepage} />
     </Switch>
   );

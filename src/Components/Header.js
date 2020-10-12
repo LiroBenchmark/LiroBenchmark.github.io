@@ -6,7 +6,7 @@ import "../assets/menu.scss";
 import UrlBuilder from "./UrlBuilder";
 
 const Header = () => (
-  <Navbar bg="light" >
+  <Navbar bg="light">
     <div className="logo-wrapper">
       <Navbar.Brand href="/ro_benchmark_leaderboard">
         <LogoIcon />
@@ -15,6 +15,7 @@ const Header = () => (
     </div>
     <Nav className="justify-content-end">
       <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
+      <Nav.Link href={UrlBuilder.termsPageUrl}>Terms</Nav.Link>
       <Nav.Link
         href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
         target="_blank"
