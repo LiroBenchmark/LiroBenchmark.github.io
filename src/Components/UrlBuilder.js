@@ -1,6 +1,6 @@
 class UrlBuilder {
-  constructor() {
-    this.basePath = "/ro_benchmark_leaderboard";
+  static get basePath() {
+    return "/ro_benchmark_leaderboard";
   }
 
   static get taskUrlTemplate() {
@@ -9,10 +9,6 @@ class UrlBuilder {
 
   static get datasetUrlTemplate() {
     return "/dataset/:id";
-  }
-
-  static get aboutPageUrl() {
-    return "/ro_benchmark_leaderboard/about";
   }
 
   static get termsPageUrl() {
@@ -25,13 +21,13 @@ class UrlBuilder {
 
   buildTaskUrl(task) {
     const { id } = task;
-    var url = this.basePath + "/task/" + id;
+    var url = UrlBuilder.basePath + "/task/" + id;
     return this.normalizeUrl(url);
   }
 
   buildDatasetUrl(dataset) {
     const { id } = dataset;
-    var url = this.basePath + "/dataset/" + id;
+    var url = UrlBuilder.basePath + "/dataset/" + id;
     return this.normalizeUrl(url);
   }
 }
