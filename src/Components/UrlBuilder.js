@@ -16,7 +16,7 @@ class UrlBuilder {
   }
 
   static get termsPageUrl() {
-    return "/ro_benchmark_leaderboard/terms";
+    return UrlBuilder.basePath + "/terms";
   }
 
   normalizeUrl(url) {
