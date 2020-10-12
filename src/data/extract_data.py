@@ -248,6 +248,8 @@ class DatasetsDetailsBuilder(object):
                 raise AssertionError(err.format(model, dataset_name))
             model_info = model_info.iloc[0]
             model_results = df[df['MODEL'] == model]
+            model_size = model_info['MODEL SIZE']
+            model_size = int(model_size) if model_size else None
             item = {
                 "model": model,
                 "extra_training_data": bool(model_info['EXTRA TRAINING DATA']),
@@ -255,6 +257,7 @@ class DatasetsDetailsBuilder(object):
                 "paper_link": model_info['PAPER LINK'],
                 "source_link": model_info['SOURCE LINK'],
                 "submission_date": self._build_submission_date(model_info),
+                "model_size": model_size,
                 "results": {
                     row['METRIC']: row['VALUE']
                     for _, row in model_results.iterrows()
