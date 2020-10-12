@@ -11,6 +11,10 @@ class UrlBuilder {
     return "/dataset/:id";
   }
 
+  static get aboutPageUrl() {
+    return UrlBuilder.basePath + "/about";
+  }
+
   static get termsPageUrl() {
     return "/ro_benchmark_leaderboard/terms";
   }
