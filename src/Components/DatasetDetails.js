@@ -26,6 +26,7 @@ class DatasetDetails extends React.Component {
         <td className="td-extra-training-data">
           {model.extra_training_data ? <CheckIcon /> : <CrossIcon />}
         </td>
+        <td>{model.model_size}</td>
         <td>
           <a href={model.paper_link} target="_blank" rel="noopener noreferrer">
             {model.paper_title}
@@ -57,6 +58,7 @@ class DatasetDetails extends React.Component {
               <td>{m}</td>
             ))}
             <td>Extra training data</td>
+            <td>Model size</td>
             <td>Paper</td>
             <td>Code</td>
             <td>Submitted</td>
