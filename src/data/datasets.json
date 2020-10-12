@@ -34,6 +34,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2018-10",
+                    "model_size": "",
                     "results": {
                         "F1": 99.74
                     }
@@ -45,6 +46,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2019-04",
+                    "model_size": "",
                     "results": {
                         "F1": 99.71
                     }
@@ -89,6 +91,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2018-10",
+                    "model_size": "",
                     "results": {
                         "F1": 95.56
                     }
@@ -100,6 +103,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2019-04",
+                    "model_size": "",
                     "results": {
                         "F1": 95.42
                     }
@@ -144,6 +148,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2018-10",
+                    "model_size": "",
                     "results": {
                         "F1": 96.91
                     }
@@ -155,6 +160,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2019-04",
+                    "model_size": "",
                     "results": {
                         "F1": 96.57
                     }
@@ -199,6 +205,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2018-10",
+                    "model_size": "",
                     "results": {
                         "F1": 97.42
                     }
@@ -210,6 +217,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2019-04",
+                    "model_size": "",
                     "results": {
                         "F1": 96.96
                     }
@@ -221,6 +229,7 @@
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers",
                     "submission_date": "2020-05",
+                    "model_size": "",
                     "results": {
                         "F1": 98.18
                     }
@@ -271,6 +280,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2018-10",
+                    "model_size": "",
                     "results": {
                         "UAS": 90.38,
                         "LAS": 85.23
@@ -283,6 +293,7 @@
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
                     "submission_date": "2019-04",
+                    "model_size": "",
                     "results": {
                         "UAS": 90.14,
                         "LAS": 85.06
