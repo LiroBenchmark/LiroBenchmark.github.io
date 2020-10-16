@@ -1,52 +1,22 @@
+@import "utils";
+
 .task-details{
-    
 
     h3{
-        font-size: 2em;
         margin: 1em 0 0.5em 0;
-        font-family: "Georgia";  
-        color: #000;
     }
 
     h4{
-        font-size: 1.5em;
         margin: 2em 0 0.5em 0;
-        font-family: "Georgia";  
-        color: #000;
     }
 
     .task-description{
-        font-size: 1em;
-        font-family: "Segoe UI";
-        text-align: justify;
-        //text-justify: inter-word;
-        color: #333;
+        @extend .rola-description-text;
     }
 
-    table {
-        border-radius: 0.7em;
-        background-color: rgba(40,50,70,0.9);
-
-        thead{
-            text-transform: uppercase;
-            font-size: 0.8em;
-            font-weight: 700;
-            color: #fff;
-
-            tr td {
-                    border: 0;
-            }
-        }
-
-
-
-        tbody{
-            font-weight: 370;
-            color: #fff;
-            tr td{
-                    //border: 0;
-                    border-top: 1px solid #fff;
-            }
-        }
+    table{
+        @extend .rola-table;
     }
+
 }
+
