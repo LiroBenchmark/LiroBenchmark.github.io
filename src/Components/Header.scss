@@ -1,0 +1,73 @@
+@import "~bootstrap/scss/bootstrap";
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+       
+}
+
+.logo-wrapper{
+    a{
+        display: flex;
+        svg{
+            margin-top:10%; 
+            width:55px;
+        }
+
+        .logo-text{
+            padding-left: 10%;
+            font-family: "sans-serif";
+            border-left: 1px solid;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            color: #444;
+        }
+    }
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    border-color: rgb(76, 175, 76);
+    color: rgb(76, 175, 76);
+}
+
+.navbar-light .navbar-nav .nav-link:focus{
+    border-color: rgb(76, 175, 76);
+    color: rgb(76, 175, 76);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: rgb(76, 175, 76);
+    margin: 0.1em;
+    text-align: center;
+    width: 5em;
+    border: 1px solid;
+    border-color: #fff;
+    border-radius: 0.5em; 
+}
+
+.navbar-light .navbar-nav .code-btn:hover{
+    color: #fff;
+    border-color: rgb(76, 175, 76);
+    
+}
+
+.navbar-light .navbar-nav .code-btn:focus{
+    color: #fff;
+    border-color: rgb(76, 175, 76);
+    
+}
+
+.navbar-light .navbar-nav .code-btn{
+    background-color: rgb(76, 175, 76);
+    color:#fff;
+    svg{
+        margin: 0 7% 5% 0;
+    }
+
+    span{
+        //width: 90%;
+    }
+}

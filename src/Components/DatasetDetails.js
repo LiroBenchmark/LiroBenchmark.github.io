@@ -72,7 +72,7 @@ class DatasetDetails extends React.Component {
   render() {
     return (
       <>
-        <h3>{this.dataset.dataset_name}</h3>
+        <h3 className="dataset-title">{this.dataset.dataset_name}</h3>
         <div className="dataset-description">
           {ReactHtmlParser(this.dataset.dataset_description)}
         </div>

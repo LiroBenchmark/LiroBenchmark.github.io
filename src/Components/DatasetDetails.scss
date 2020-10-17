@@ -1,19 +1,18 @@
-.dataset-description{
+@import "utils";
 
+.dataset-title{
+  margin: 1em 0 0.5em 0;
+  text-align: center;
 }
+
+.dataset-description{
+  @extend .rola-description-text;
+  margin: 2em 0 0.5em 0;
+}
+
 .dataset-details{
-    margin-top: 40px;
-    td{
-	vertical-align: middle;
-    }
-    thead{
-	text-transform: uppercase;
-	font-size: small;
-    }
-    .td-extra-training-data{
-	text-align: center;
-	width: 80px;
-    }
+  margin-top: 1em;
+  @extend .rola-table;
 }
 
 .dataset-info{
