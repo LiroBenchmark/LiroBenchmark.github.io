@@ -47,12 +47,12 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+  deploy: 
+    runs-on: ubuntu-18.04 
+    steps:
     - name: Setup node.js
       uses: actions/setup-node@v2.1.2
     - name: Install npm dependencies
       run: npm install
     - name: Deploy
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        npm run deploy
+      run: echo Deploy steps here
