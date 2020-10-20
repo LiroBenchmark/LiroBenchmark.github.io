@@ -87,7 +87,7 @@ class Homepage extends React.Component {
     const { areas } = data;
     if (!this.state.activeArea) {
       const defaultArea = areas[0];
-      this.state.activeArea = defaultArea.name;
+      this.setState({ activeArea: defaultArea.name });
     }
     return areas.map((area) => this.renderArea(area));
   }
