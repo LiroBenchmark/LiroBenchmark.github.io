@@ -1,22 +1,26 @@
 class UrlBuilder {
   static get basePath() {
-    return "/ro_benchmark_leaderboard";
+    return '/ro_benchmark_leaderboard';
   }
 
   static get taskUrlTemplate() {
-    return "/task/:id";
+    return '/task/:id';
   }
 
   static get datasetUrlTemplate() {
-    return "/dataset/:id";
+    return '/dataset/:id';
   }
 
   static get aboutPageUrl() {
-    return UrlBuilder.basePath + "/about";
+    return UrlBuilder.basePath + '/about';
   }
 
   static get termsPageUrl() {
-    return UrlBuilder.basePath + "/terms";
+    return UrlBuilder.basePath + '/terms';
+  }
+
+  static get submitPageUrl() {
+    return UrlBuilder.basePath + '/submit';
   }
 
   normalizeUrl(url) {
@@ -25,13 +29,13 @@ class UrlBuilder {
 
   buildTaskUrl(task) {
     const { id } = task;
-    var url = UrlBuilder.basePath + "/task/" + id;
+    var url = UrlBuilder.basePath + '/task/' + id;
     return this.normalizeUrl(url);
   }
 
   buildDatasetUrl(dataset) {
     const { id } = dataset;
-    var url = UrlBuilder.basePath + "/dataset/" + id;
+    var url = UrlBuilder.basePath + '/dataset/' + id;
     return this.normalizeUrl(url);
   }
 }
