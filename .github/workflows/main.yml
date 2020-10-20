@@ -18,7 +18,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout master
+      uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -44,3 +45,9 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup node.js
+      uses: actions/setup-node@v2.1.2
+    - name: Install npm dependencies
+      run: npm install
+    - name: Deploy
+      run: npm run deploy
