@@ -53,6 +53,10 @@ jobs:
     steps:
     - name: Setup node.js
       uses: actions/setup-node@v2.1.2
+    - name: Setup SSH auth
+      run: |
+        eval $(ssh-agent -s)
+        echo SSH agent started
     - name: Checkout master
       uses: actions/checkout@v2
     - name: Install npm dependencies
