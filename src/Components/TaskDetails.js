@@ -1,9 +1,9 @@
-import React from 'react';
-import data from '../data/tasks.json';
-import { CodeIcon } from '../assets/icons';
-import { PaperIcon } from '../assets/icons';
-import UrlBuilder from './UrlBuilder';
-import './TaskDetails.scss';
+import React from "react";
+import data from "../data/tasks.json";
+import { CodeIcon } from "../assets/icons";
+import { PaperIcon } from "../assets/icons";
+import UrlBuilder from "./UrlBuilder";
+import "./TaskDetails.scss";
 
 class TaskDetails extends React.Component {
   constructor(props) {
@@ -13,20 +13,31 @@ class TaskDetails extends React.Component {
     this.urlBuilder = new UrlBuilder();
   }
 
+  renderPaper(paper_link, paper_title) {
+    if (paper_link) {
+      return (
+        <a href={paper_link} target="_blank" rel="noopener noreferrer">
+          {paper_title}
+        </a>
+      );
+    } else {
+      return { paper_title };
+    }
+  }
   renderModelRow(dataset) {
-    const { dataset_name, dataset_id, model_name, paper_title, paper_link, source_link } = dataset;
+    const {
+      dataset_name,
+      dataset_id,
+      model_name,
+      paper_title,
+      paper_link,
+      source_link,
+    } = dataset;
     return (
       <tr key={model_name}>
         <td>{dataset_name}</td>
         <td>{model_name}</td>
-        <td>{paper_title}</td>
-        <td>
-          {paper_link && (
-            <a href={paper_link} target="_blank" rel="noopener noreferrer">
-              <PaperIcon />
-            </a>
-          )}
-        </td>
+        <td>{this.renderPaper(paper_link, paper_title)}</td>
         <td>
           {source_link && (
             <a href={source_link} target="_blank" rel="noopener noreferrer">
@@ -35,7 +46,9 @@ class TaskDetails extends React.Component {
           )}
         </td>
         <td>
-          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>See all models</a>
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
+            See all models
+          </a>
         </td>
       </tr>
     );
@@ -52,7 +65,6 @@ class TaskDetails extends React.Component {
           <tr>
             <td>Dataset</td>
             <td>Best model</td>
-            <td>Paper title</td>
             <td>Paper</td>
             <td>Code</td>
             <td>&nbsp;</td>
