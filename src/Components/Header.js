@@ -29,7 +29,7 @@ const Header = () => (
         rel="noopener noreferrer"
       >
         <CodeIcon />
-        <span>Code</span>
+        <span>GitHub</span>
       </Nav.Link>
     </Nav>
   </Navbar>
