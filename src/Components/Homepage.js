@@ -1,8 +1,8 @@
-import React from 'react';
-import { Collapse } from 'react-collapse';
-import data from '../data/homepage.json';
-import './Homepage.scss';
-import UrlBuilder from './UrlBuilder.js';
+import React from "react";
+import { Collapse } from "react-collapse";
+import data from "../data/homepage.json";
+import "./Homepage.scss";
+import UrlBuilder from "./UrlBuilder.js";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -40,11 +40,13 @@ class Homepage extends React.Component {
         <tbody>
           <tr>
             <td>{summary.dataset_count}</td>
-            <td>{summary.dataset_count === 1 ? 'dataset' : 'datasets'}</td>
+            <td>{summary.dataset_count === 1 ? "dataset" : "datasets"}</td>
           </tr>
           <tr>
             <td>{summary.submission_count}</td>
-            <td>{summary.submission_count === 1 ? 'submission' : 'submissions'}</td>
+            <td>
+              {summary.submission_count === 1 ? "submission" : "submissions"}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -70,7 +72,10 @@ class Homepage extends React.Component {
 
     return (
       <div key={area.name} className="tile-wrapper">
-        <div onClick={() => this.updateactiveArea(name)} className="collapse-trigger">
+        <div
+          onClick={() => this.updateactiveArea(name)}
+          className="collapse-trigger"
+        >
           <h4>{area.name}</h4>
         </div>
         <Collapse isOpened={isTileOpened}>
@@ -89,7 +94,23 @@ class Homepage extends React.Component {
       const defaultArea = areas[0];
       this.setState({ activeArea: defaultArea.name });
     }
-    return areas.map((area) => this.renderArea(area));
+    return (
+      <>
+        <div className="intro">
+          <p>
+            LiRo (<em>Li</em>mba <em>Ro</em>mână) provides a benchmark for
+            Romanian language tasks.
+          </p>
+          <p>
+            The project keeps track of performance of different published models
+            on the datasets and tasks listed below. This allows easy comparison
+            of different models and monitoring progress on these tasks and
+            datasets over time.
+          </p>
+        </div>
+        {areas.map((area) => this.renderArea(area))}
+      </>
+    );
   }
 }
 
