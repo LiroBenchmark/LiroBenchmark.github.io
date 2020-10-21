@@ -20,7 +20,7 @@ const Header = () => (
     <Nav className="justify-content-end">
       <Nav.Link href={UrlBuilder.submitPageUrl}>Submit</Nav.Link>
       <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
-      <Nav.Link href={UrlBuilder.termsPageUrl}>Terms</Nav.Link>
+      <Nav.Link href={UrlBuilder.termsPageUrl}>Legal</Nav.Link>
       <Nav.Link
         className="code-btn"
         href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
