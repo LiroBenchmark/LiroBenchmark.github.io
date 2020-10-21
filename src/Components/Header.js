@@ -13,7 +13,7 @@ const Header = () => (
         <LogoIcon />
         <div className="logo-text">
           {' '}
-          RoLa <br /> BENCHMARK{' '}
+          LiRo <br /> BENCHMARK{' '}
         </div>
       </Navbar.Brand>
     </div>
