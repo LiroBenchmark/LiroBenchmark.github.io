@@ -35,8 +35,18 @@ class TaskDetails extends React.Component {
     } = dataset;
     return (
       <tr key={model_name}>
-        <td>{dataset_name}</td>
-        <td>{model_name}</td>
+        <td>
+          {" "}
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
+            {dataset_name}
+          </a>
+        </td>
+        <td>
+          {" "}
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
+            {model_name}
+          </a>
+        </td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
         <td>
           {source_link && (
@@ -44,11 +54,6 @@ class TaskDetails extends React.Component {
               <CodeIcon />
             </a>
           )}
-        </td>
-        <td>
-          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
-            See all models
-          </a>
         </td>
       </tr>
     );
@@ -67,7 +72,6 @@ class TaskDetails extends React.Component {
             <td>Best model</td>
             <td>Paper</td>
             <td>Code</td>
-            <td>&nbsp;</td>
           </tr>
         </thead>
         <tbody>{datasets.map((ds) => this.renderModelRow(ds))}</tbody>
