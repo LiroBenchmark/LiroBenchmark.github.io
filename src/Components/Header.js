@@ -18,6 +18,7 @@ const Header = () => (
       </Navbar.Brand>
     </div>
     <Nav className="justify-content-end">
+      <Nav.Link href="/ro_benchmark_leaderboard">Home</Nav.Link>
       <Nav.Link href={UrlBuilder.submitPageUrl}>Submit</Nav.Link>
       <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
       <Nav.Link href={UrlBuilder.termsPageUrl}>Legal</Nav.Link>
