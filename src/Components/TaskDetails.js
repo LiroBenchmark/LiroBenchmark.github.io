@@ -1,7 +1,6 @@
 import React from "react";
 import data from "../data/tasks.json";
 import { CodeIcon } from "../assets/icons";
-import { PaperIcon } from "../assets/icons";
 import UrlBuilder from "./UrlBuilder";
 import "./TaskDetails.scss";
 
