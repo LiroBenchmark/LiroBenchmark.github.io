@@ -58,19 +58,19 @@ const AboutPage = (props) => {
           University of Cluj-Napoca)
         </li>
         <li>
-          Cristina Victoria Iacobescu (Attorney-at-law, Reff & Associates
-          (member of Deloitte Legal))
+          Cristina Victoria Iacobescu, Attorney-at-law, Reff & Associates
+          (member of Deloitte Legal)
         </li>
         <li>
           George-Andrei Dima, MSc student (Politehnica University of Bucharest)
         </li>
         <li>
-          Lorena Roșia (Attorney-at-law, Reff & Associates (member of Deloitte
-          Legal))
+          Lorena Roșia, Attorney-at-law, Reff & Associates (member of Deloitte
+          Legal)
         </li>
         <li>
           Luciana Morogan, Associate Professor (Military Technical Academy
-          "Ferdinand I", Bucharest)
+          Ferdinand Bucharest)
         </li>
         <li>
           Madalina Chitez, Researcher (West University of Timisoara, CODHUS
