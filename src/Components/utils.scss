@@ -33,6 +33,14 @@ h4{
         tr td{
                 //border: 0;
                 border-top: 1px solid #fff;
+                a{
+                    color: #fff;
+                }
+
+                a:hover{
+                    color: #ccc;
+                    text-decoration: none;
+                }
         }
     }
 }
