@@ -27,6 +27,7 @@ const Header = () => (
         href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
         target="_blank"
         rel="noopener noreferrer"
+        id="code-btn"
       >
         <CodeIcon />
         <span>GitHub</span>
