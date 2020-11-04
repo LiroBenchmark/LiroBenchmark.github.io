@@ -69,7 +69,7 @@ class AppBreadcrumbs extends React.Component {
     return (
       <>
         <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href={UrlBuilder.basePath}>Home</Breadcrumb.Item>
           {this.urlBuilder.isTaskUrl(path) && (
             <Breadcrumb.Item active>{this.getTaskName(path)}</Breadcrumb.Item>
           )}
