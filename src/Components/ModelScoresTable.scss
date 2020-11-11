@@ -1,0 +1,10 @@
+@import "utils";
+
+.dataset-details{
+  margin-top: 1em;
+  @extend .rola-table;
+
+  td.td-extra-training-data{
+
+  }
+}
