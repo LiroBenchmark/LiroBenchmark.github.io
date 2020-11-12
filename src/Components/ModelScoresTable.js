@@ -3,6 +3,7 @@ import "./ModelScoresTable.scss";
 import { CodeIcon } from "../assets/icons";
 import { CheckIcon } from "../assets/icons";
 import { CrossIcon } from "../assets/icons";
+import { FaSortUp, FaSortDown, FaSort } from "react-icons/fa";
 
 class ModelScoresTable extends React.Component {
   constructor(props) {
@@ -10,21 +11,47 @@ class ModelScoresTable extends React.Component {
     this.models = props.models;
     this.metrics = props.metrics;
     this.state = {
-      sortDirection: "descending",
+      sortDirection: "default",
       sortBy: "default",
     };
 
     this.onSort = this.onSort.bind(this);
+    this.sortFunction = this.sortFunction.bind(this);
   }
 
   onSort(metric) {
     const { sortDirection } = this.state;
-    let nextSortDirection =
-      sortDirection === "descending" ? "ascending" : "descending";
+    let nextSortDirection;
+    if (sortDirection === "default") {
+      nextSortDirection = "descending";
+    }
+    if (sortDirection === "descending") {
+      nextSortDirection = "ascending";
+    }
+    if (sortDirection === "ascending") {
+      nextSortDirection = "default";
+    }
+
     this.setState({
       sortDirection: nextSortDirection,
       sortBy: metric,
     });
+  }
+
+  sortFunction(a, b) {
+    const { sortDirection, sortBy } = this.state;
+    let valA = a.results[sortBy];
+    let valB = b.results[sortBy];
+
+    if (sortDirection === "ascending") {
+      return valA - valB;
+    }
+
+    if (sortDirection === "descending") {
+      return valB - valA;
+    }
+
+    return 0;
   }
 
   renderModel(model) {
@@ -59,6 +86,17 @@ class ModelScoresTable extends React.Component {
     );
   }
 
+  renderSortButton() {
+    const { sortDirection } = this.state;
+    if (sortDirection === "ascending") {
+      return <FaSortUp />;
+    }
+    if (sortDirection === "descending") {
+      return <FaSortDown />;
+    }
+    return <FaSort />;
+  }
+
   render() {
     return (
       <table className="table dataset-details">
@@ -66,7 +104,12 @@ class ModelScoresTable extends React.Component {
           <tr>
             <td>Model</td>
             {this.metrics.map((m) => (
-              <td>{m}</td>
+              <td>
+                {m}
+                <button onClick={() => this.onSort(m)}>
+                  {this.renderSortButton()}
+                </button>
+              </td>
             ))}
             <td>Extra training data</td>
             <td>Model size</td>
@@ -75,7 +118,11 @@ class ModelScoresTable extends React.Component {
             <td>Submitted</td>
           </tr>
         </thead>
-        <tbody>{this.models.map((m) => this.renderModel(m))}</tbody>
+        <tbody>
+          {[...this.models]
+            .sort(this.sortFunction)
+            .map((m) => this.renderModel(m))}
+        </tbody>
       </table>
     );
   }
