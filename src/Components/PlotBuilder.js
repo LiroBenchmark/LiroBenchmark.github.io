@@ -25,15 +25,12 @@ class PlotBuilder extends Component {
     window.removeEventListener('resize', this.onWindowResize);
   }
 
-  buildDataPoints(metric) {
-    return this.dataset.data_points.map((p) => {
-      return {
-        model: p.model,
-        submissionDate: p.submission_date,
-        score: p[metric],
-      };
-    });
-  }
+  buildDataPoints = (metric) =>
+    this.dataset.data_points.map((p) => ({
+      model: p.model,
+      submissionDate: p.submission_date,
+      score: p[metric],
+    }));
 
   onWindowResize() {
     const canvas = this.canvas.current;

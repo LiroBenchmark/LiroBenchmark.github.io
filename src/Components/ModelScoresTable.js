@@ -56,9 +56,9 @@ class ModelScoresTable extends React.Component {
     return (
       <tr>
         <td>{model.model}</td>
-        {this.metrics.map((m) => {
-          return <td>{model.results[m]}</td>;
-        })}
+        {this.metrics.map((m) => (
+          <td>{model.results[m]}</td>
+        ))}
         <td className="td-extra-training-data">{model.extra_training_data ? <CheckIcon /> : <CrossIcon />}</td>
         <td>{model.model_size}</td>
         <td>

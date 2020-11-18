@@ -79,9 +79,7 @@ class ScatterPlot extends Component {
       .style('border-radius', '5px')
       .style('padding', '10px');
 
-    const mouseOver = (evt, data) => {
-      return tooltip.style('opacity', 1).html(`<b>${data.model}</b>: ${yValue(data)}`);
-    };
+    const mouseOver = (evt, data) => tooltip.style('opacity', 1).html(`<b>${data.model}</b>: ${yValue(data)}`);
 
     const mouseMove = (evt) => {
       const leftPos = evt.clientX + 10;
