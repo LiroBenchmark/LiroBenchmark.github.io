@@ -1,17 +1,17 @@
-import React from "react";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
-import UrlBuilder from "./UrlBuilder.js";
-import taskData from "../data/tasks.json";
-import datasetData from "../data/datasets.json";
+import React from 'react';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import UrlBuilder from './UrlBuilder.js';
+import taskData from '../data/tasks.json';
+import datasetData from '../data/datasets.json';
 
 class AppBreadcrumbs extends React.Component {
   constructor(props) {
     super(props);
     this.urlBuilder = new UrlBuilder();
     this.urlMap = {
-      "/about": "About",
-      "/submit": "Submit your model",
-      "/terms": "Terms and Conditions",
+      '/about': 'About',
+      '/submit': 'Submit your model',
+      '/terms': 'Terms and Conditions',
     };
   }
 
@@ -36,7 +36,6 @@ class AppBreadcrumbs extends React.Component {
       const datasetId = this.urlBuilder.getDatasetId(url);
       const dataset = datasetData.datasets.find((d) => d.id === datasetId);
       const task = taskData.tasks.find((t) => t.task_name === dataset.task);
-      console.log(task);
       return this.urlBuilder.buildTaskUrl(task);
     }
 
@@ -47,7 +46,7 @@ class AppBreadcrumbs extends React.Component {
     if (this.urlBuilder.isDatasetUrl(url)) {
       const datasetId = this.urlBuilder.getDatasetId(url);
       const dataset = datasetData.datasets.find((d) => d.id === datasetId);
-      return dataset.dataset_name.replace(` - ${dataset.task}`, "").trim();
+      return dataset.dataset_name.replace(` - ${dataset.task}`, '').trim();
     }
 
     return null;
@@ -62,7 +61,6 @@ class AppBreadcrumbs extends React.Component {
 
   render() {
     const path = window.location.pathname;
-    console.log(this.urlBuilder.isHomeUrl(path));
     if (this.urlBuilder.isHomeUrl(path)) {
       return null;
     }
@@ -70,23 +68,15 @@ class AppBreadcrumbs extends React.Component {
       <>
         <Breadcrumb>
           <Breadcrumb.Item href={UrlBuilder.basePath}>Home</Breadcrumb.Item>
-          {this.urlBuilder.isTaskUrl(path) && (
-            <Breadcrumb.Item active>{this.getTaskName(path)}</Breadcrumb.Item>
-          )}
+          {this.urlBuilder.isTaskUrl(path) && <Breadcrumb.Item active>{this.getTaskName(path)}</Breadcrumb.Item>}
           {this.urlBuilder.isDatasetUrl(path) && (
             <>
-              <Breadcrumb.Item href={this.getTaskUrl(path)}>
-                {this.getTaskName(path)}
-              </Breadcrumb.Item>
-              <Breadcrumb.Item active>
-                {this.getDatasetName(path)}
-              </Breadcrumb.Item>
+              <Breadcrumb.Item href={this.getTaskUrl(path)}>{this.getTaskName(path)}</Breadcrumb.Item>
+              <Breadcrumb.Item active>{this.getDatasetName(path)}</Breadcrumb.Item>
             </>
           )}
           {this.isOtherUrl(path) && (
-            <Breadcrumb.Item active>
-              {this.urlMap[this.urlBuilder.getCanonicalUrl(path)]}
-            </Breadcrumb.Item>
+            <Breadcrumb.Item active>{this.urlMap[this.urlBuilder.getCanonicalUrl(path)]}</Breadcrumb.Item>
           )}
         </Breadcrumb>
       </>

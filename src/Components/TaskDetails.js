@@ -1,8 +1,8 @@
-import React from "react";
-import data from "../data/tasks.json";
-import { CodeIcon } from "../assets/icons";
-import UrlBuilder from "./UrlBuilder";
-import "./TaskDetails.scss";
+import React from 'react';
+import data from '../data/tasks.json';
+import { CodeIcon } from '../assets/icons';
+import UrlBuilder from './UrlBuilder';
+import './TaskDetails.scss';
 
 class TaskDetails extends React.Component {
   constructor(props) {
@@ -19,32 +19,21 @@ class TaskDetails extends React.Component {
           {paper_title}
         </a>
       );
-    } else {
-      return { paper_title };
     }
+    return { paper_title };
   }
+
   renderModelRow(dataset) {
-    const {
-      dataset_name,
-      dataset_id,
-      model_name,
-      paper_title,
-      paper_link,
-      source_link,
-    } = dataset;
+    const { dataset_name, dataset_id, model_name, paper_title, paper_link, source_link } = dataset;
     return (
       <tr key={model_name}>
         <td>
-          {" "}
-          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
-            {dataset_name}
-          </a>
+          {' '}
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{dataset_name}</a>
         </td>
         <td>
-          {" "}
-          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>
-            {model_name}
-          </a>
+          {' '}
+          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>
         </td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
         <td>

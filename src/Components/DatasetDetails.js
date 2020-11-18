@@ -1,10 +1,10 @@
-import React from "react";
-import data from "../data/datasets.json";
-import "./DatasetDetails.scss";
-import UrlBuilder from "./UrlBuilder";
-import PlotBuilder from "./PlotBuilder";
-import ModelScoresTable from "./ModelScoresTable";
-import ReactHtmlParser from "react-html-parser";
+import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import data from '../data/datasets.json';
+import './DatasetDetails.scss';
+import UrlBuilder from './UrlBuilder';
+import PlotBuilder from './PlotBuilder';
+import ModelScoresTable from './ModelScoresTable';
 
 class DatasetDetails extends React.Component {
   constructor(props) {
@@ -18,19 +18,13 @@ class DatasetDetails extends React.Component {
     return (
       <>
         <h3 className="dataset-title">{this.dataset.dataset_name}</h3>
-        <div className="dataset-description">
-          {ReactHtmlParser(this.dataset.dataset_description)}
-        </div>
+        <div className="dataset-description">{ReactHtmlParser(this.dataset.dataset_description)}</div>
         <table className="dataset-info">
           <tbody>
             <tr>
               <th>Source</th>
               <td>
-                <a
-                  href={this.dataset.dataset_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={this.dataset.dataset_link} target="_blank" rel="noopener noreferrer">
                   {this.dataset.dataset_link}
                 </a>
               </td>
@@ -39,11 +33,7 @@ class DatasetDetails extends React.Component {
               <th>License</th>
               <td>
                 {this.dataset.license_url ? (
-                  <a
-                    href={this.dataset.license_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={this.dataset.license_url} target="_blank" rel="noopener noreferrer">
                     {this.dataset.license}
                   </a>
                 ) : (
@@ -54,10 +44,7 @@ class DatasetDetails extends React.Component {
           </tbody>
         </table>
         <PlotBuilder dataset={this.dataset} />
-        <ModelScoresTable
-          models={this.dataset.models}
-          metrics={this.dataset.metrics}
-        />
+        <ModelScoresTable models={this.dataset.models} metrics={this.dataset.metrics} />
       </>
     );
   }

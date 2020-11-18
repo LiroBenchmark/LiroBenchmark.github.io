@@ -16,6 +16,7 @@ class ScatterPlot extends Component {
     const { timeRange, dataPoints, width, height } = this.props;
     this.drawScatterPlot(timeRange, dataPoints, width, height);
   }
+
   drawScatterPlot(xScaleDomain, dataPoints, width, height) {
     const circleRadius = 5;
 
@@ -83,10 +84,12 @@ class ScatterPlot extends Component {
     };
 
     const mouseMove = (evt) => {
-      return tooltip.style('left', evt.clientX + 10 + 'px').style('top', evt.clientY + 'px');
+      const leftPos = evt.clientX + 10;
+      const topPos = evt.clientY;
+      return tooltip.style('left', `${leftPos}px`).style('top', `${topPos}px`);
     };
 
-    const mouseLeave = (d) => tooltip.transition().duration(200).style('opacity', 0);
+    const mouseLeave = () => tooltip.transition().duration(200).style('opacity', 0);
 
     g.selectAll('circle')
       .data(dataPoints)
@@ -106,10 +109,11 @@ class ScatterPlot extends Component {
       .attr('text-anchor', 'middle')
       .text(title);
   }
+
   render() {
     return (
       <>
-        <svg ref={this.svgRef}></svg>
+        <svg ref={this.svgRef} />
       </>
     );
   }

@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-
-import ScatterPlot from "./ScatterPlot";
+import React, { Component } from 'react';
+import ScatterPlot from './ScatterPlot';
 
 class PlotBuilder extends Component {
   constructor(props) {
     super(props);
     this.dataset = props.dataset;
-    this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(
-      this
-    );
+    this.handleSelectedMetricChange = this.handleSelectedMetricChange.bind(this);
     this.canvas = React.createRef();
     this.onWindowResize = this.onWindowResize.bind(this);
     this.state = {
@@ -20,12 +17,12 @@ class PlotBuilder extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.onWindowResize);
+    window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.onWindowResize);
+    window.removeEventListener('resize', this.onWindowResize);
   }
 
   buildDataPoints(metric) {
@@ -37,13 +34,14 @@ class PlotBuilder extends Component {
       };
     });
   }
+
   onWindowResize() {
     const canvas = this.canvas.current;
     const bounds = canvas.getBoundingClientRect();
     this.setState({ width: bounds.width, height: bounds.height });
   }
+
   handleSelectedMetricChange(e) {
-    console.log(`Setting display metric to ${e.target.value}`);
     const metric = e.target.value;
     if (!metric) return;
     this.setState({

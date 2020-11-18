@@ -1,9 +1,7 @@
-import React from "react";
-import "./ModelScoresTable.scss";
-import { CodeIcon } from "../assets/icons";
-import { CheckIcon } from "../assets/icons";
-import { CrossIcon } from "../assets/icons";
-import { FaSortUp, FaSortDown, FaSort } from "react-icons/fa";
+import React from 'react';
+import { FaSortUp, FaSortDown, FaSort } from 'react-icons/fa';
+import './ModelScoresTable.scss';
+import { CodeIcon, CheckIcon, CrossIcon } from '../assets/icons';
 
 class ModelScoresTable extends React.Component {
   constructor(props) {
@@ -11,8 +9,8 @@ class ModelScoresTable extends React.Component {
     this.models = props.models;
     this.metrics = props.metrics;
     this.state = {
-      sortDirection: "default",
-      sortBy: "default",
+      sortDirection: 'default',
+      sortBy: 'default',
     };
 
     this.onSort = this.onSort.bind(this);
@@ -22,14 +20,14 @@ class ModelScoresTable extends React.Component {
   onSort(metric) {
     const { sortDirection } = this.state;
     let nextSortDirection;
-    if (sortDirection === "default") {
-      nextSortDirection = "descending";
+    if (sortDirection === 'default') {
+      nextSortDirection = 'descending';
     }
-    if (sortDirection === "descending") {
-      nextSortDirection = "ascending";
+    if (sortDirection === 'descending') {
+      nextSortDirection = 'ascending';
     }
-    if (sortDirection === "ascending") {
-      nextSortDirection = "default";
+    if (sortDirection === 'ascending') {
+      nextSortDirection = 'default';
     }
 
     this.setState({
@@ -43,11 +41,11 @@ class ModelScoresTable extends React.Component {
     let valA = a.results[sortBy];
     let valB = b.results[sortBy];
 
-    if (sortDirection === "ascending") {
+    if (sortDirection === 'ascending') {
       return valA - valB;
     }
 
-    if (sortDirection === "descending") {
+    if (sortDirection === 'descending') {
       return valB - valA;
     }
 
@@ -61,9 +59,7 @@ class ModelScoresTable extends React.Component {
         {this.metrics.map((m) => {
           return <td>{model.results[m]}</td>;
         })}
-        <td className="td-extra-training-data">
-          {model.extra_training_data ? <CheckIcon /> : <CrossIcon />}
-        </td>
+        <td className="td-extra-training-data">{model.extra_training_data ? <CheckIcon /> : <CrossIcon />}</td>
         <td>{model.model_size}</td>
         <td>
           <a href={model.paper_link} target="_blank" rel="noopener noreferrer">
@@ -72,11 +68,7 @@ class ModelScoresTable extends React.Component {
         </td>
         <td>
           {model.source_link && (
-            <a
-              href={model.source_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={model.source_link} target="_blank" rel="noopener noreferrer">
               <CodeIcon />
             </a>
           )}
@@ -88,10 +80,10 @@ class ModelScoresTable extends React.Component {
 
   renderSortButton() {
     const { sortDirection } = this.state;
-    if (sortDirection === "ascending") {
+    if (sortDirection === 'ascending') {
       return <FaSortUp />;
     }
-    if (sortDirection === "descending") {
+    if (sortDirection === 'descending') {
       return <FaSortDown />;
     }
     return <FaSort />;
@@ -106,7 +98,7 @@ class ModelScoresTable extends React.Component {
             {this.metrics.map((m) => (
               <td>
                 {m}
-                <button onClick={() => this.onSort(m)}>
+                <button type="button" onClick={() => this.onSort(m)}>
                   {this.renderSortButton()}
                 </button>
               </td>
@@ -118,11 +110,7 @@ class ModelScoresTable extends React.Component {
             <td>Submitted</td>
           </tr>
         </thead>
-        <tbody>
-          {[...this.models]
-            .sort(this.sortFunction)
-            .map((m) => this.renderModel(m))}
-        </tbody>
+        <tbody>{[...this.models].sort(this.sortFunction).map((m) => this.renderModel(m))}</tbody>
       </table>
     );
   }
