@@ -52,9 +52,10 @@ class ModelScoresTable extends React.Component {
     return 0;
   }
 
-  renderModel(model) {
+  renderModel(model, rank) {
     return (
       <tr>
+        <td>{rank}</td>
         <td>{model.model}</td>
         {this.metrics.map((m) => (
           <td>{model.results[m]}</td>
@@ -94,6 +95,7 @@ class ModelScoresTable extends React.Component {
       <table className="table dataset-details">
         <thead>
           <tr>
+            <td>Rank</td>
             <td>Model</td>
             {this.metrics.map((m) => (
               <td>
@@ -110,7 +112,7 @@ class ModelScoresTable extends React.Component {
             <td>Submitted</td>
           </tr>
         </thead>
-        <tbody>{[...this.models].sort(this.sortFunction).map((m) => this.renderModel(m))}</tbody>
+        <tbody>{[...this.models].sort(this.sortFunction).map((m, rank) => this.renderModel(m, rank))}</tbody>
       </table>
     );
   }
