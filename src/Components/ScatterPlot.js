@@ -50,7 +50,7 @@ class ScatterPlot extends Component {
     yAxisG
       .append('text')
       .attr('class', 'axis-label')
-      .attr('y', -93)
+      .attr('y', -55)
       .attr('x', -innerHeight / 2)
       .attr('fill', 'black')
       .attr('transform', `rotate(-90)`)
@@ -64,7 +64,7 @@ class ScatterPlot extends Component {
     xAxisG
       .append('text')
       .attr('class', 'axis-label')
-      .attr('y', 75)
+      .attr('y', 50)
       .attr('x', innerWidth / 2)
       .attr('fill', 'black')
       .text(xAxisLabel);
