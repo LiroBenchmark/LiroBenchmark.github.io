@@ -57,7 +57,7 @@ class PlotBuilder extends Component {
             height={this.state.height}
           />
         </div>
-        <div className="input-group">
+        <div id="select-metric-group" className="input-group input-group-sm">
           <div className="input-group-prepend">
             <label className="input-group-text" htmlFor="metrics">
               View scores for:
