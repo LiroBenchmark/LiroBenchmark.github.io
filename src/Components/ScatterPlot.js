@@ -103,7 +103,7 @@ class ScatterPlot extends Component {
     g.append('text')
       .attr('class', 'title')
       .attr('x', innerWidth / 2)
-      .attr('y', -10)
+      .attr('y', -30)
       .attr('text-anchor', 'middle')
       .text(title);
   }
