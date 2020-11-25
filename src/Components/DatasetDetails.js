@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import data from '../data/datasets.json';
 import './DatasetDetails.scss';
 import UrlBuilder from './UrlBuilder';
 import PlotBuilder from './PlotBuilder';
 import ModelScoresTable from './ModelScoresTable';
+import data from '../data/datasets.json';
 
 class DatasetDetails extends React.Component {
   constructor(props) {
@@ -43,6 +43,9 @@ class DatasetDetails extends React.Component {
             </tr>
           </tbody>
         </table>
+        <div className="add-model-link">
+          <a href={UrlBuilder.submitPageUrl}>Add model</a>
+        </div>
         <PlotBuilder dataset={this.dataset} />
         <ModelScoresTable models={this.dataset.models} metrics={this.dataset.metrics} />
       </>
