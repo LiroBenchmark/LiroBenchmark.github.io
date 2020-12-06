@@ -1,13 +1,39 @@
+//@import "~bootstrap/scss/bootstrap";
+
+a {
+    color: rgb(76, 175, 76);
+}
+
+a:hover{
+    color: rgb(76, 175, 76);
+}
+
 .footer{
+    padding: 0 15% 0 15%;
     margin-top: 30px;
     text-align: center;
     padding-top: 10px;
     width: 100%;
     height: 65px;
+    font-family: "Roboto";
+    font-size: 0.9em;
+    .footer-content{
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(40,50,70,0.2);
+        padding: 2em 0 2em 0;
 
-    .footer-links{
-	a{
-	    margin-right: 0.75rem;
-	}
+        .footer-message{
+            width: 45em;
+            color:  rgba(40,50,70,0.5);
+        }
+        .footer-space{
+            width: 100%;
+        }
+
+        .footer-link{
+            width: 10em;
+        }
     }
+
 }

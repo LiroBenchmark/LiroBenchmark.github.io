@@ -10,11 +10,18 @@ class Footer extends React.Component {
 
   render = () => (
     <footer className="footer">
-      Contact us at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>. Follow us on{' '}
-      <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
-      <div className="footer-links">
-        <a href={UrlBuilder.aboutPageUrl}>About</a>
-        <a href={UrlBuilder.termsPageUrl}>Legal</a>
+      <div className="footer-content">
+        <div className="footer-message">
+          Contact us at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>. Follow us on{' '}
+          <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
+        </div>
+        <div className="footer-space"> </div>
+        <div className="footer-link">
+          <a href={UrlBuilder.aboutPageUrl}>About</a>
+        </div>
+        <div className="footer-link">
+          <a href={UrlBuilder.termsPageUrl}>Legal</a>
+        </div>
       </div>
     </footer>
   );
