@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LogoIcon, CodeIcon } from '../assets/icons';
 import '../assets/menu.scss';
 import UrlBuilder from './UrlBuilder';
@@ -23,7 +24,9 @@ const Header = () => (
         <Nav.Link href="/ro_benchmark_leaderboard">Home</Nav.Link>
         <Nav.Link href={UrlBuilder.submitPageUrl}>Submit</Nav.Link>
         <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
-        <Nav.Link href={UrlBuilder.termsPageUrl}>Legal</Nav.Link>
+        <NavDropdown title="Legal" id="nav-dropdown-legal">
+          <Nav.Link href={UrlBuilder.termsAndConditionsPageUrl}>T&C</Nav.Link>
+        </NavDropdown>
         <Nav.Link
           className="code-btn"
           href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
