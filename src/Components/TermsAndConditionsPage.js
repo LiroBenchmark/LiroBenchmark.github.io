@@ -1,7 +1,7 @@
 import React from 'react';
-import './TermsAndConditions.scss';
+import './TermsAndConditionsPage.scss';
 
-const TermsAndConditions = () => (
+const TermsAndConditionsPage = () => (
   <>
     <h1>Terms and conditions</h1>
     <p>
@@ -241,4 +241,4 @@ const TermsAndConditions = () => (
   </>
 );
 
-export default TermsAndConditions;
+export default TermsAndConditionsPage;
