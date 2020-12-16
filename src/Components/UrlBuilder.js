@@ -23,6 +23,10 @@ class UrlBuilder {
     return `${UrlBuilder.basePath}/submit`;
   }
 
+  static get termsAndConditionsPageUrl() {
+    return `${UrlBuilder.basePath}/terms-and-conditions`;
+  }
+
   normalizeUrl(url) {
     return url.toLowerCase();
   }
