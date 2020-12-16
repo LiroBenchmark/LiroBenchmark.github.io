@@ -5,7 +5,6 @@ import UrlBuilder from './UrlBuilder';
 import TaskDetails from './TaskDetails';
 import DatasetDetails from './DatasetDetails';
 import AboutPage from './AboutPage';
-import TermsPage from './TermsPage';
 import SubmitPage from './SubmitPage';
 import TermsAndConditions from './TermsAndConditions';
 
@@ -18,7 +17,6 @@ const Dashboard = (props) => {
       <Route exact path={UrlBuilder.taskUrlTemplate} component={TaskDetails} />
       <Route exact path={UrlBuilder.datasetUrlTemplate} component={DatasetDetails} />
       <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
-      <Route exact path="/terms" component={TermsPage} />
       <Route path="/" component={Homepage} />
     </Switch>
   );
