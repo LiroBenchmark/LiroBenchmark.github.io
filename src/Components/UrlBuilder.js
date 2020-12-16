@@ -15,10 +15,6 @@ class UrlBuilder {
     return `${UrlBuilder.basePath}/about`;
   }
 
-  static get termsPageUrl() {
-    return `${UrlBuilder.basePath}/terms`;
-  }
-
   static get submitPageUrl() {
     return `${UrlBuilder.basePath}/submit`;
   }
