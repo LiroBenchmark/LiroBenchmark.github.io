@@ -7,6 +7,7 @@ import DatasetDetails from './DatasetDetails';
 import AboutPage from './AboutPage';
 import SubmitPage from './SubmitPage';
 import TermsAndConditionsPage from './TermsAndConditionsPage';
+import PrivacyStatementPage from './PrivacyStatementPage';
 
 const Dashboard = (props) => {
   const { location } = props;
@@ -17,6 +18,7 @@ const Dashboard = (props) => {
       <Route exact path={UrlBuilder.taskUrlTemplate} component={TaskDetails} />
       <Route exact path={UrlBuilder.datasetUrlTemplate} component={DatasetDetails} />
       <Route exact path="/terms-and-conditions" component={TermsAndConditionsPage} />
+      <Route exact path="/privacy-statement" component={PrivacyStatementPage} />
       <Route path="/" component={Homepage} />
     </Switch>
   );
