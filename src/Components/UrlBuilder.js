@@ -23,6 +23,10 @@ class UrlBuilder {
     return `${UrlBuilder.basePath}/terms-and-conditions`;
   }
 
+  static get privacyStatementPageUrl() {
+    return `${UrlBuilder.basePath}/privacy-statement`;
+  }
+
   normalizeUrl(url) {
     return url.toLowerCase();
   }
