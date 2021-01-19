@@ -26,6 +26,7 @@ const Header = () => (
         <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
         <NavDropdown title="Legal" id="nav-dropdown-legal">
           <Nav.Link href={UrlBuilder.termsAndConditionsPageUrl}>Terms & Conditions</Nav.Link>
+          <Nav.Link href={UrlBuilder.privacyStatementPageUrl}>Privacy statement</Nav.Link>
         </NavDropdown>
         <Nav.Link
           className="code-btn"
