@@ -20,7 +20,10 @@ class Footer extends React.Component {
           <a href={UrlBuilder.aboutPageUrl}>About</a>
         </div>
         <div className="footer-link">
-          <a href={UrlBuilder.termsPageUrl}>Legal</a>
+          <a href={UrlBuilder.termsAndConditionsPageUrl}>Terms &amp; Conditions</a>
+        </div>
+        <div className="footer-link">
+          <a href={UrlBuilder.privacyStatementPageUrl}>Privacy statement</a>
         </div>
       </div>
     </footer>
