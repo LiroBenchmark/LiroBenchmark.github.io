@@ -134,13 +134,23 @@ class ChartDataBuilder(object):
         """
         current_month = datetime.date.today().replace(day=1)
         min_date = min(dates) if len(dates) > 0 else current_month
-        year = min_date.year - 1 if min_date.month == 1 else min_date.year
-        min_date = min_date.replace(year=year, month=min_date.month - 1)
+        if min_date.month == 1:
+            year = min_date.year - 1
+            month = 12
+        else:
+            year = min_date.year
+            month = min_date.month - 1
+        min_date = min_date.replace(year=year, month=month)
         dates.add(min_date)
 
         max_date = max(dates) if len(dates) > 0 else current_month
-        year = max_date.year + 1 if max_date.month == 12 else max_date.year
-        dates.add(max_date.replace(year=year, month=max_date.month + 1))
+        if max_date.month == 12:
+            year = max_date.year + 1
+            month = 1
+        else:
+            year = max_date.year
+            month = max_date.month + 1
+        dates.add(max_date.replace(year=year, month=month))
 
     def _accumulate_dates(self, accumulator, model):
         """Adds the submission date of the model to the accumulator
