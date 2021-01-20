@@ -58,13 +58,13 @@ jobs:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}},
         SSH_PUBLIC_KEY: ${{secrets.DEPLOY_AGENT_PUBLIC_KEY}}
       run: |
-        echo $SSH_PUBLIC_KEY > id_ed25519.pub
-        chmod 400 id_ed25519.pub
-        echo $SSH_PRIVATE_KEY > id_ed25519
-        chmod 400 id_ed25519
+        echo $SSH_PUBLIC_KEY > id_rsa.pub
+        chmod 400 id_rsa.pub
+        echo $SSH_PRIVATE_KEY > id_rsa
+        chmod 400 id_rsa
         eval $(ssh-agent -s)
         echo SSH agent started
-        ssh-add ./id_ed25519
+        ssh-add ./id_rsa
         ssh -T git@github.com
     - name: Checkout master
       uses: actions/checkout@v2
