@@ -54,9 +54,16 @@ jobs:
     - name: Setup node.js
       uses: actions/setup-node@v2.1.2
     - name: Setup SSH auth
+      env:
+        SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}},
+        SSH_PUBLIC_KEY: ${{secrets.DEPLOY_AGENT_PUBLIC_KEY}}
       run: |
+        echo $SSH_PUBLIC_KEY > id_ed25519.pub
+        echo $SSH_PRIVATE_KEY > id_ed25519
         eval $(ssh-agent -s)
         echo SSH agent started
+        ssh-add ./id_ed25519
+        ssh -T git@github.com
     - name: Checkout master
       uses: actions/checkout@v2
     - name: Install npm dependencies
