@@ -28,9 +28,9 @@
             "task_description": "Tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. The list of tokens becomes input for further processing such as parsing or text mining.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-tokenization",
-                    "dataset_name": "UD Romanian RRT Treebank - Tokenization",
-                    "metric": "F1",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-tokenization",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 - Tokenization",
+                    "metric": "Tokens F1",
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
@@ -45,9 +45,9 @@
             "task_description": "Sentence segmentation is the task of splitting a sentence into its component phrases.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-sentence-segmentation",
-                    "dataset_name": "UD Romanian RRT Treebank - Sentence Segmentation",
-                    "metric": "F1",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-sentence-segmentation",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 - Sentence Segmentation",
+                    "metric": "Sentences F1",
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
@@ -62,9 +62,9 @@
             "task_description": "Lemmatization is the process of identifying the lemma of a given word or sequence of words.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-lemmatization",
-                    "dataset_name": "UD Romanian RRT Treebank - Lemmatization",
-                    "metric": "F1",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-lemmatization",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 - Lemmatization",
+                    "metric": "Lemma F1",
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
@@ -79,9 +79,9 @@
             "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-part-of-speech-tagging",
-                    "dataset_name": "UD Romanian RRT Treebank - Part of Speech Tagging",
-                    "metric": "F1",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-part-of-speech-tagging",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 - Part of Speech Tagging",
+                    "metric": "UPOS F1",
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
@@ -96,9 +96,9 @@
             "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-dependency-parsing",
-                    "dataset_name": "UD Romanian RRT Treebank - Dependency Parsing",
-                    "metric": "UAS",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-dependency-parsing",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 - Dependency Parsing",
+                    "metric": "UAS F1",
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",

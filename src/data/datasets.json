@@ -2,28 +2,28 @@
     "datasets": [
         {
             "task": "NER",
-            "id": "ronec-romanian-named-entity-corpus-v1",
-            "dataset_name": "RONEC - Romanian Named Entity Corpus v1",
+            "id": "ronec-romanian-named-entity-corpus-v1-0",
+            "dataset_name": "RONEC - Romanian Named Entity Corpus v1.0",
             "dataset_description": "Version 1.0 of this free corpus holds 5127 sentences, annotated with 16 classes, with a total of 26376 annotated entities. The corpus comes into two formats: BRAT and CONLLUP, both are text formats for easy access.<br><br>\nFor evaluation metrics please see <a href=\"http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/\">http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/</a>. Please report F1, Precision and Recall.\n",
             "dataset_link": "https://github.com/dumitrescustefan/ronec",
-            "preferred_metric": "F1",
+            "preferred_metric": "Exact Match F1",
             "license": "MIT",
             "license_url": "",
             "models": [],
             "metrics": [],
             "time_range": [
-                "Nov '20",
-                "Dec '20"
+                "Dec '20",
+                "Jan '21"
             ],
             "data_points": []
         },
         {
             "task": "Tokenization",
-            "id": "ud-romanian-rrt-treebank-tokenization",
-            "dataset_name": "UD Romanian RRT Treebank - Tokenization",
+            "id": "ud-romanian-rrt-treebank-v2-5-tokenization",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 - Tokenization",
             "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>tokenization</b>. Your submitted system should start with the raw text file and output a CoNLL-U file. Please report only the <b>Word Segmentation</b> F1, Precision and Recall scores.",
             "dataset_link": "https://universaldependencies.org/",
-            "preferred_metric": "F1",
+            "preferred_metric": "Tokens F1",
             "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "models": [
@@ -36,7 +36,7 @@
                     "submission_date": "2018-10",
                     "model_size": "",
                     "results": {
-                        "F1": 99.74
+                        "Tokens F1": 99.74
                     }
                 },
                 {
@@ -48,12 +48,12 @@
                     "submission_date": "2019-04",
                     "model_size": "",
                     "results": {
-                        "F1": 99.71
+                        "Tokens F1": 99.71
                     }
                 }
             ],
             "metrics": [
-                "F1"
+                "Tokens F1"
             ],
             "time_range": [
                 "Sep '18",
@@ -65,23 +65,23 @@
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
                     "submission_date": "Oct '18",
-                    "F1": 99.74
+                    "Tokens F1": 99.74
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
                     "submission_date": "Apr '19",
-                    "F1": 99.71
+                    "Tokens F1": 99.71
                 }
             ]
         },
         {
             "task": "Sentence Segmentation",
-            "id": "ud-romanian-rrt-treebank-sentence-segmentation",
-            "dataset_name": "UD Romanian RRT Treebank - Sentence Segmentation",
+            "id": "ud-romanian-rrt-treebank-v2-5-sentence-segmentation",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 - Sentence Segmentation",
             "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>sentence segmentation</b>.  Your submitted system should start with the raw text file and output a CoNLL-U file. Please report only the <b>sentence segmentation</b> F1, Precision and Recall scores.",
             "dataset_link": "https://universaldependencies.org/",
-            "preferred_metric": "F1",
-            "license": "CC BY-SA 4.1",
+            "preferred_metric": "Sentences F1",
+            "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "models": [
                 {
@@ -93,7 +93,7 @@
                     "submission_date": "2018-10",
                     "model_size": "",
                     "results": {
-                        "F1": 95.56
+                        "Sentences F1": 95.56
                     }
                 },
                 {
@@ -105,12 +105,12 @@
                     "submission_date": "2019-04",
                     "model_size": "",
                     "results": {
-                        "F1": 95.42
+                        "Sentences F1": 95.42
                     }
                 }
             ],
             "metrics": [
-                "F1"
+                "Sentences F1"
             ],
             "time_range": [
                 "Sep '18",
@@ -122,23 +122,23 @@
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
                     "submission_date": "Oct '18",
-                    "F1": 95.56
+                    "Sentences F1": 95.56
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
                     "submission_date": "Apr '19",
-                    "F1": 95.42
+                    "Sentences F1": 95.42
                 }
             ]
         },
         {
             "task": "Lemmatization",
-            "id": "ud-romanian-rrt-treebank-lemmatization",
-            "dataset_name": "UD Romanian RRT Treebank - Lemmatization",
+            "id": "ud-romanian-rrt-treebank-v2-5-lemmatization",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 - Lemmatization",
             "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>lemmatization</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the lemma column filled in. All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
             "dataset_link": "https://universaldependencies.org/",
-            "preferred_metric": "F1",
-            "license": "CC BY-SA 4.2",
+            "preferred_metric": "Lemma F1",
+            "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "models": [
                 {
@@ -150,7 +150,7 @@
                     "submission_date": "2018-10",
                     "model_size": "",
                     "results": {
-                        "F1": 96.91
+                        "Lemma F1": 96.91
                     }
                 },
                 {
@@ -162,12 +162,12 @@
                     "submission_date": "2019-04",
                     "model_size": "",
                     "results": {
-                        "F1": 96.57
+                        "Lemma F1": 96.57
                     }
                 }
             ],
             "metrics": [
-                "F1"
+                "Lemma F1"
             ],
             "time_range": [
                 "Sep '18",
@@ -179,23 +179,23 @@
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
                     "submission_date": "Oct '18",
-                    "F1": 96.91
+                    "Lemma F1": 96.91
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
                     "submission_date": "Apr '19",
-                    "F1": 96.57
+                    "Lemma F1": 96.57
                 }
             ]
         },
         {
             "task": "POS Tagging",
-            "id": "ud-romanian-rrt-treebank-part-of-speech-tagging",
-            "dataset_name": "UD Romanian RRT Treebank - Part of Speech Tagging",
+            "id": "ud-romanian-rrt-treebank-v2-5-part-of-speech-tagging",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 - Part of Speech Tagging",
             "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>part-of-speech tagging</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the UPOS column filled in. All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
             "dataset_link": "https://universaldependencies.org/",
-            "preferred_metric": "F1",
-            "license": "CC BY-SA 4.3",
+            "preferred_metric": "UPOS F1",
+            "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "models": [
                 {
@@ -207,7 +207,7 @@
                     "submission_date": "2018-10",
                     "model_size": "",
                     "results": {
-                        "F1": 97.42
+                        "UPOS F1": 97.42
                     }
                 },
                 {
@@ -219,7 +219,7 @@
                     "submission_date": "2019-04",
                     "model_size": "",
                     "results": {
-                        "F1": 96.96
+                        "UPOS F1": 96.96
                     }
                 },
                 {
@@ -231,12 +231,12 @@
                     "submission_date": "2020-05",
                     "model_size": "",
                     "results": {
-                        "F1": 98.18
+                        "UPOS F1": 98.18
                     }
                 }
             ],
             "metrics": [
-                "F1"
+                "UPOS F1"
             ],
             "time_range": [
                 "Sep '18",
@@ -249,28 +249,28 @@
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
                     "submission_date": "Oct '18",
-                    "F1": 97.42
+                    "UPOS F1": 97.42
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
                     "submission_date": "Apr '19",
-                    "F1": 96.96
+                    "UPOS F1": 96.96
                 },
                 {
                     "model": "Romanian BERT Baseline (bert-base-romanian-uncased-v1)",
                     "submission_date": "May '20",
-                    "F1": 98.18
+                    "UPOS F1": 98.18
                 }
             ]
         },
         {
             "task": "Dependency Parsing",
-            "id": "ud-romanian-rrt-treebank-dependency-parsing",
-            "dataset_name": "UD Romanian RRT Treebank - Dependency Parsing",
+            "id": "ud-romanian-rrt-treebank-v2-5-dependency-parsing",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 - Dependency Parsing",
             "dataset_description": "Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. UD is an open community effort with over 300 contributors producing more than 150 treebanks in 90 languages.<br>\nHere we are focusing on the Romanian <b>RRT Treebank</b> which contains a train, validation and test file with annotations including tokenization, sentence segmentation, part-of-speech, lemmatization and dependencies parsing. <br>\nFor more details regarding the CoNLL-U format please see <a href=\"https://universaldependencies.org/format.html\">https://universaldependencies.org/format.html</a>.<br>\nFor evaluation please generate a CoNLL-U format text file and evaluate it with the python script avaliable <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>.<br><br>\n\nPlease note that the UD Romanian RRT Treebank contains several subtasks in a single file. Here, we are interested only in <b>dependency parsing</b>. Your submitted system should start with the CoNLL-U test file to ensure gold word tokenization and sentence segmentation and output a CoNLL-U file, with the appropriate columns filled in (head and deps). All other fields can be left empty (marked with the '_' underline). If your system performs end-to-end processing (i.e. starts from raw text, segments sentences, tokenizes, etc, up to the current task, please mark it as such by appending to its name <b>[end-to-end]</b>).\n\nPlease report only F1, Precision and Recall scores.",
             "dataset_link": "https://universaldependencies.org/",
-            "preferred_metric": "UAS",
-            "license": "CC BY-SA 4.4",
+            "preferred_metric": "UAS F1",
+            "license": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "models": [
                 {
@@ -282,8 +282,8 @@
                     "submission_date": "2018-10",
                     "model_size": "",
                     "results": {
-                        "UAS": 90.38,
-                        "LAS": 85.23
+                        "UAS F1": 90.38,
+                        "LAS F1": 85.23
                     }
                 },
                 {
@@ -295,14 +295,14 @@
                     "submission_date": "2019-04",
                     "model_size": "",
                     "results": {
-                        "UAS": 90.14,
-                        "LAS": 85.06
+                        "UAS F1": 90.14,
+                        "LAS F1": 85.06
                     }
                 }
             ],
             "metrics": [
-                "UAS",
-                "LAS"
+                "UAS F1",
+                "LAS F1"
             ],
             "time_range": [
                 "Sep '18",
@@ -314,14 +314,14 @@
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
                     "submission_date": "Oct '18",
-                    "UAS": 90.38,
-                    "LAS": 85.23
+                    "UAS F1": 90.38,
+                    "LAS F1": 85.23
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
                     "submission_date": "Apr '19",
-                    "UAS": 90.14,
-                    "LAS": 85.06
+                    "UAS F1": 90.14,
+                    "LAS F1": 85.06
                 }
             ]
         }
