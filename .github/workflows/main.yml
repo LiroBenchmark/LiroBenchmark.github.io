@@ -51,25 +51,25 @@ jobs:
     runs-on: ubuntu-18.04 
     needs: [build]
     steps:
-    - name: Setup node.js
-      uses: actions/setup-node@v2.1.2
+    #- name: Setup node.js
+    #  uses: actions/setup-node@v2.1.2
     - name: Setup SSH auth
       env:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}},
         SSH_PUBLIC_KEY: ${{secrets.DEPLOY_AGENT_PUBLIC_KEY}}
       run: |
-        echo $SSH_PUBLIC_KEY > id_rsa.pub
-        chmod 400 id_rsa.pub
-        echo $SSH_PRIVATE_KEY > id_rsa
-        chmod 400 id_rsa
-        tail -1 id_rsa.pub
-        # eval $(ssh-agent -s)
-        # echo SSH agent started
-        # ssh-add ./id_rsa
-        # ssh -T git@github.com
-    - name: Checkout master
-      uses: actions/checkout@v2
-    - name: Install npm dependencies
-      run: npm install
+        mkdir -p ~/.ssh
+        echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
+        chmod 700 ~/.ssh/id_rsa.pub
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 700 ~/.ssh/id_rsa
+        eval $(ssh-agent -s)
+        echo SSH agent started
+        ssh-add ~/.ssh/id_rsa
+        ssh -T git@github.com
+    #- name: Checkout master
+    #  uses: actions/checkout@v2
+    #- name: Install npm dependencies
+    #  run: npm install
     - name: Deploy
       run: echo Deploy steps here
