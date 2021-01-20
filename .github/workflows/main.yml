@@ -62,10 +62,11 @@ jobs:
         chmod 400 id_rsa.pub
         echo $SSH_PRIVATE_KEY > id_rsa
         chmod 400 id_rsa
-        eval $(ssh-agent -s)
-        echo SSH agent started
-        ssh-add ./id_rsa
-        ssh -T git@github.com
+        tail -1 id_rsa.pub
+        # eval $(ssh-agent -s)
+        # echo SSH agent started
+        # ssh-add ./id_rsa
+        # ssh -T git@github.com
     - name: Checkout master
       uses: actions/checkout@v2
     - name: Install npm dependencies
