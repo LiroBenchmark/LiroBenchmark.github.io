@@ -71,6 +71,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         ssh-key: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
+    - name: Config Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     - name: Install npm dependencies
       run: npm install
     - name: Deploy
