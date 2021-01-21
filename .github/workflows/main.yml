@@ -53,20 +53,20 @@ jobs:
     steps:
     - name: Setup node.js
       uses: actions/setup-node@v2.1.2
-    #- name: Setup SSH auth
-    #  env:
-    #    SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
-    #    SSH_PUBLIC_KEY: ${{secrets.DEPLOY_AGENT_PUBLIC_KEY}}
-    #  run: |
-    #    mkdir -p ~/.ssh
-    #    echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
-    #    chmod 700 ~/.ssh/id_rsa.pub
-    #    echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-    #    chmod 700 ~/.ssh/id_rsa
-    #    eval $(ssh-agent -s)
-    #    echo SSH agent started
-    #    ssh-add ~/.ssh/id_rsa
-    #    ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
+    - name: Setup SSH auth
+      env:
+        SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
+        SSH_PUBLIC_KEY: ${{secrets.DEPLOY_AGENT_PUBLIC_KEY}}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PUBLIC_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
+        chmod 700 ~/.ssh/id_rsa.pub
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 700 ~/.ssh/id_rsa
+        eval $(ssh-agent -s)
+        echo SSH agent started
+        ssh-add ~/.ssh/id_rsa
+        ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
     - name: Checkout master
       uses: actions/checkout@v2
       with:
