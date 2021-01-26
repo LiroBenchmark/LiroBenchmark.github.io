@@ -42,7 +42,7 @@ const AboutPage = () => (
     <h1>Team</h1>
     <ul>
       <li>Adriana Stan, Associate Professor (Technical University of Cluj-Napoca)</li>
-      <li>Andrei Marius, (Politehnica University of Bucharest)</li>
+      <li>Andrei-Marius Avram, MSc student (Politehnica University of Bucharest)</li>
       <li>Andrei Pruteanu, NLP Independent Researcher</li>
       <li>Beáta Lőrincz, PhD student (”Babeș-Bolyai” University, Technical University of Cluj-Napoca)</li>
       <li>Cristina Victoria Iacobescu, Attorney-at-law, Reff & Associates (member of Deloitte Legal)</li>
