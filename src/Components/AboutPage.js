@@ -42,12 +42,16 @@ const AboutPage = () => (
     <h1>Team</h1>
     <ul>
       <li>Adriana Stan, Associate Professor (Technical University of Cluj-Napoca)</li>
+      <li>Andrei Marius, (Politehnica University of Bucharest)</li>
+      <li>Andrei Pruteanu, (SenseTask)</li>
       <li>Beáta Lőrincz, PhD student (”Babeș-Bolyai” University, Technical University of Cluj-Napoca)</li>
       <li>Cristina Victoria Iacobescu, Attorney-at-law, Reff & Associates (member of Deloitte Legal)</li>
+      <li>Gabriel Marchidan, (Feel IT Services, AIRomania)</li>
       <li>George-Andrei Dima, MSc student (Politehnica University of Bucharest)</li>
       <li>Lorena Roșia, Attorney-at-law, Reff & Associates (member of Deloitte Legal)</li>
       <li>Luciana Morogan, Associate Professor (Military Technical Academy Ferdinand Bucharest)</li>
       <li>Madalina Chitez, Researcher (West University of Timisoara, CODHUS Research Centre)</li>
+      <li>Mihai Ilie, (Politehnica University of Bucharest)</li>
       <li>Petru Rebeja, PhD student (Alexandru Ioan Cuza University of Iași, AIRomania)</li>
       <li>Radu Tudor Ionescu (University of Bucharest)</li>
       <li>Razvan Pascanu, Research Scientist (DeepMind, EEML, AIRomania)</li>
