@@ -43,7 +43,7 @@ const AboutPage = () => (
     <ul>
       <li>Adriana Stan, Associate Professor (Technical University of Cluj-Napoca)</li>
       <li>Andrei Marius, (Politehnica University of Bucharest)</li>
-      <li>Andrei Pruteanu, (SenseTask)</li>
+      <li>Andrei Pruteanu, NLP Independent Researcher</li>
       <li>Beáta Lőrincz, PhD student (”Babeș-Bolyai” University, Technical University of Cluj-Napoca)</li>
       <li>Cristina Victoria Iacobescu, Attorney-at-law, Reff & Associates (member of Deloitte Legal)</li>
       <li>Gabriel Marchidan, (Feel IT Services, AIRomania)</li>
