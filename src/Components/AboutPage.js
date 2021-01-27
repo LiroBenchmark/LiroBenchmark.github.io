@@ -51,7 +51,7 @@ const AboutPage = () => (
       <li>Lorena Roșia, Attorney-at-law, Reff & Associates (member of Deloitte Legal)</li>
       <li>Luciana Morogan, Associate Professor (Military Technical Academy Ferdinand Bucharest)</li>
       <li>Madalina Chitez, Researcher (West University of Timisoara, CODHUS Research Centre)</li>
-      <li>Mihai Ilie, (Politehnica University of Bucharest)</li>
+      <li>Mihai Ilie, NLP Independent Researcher</li>
       <li>Petru Rebeja, PhD student (Alexandru Ioan Cuza University of Iași, AIRomania)</li>
       <li>Radu Tudor Ionescu (University of Bucharest)</li>
       <li>Razvan Pascanu, Research Scientist (DeepMind, EEML, AIRomania)</li>
