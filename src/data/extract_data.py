@@ -7,6 +7,8 @@ import logging
 from argparse import ArgumentParser
 import datetime
 import functools
+import markdown as md
+from pathlib import PurePath
 
 
 def build_id_string(name):
@@ -195,7 +197,11 @@ class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
     """
-    def __init__(self, datasets, results, leaderboard):
+    def __init__(self,
+                 datasets,
+                 results,
+                 leaderboard,
+                 description_files_dir='../../datasets/'):
         """Creates a new instance of DatasetsDetailsBuilder.
 
         Parameters
@@ -207,11 +213,14 @@ class DatasetsDetailsBuilder(object):
             The dataframe containing model scores.
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
+        description_files_dir: str, optional
+            The directory containing dataset description files in markdown format.
         """
         super(DatasetsDetailsBuilder, self).__init__()
         self.datasets = datasets
         self.results = results
         self.leaderboard = leaderboard
+        self.description_files_dir = description_files_dir
 
     def build_dataset_details(self):
         """Builds the details of datasets in the format required for front-end.
@@ -328,11 +337,29 @@ class DatasetsDetailsBuilder(object):
         dict
             The dataset object as a dictionary.
         """
+        dataset_id = build_id_string(row['DATASET NAME'])
+        logging.info("Building dataset {}.".format(dataset_id))
+        if not row['DATASET DESCRIPTION FILE']:
+            logging.warning(
+                "The dataset {} does not have a description file.".format(
+                    dataset_id))
+            logging.info(
+                "Reading dataset description from 'DATASET DESCRIPTION' column."
+            )
+            description = row['DATASET DESCRIPTION']
+        else:
+            description_file = PurePath(self.description_files_dir,
+                                        row['DATASET DESCRIPTION FILE'])
+            logging.info("Reading dataset description from {}.".format(
+                str(description_file)))
+            with open(str(description_file), 'r') as f:
+                text = f.read()
+                description = md.markdown(text)
         return {
             "task": row['TASK'],
-            "id": build_id_string(row['DATASET NAME']),
+            "id": dataset_id,
             "dataset_name": row['DATASET NAME'],
-            "dataset_description": row['DATASET DESCRIPTION'],
+            "dataset_description": description,
             "dataset_link": row['DATASET LINK'],
             "preferred_metric": row['PREFERRED METRIC'],
             "license": row['LICENSE'] if row['LICENSE'] else "Not specified",
@@ -600,6 +627,11 @@ def parse_arguments():
     parser.add_argument('--metrics-sheet',
                         help="The name of the metrics sheet.",
                         default="METRICS")
+    parser.add_argument(
+        '--dataset-descriptions-dir',
+        help=
+        "The directory containing markdown files with dataset descriptions",
+        default='../../datasets/')
     return parser.parse_args()
 
 
