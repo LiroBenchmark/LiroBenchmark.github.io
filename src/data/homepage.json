@@ -74,6 +74,22 @@
                         "dataset_count": 0,
                         "submission_count": 0
                     }
+                },
+                {
+                    "id": "question-answering",
+                    "name": "Question Answering",
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
+                },
+                {
+                    "id": "sentiment-analysis",
+                    "name": "Sentiment Analysis",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 0
+                    }
                 }
             ]
         }
