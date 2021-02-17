@@ -197,11 +197,7 @@ class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
     """
-    def __init__(self,
-                 datasets,
-                 results,
-                 leaderboard,
-                 description_files_root='../../datasets/'):
+    def __init__(self, datasets, results, leaderboard, description_files_root):
         """Creates a new instance of DatasetsDetailsBuilder.
 
         Parameters
@@ -213,7 +209,7 @@ class DatasetsDetailsBuilder(object):
             The dataframe containing model scores.
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
-        description_files_root: str, optional
+        description_files_root: str
             The directory containing dataset description files in markdown format.
         """
         super(DatasetsDetailsBuilder, self).__init__()
@@ -576,7 +572,8 @@ def run(args):
     metrics = read_excel(args.excel_file, args.metrics_sheet)
 
     logging.info("Building dataset details...")
-    ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard)
+    ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard,
+                                        args.dataset_descriptions_root)
     datasets_json = {"datasets": ds_builder.build_dataset_details()}
 
     logging.info("Building task details...")
