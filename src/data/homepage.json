@@ -7,7 +7,7 @@
                     "id": "text-classification",
                     "name": "Text Classification",
                     "summary": {
-                        "dataset_count": 0,
+                        "dataset_count": 1,
                         "submission_count": 0
                     }
                 },
