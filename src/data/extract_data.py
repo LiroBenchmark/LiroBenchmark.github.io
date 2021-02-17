@@ -201,7 +201,7 @@ class DatasetsDetailsBuilder(object):
                  datasets,
                  results,
                  leaderboard,
-                 description_files_dir='../../datasets/'):
+                 description_files_root='../../datasets/'):
         """Creates a new instance of DatasetsDetailsBuilder.
 
         Parameters
@@ -213,14 +213,14 @@ class DatasetsDetailsBuilder(object):
             The dataframe containing model scores.
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
-        description_files_dir: str, optional
+        description_files_root: str, optional
             The directory containing dataset description files in markdown format.
         """
         super(DatasetsDetailsBuilder, self).__init__()
         self.datasets = datasets
         self.results = results
         self.leaderboard = leaderboard
-        self.description_files_dir = description_files_dir
+        self.description_files_root = description_files_root
 
     def build_dataset_details(self):
         """Builds the details of datasets in the format required for front-end.
@@ -348,7 +348,7 @@ class DatasetsDetailsBuilder(object):
             )
             description = row['DATASET DESCRIPTION']
         else:
-            description_file = PurePath(self.description_files_dir,
+            description_file = PurePath(self.description_files_root,
                                         row['DATASET DESCRIPTION FILE'])
             logging.info("Reading dataset description from {}.".format(
                 str(description_file)))
@@ -628,7 +628,7 @@ def parse_arguments():
                         help="The name of the metrics sheet.",
                         default="METRICS")
     parser.add_argument(
-        '--dataset-descriptions-dir',
+        '--dataset-descriptions-root',
         help=
         "The directory containing markdown files with dataset descriptions",
         default='../../datasets/')
