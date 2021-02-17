@@ -71,6 +71,32 @@ def save_json(data, file_name, encoding="utf8", indent=4):
         json.dump(data, f, indent=indent)
 
 
+def parse_description_file(directory, file_name, description_type):
+    """Parses the contents of the descriptions file and returns contents as a HTML string.
+
+    Parameters
+    ----------
+    directory: str
+        The directory containing description files.
+    file_name: str
+        The name of the description file within the directory above.
+    description_type: str
+        The type of description (dataset or task); used for logging.
+
+    Returns
+    -------
+    description: str
+        The description as a HTML string.
+    """
+    description_file = PurePath(directory, file_name)
+    logging.info("Reading {} description from {}.".format(
+        description_type, str(description_file)))
+    with open(str(description_file), 'r') as f:
+        text = f.read()
+        description = md.markdown(text)
+        return description
+
+
 class ChartDataBuilder(object):
     """Builds the data for displaying dataset results in a chart.
 
@@ -344,13 +370,9 @@ class DatasetsDetailsBuilder(object):
             )
             description = row['DATASET DESCRIPTION']
         else:
-            description_file = PurePath(self.description_files_root,
-                                        row['DATASET DESCRIPTION FILE'])
-            logging.info("Reading dataset description from {}.".format(
-                str(description_file)))
-            with open(str(description_file), 'r') as f:
-                text = f.read()
-                description = md.markdown(text)
+            description = parse_description_file(
+                self.description_files_root, row['DATASET DESCRIPTION FILE'],
+                'dataset')
         return {
             "task": row['TASK'],
             "id": dataset_id,
