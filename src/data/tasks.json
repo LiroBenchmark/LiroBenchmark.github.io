@@ -112,6 +112,20 @@
             "task_name": "Language Modeling",
             "task_description": "Language modeling is the task of predicting the next word or character in a document.",
             "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "question-answering",
+            "task_name": "Question Answering",
+            "task_description": "read description from md",
+            "datasets": []
+        },
+        {
+            "area": "NLP",
+            "id": "sentiment-analysis",
+            "task_name": "Sentiment Analysis",
+            "task_description": "read description from md",
+            "datasets": []
         }
     ]
 }
