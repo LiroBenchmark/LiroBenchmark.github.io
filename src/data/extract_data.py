@@ -390,7 +390,8 @@ class TasksDetailsBuilder(object):
     """Builds task details.
 
     """
-    def __init__(self, tasks, datasets, results, metrics, leaderboard):
+    def __init__(self, tasks, datasets, results, metrics, leaderboard,
+                 description_files_root):
         """Creates a new instance of TasksDetailsBuilder.
 
         Parameters
@@ -406,6 +407,8 @@ class TasksDetailsBuilder(object):
             The dataframe containing metrics.
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
+        description_files_root: str
+            The directory containing task description files in markdown format.        
         """
         super(TasksDetailsBuilder, self).__init__()
         self.tasks = tasks
@@ -413,6 +416,7 @@ class TasksDetailsBuilder(object):
         self.results = results
         self.metrics = metrics
         self.leaderboard = leaderboard
+        self.description_files_root = description_files_root
 
     def build_task_details(self):
         """Builds the details of tasks in the format required for front-end.
@@ -422,13 +426,29 @@ class TasksDetailsBuilder(object):
         list
             The list of tasks and their details.
         """
-        return [{
-            "area": row['AREA'],
-            "id": build_id_string(row['NAME']),
-            "task_name": row['NAME'],
-            "task_description": row['DESCRIPTION'],
-            "datasets": self._build_task_datasets(row['NAME'])
-        } for _, row in self.tasks.iterrows()]
+        tasks = []
+        for _, row in self.tasks.iterrows():
+            task_id = build_id_string(row['NAME'])
+            logging.info("Building task {}.".format(task_id))
+            has_description_file = ('DESCRIPTION FILE'
+                                    in row.keys()) and row['DESCRIPTION FILE']
+            if has_description_file:
+                description = parse_description_file(
+                    self.description_files_root, row['DESCRIPTION FILE'],
+                    'task')
+            else:
+                logging.info(
+                    "Reading task description from 'DESCRIPTION' column.")
+                description = row['DESCRIPTION']
+
+            tasks.append({
+                "area": row['AREA'],
+                "id": task_id,
+                "task_name": row['NAME'],
+                "task_description": description,
+                "datasets": self._build_task_datasets(row['NAME'])
+            })
+        return tasks
 
     def _build_task_datasets(self, task_name):
         """Builds the list of the datasets for current task with their best model.
@@ -600,7 +620,7 @@ def run(args):
 
     logging.info("Building task details...")
     t_builder = TasksDetailsBuilder(tasks, datasets, results, metrics,
-                                    leaderboard)
+                                    leaderboard, args.task_descriptions_root)
     tasks_json = {"tasks": t_builder.build_task_details()}
 
     logging.info("Building area details...")
@@ -651,6 +671,10 @@ def parse_arguments():
         help=
         "The directory containing markdown files with dataset descriptions",
         default='../../datasets/')
+    parser.add_argument(
+        '--task-descriptions-root',
+        help="The directory containing markdown files with task descriptions",
+        default='../../tasks/')
     return parser.parse_args()
 
 
