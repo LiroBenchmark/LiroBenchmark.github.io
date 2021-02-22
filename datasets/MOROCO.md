@@ -30,13 +30,13 @@ If you use this dataset in a published work, please cite the following:
 
 or in .bibtex format:
 
->   @inproceedings{butnaru-ionescu-2019-moroco,
->   title = "{MOROCO}: The {M}oldavian and {R}omanian Dialectal Corpus",
->   author = "Butnaru, Andrei and Ionescu, Radu Tudor",
->   booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
->   month = jul,
->   year = "2019",
->   url = "https://www.aclweb.org/anthology/P19-1068",
->   doi = "10.18653/v1/P19-1068",
->   pages = "688--698"
->   }
+>     @inproceedings{butnaru-ionescu-2019-moroco,
+>     title = "{MOROCO}: The {M}oldavian and {R}omanian Dialectal Corpus",
+>     author = "Butnaru, Andrei and Ionescu, Radu Tudor",
+>     booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+>     month = jul,
+>     year = "2019",
+>     url = "https://www.aclweb.org/anthology/P19-1068",
+>     doi = "10.18653/v1/P19-1068",
+>     pages = "688--698"
+>     }
