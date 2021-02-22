@@ -14,21 +14,24 @@ The reported metric is the **Macro-averaged F1 score**.
 
 ### Starter code:
 
-The following script loads the data samples into memory: 
+The following script loads the data samples into memory:
+
 [https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
 
 With minor changes, the following script can be used for the evaluation: 
+
 [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
 
 ### Citation:
 
 If you use this dataset in a published work, please cite the following:
 
-> Andrei M. Butnaru, Radu Tudor Ionescu. MOROCO: The Moldavian and Romanian Dialectal Corpus. In Proceedings of ACL, 2019. [Read the fulll paper](https://www.aclweb.org/anthology/P19-1068/)
+> Andrei M. Butnaru, Radu Tudor Ionescu. MOROCO: The Moldavian and Romanian Dialectal Corpus. In Proceedings of ACL, pp. 688–698, 2019. [Read the fulll paper](https://www.aclweb.org/anthology/P19-1068/)
 
 or in .bibtex format:
 
 >   @inproceedings{butnaru-ionescu-2019-moroco,
+>   
 >   title = "{MOROCO}: The {M}oldavian and {R}omanian Dialectal Corpus",
 >   author = "Butnaru, Andrei and Ionescu, Radu Tudor",
 >   booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
