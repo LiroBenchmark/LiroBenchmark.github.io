@@ -1,37 +1,38 @@
 ### Description:
 
-RONEC, the ROmanian Named Entity Corpus, holds in its 1.0 version a number of 5127 sentences, annotated with 16 classes, having in total 26376 annotated entities.
+MOROCO, the Moldavian and Romanian Dialectal Corpus, contains Moldavian and Romanian samples of text collected from the news domain. The samples belong to one of the following six topics: culture, finance, politics, science, sports, tech. The data set is divided into three subsets: training (21719 samples), validation (5921 samples), test (5924 samples).
 
 ### Input, Output and Metrics:
 
-Given the train & validation sets, the target is to maximize the F1 score on the test set.
+Given the train & validation sets, the target is to maximize the macro-averaged F1 score on the test set.
 
-Please see this [resource](http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/) to understand more about NER evaluation.
-
-Metric reported is the **Exact Match F1 score**.
+Metric reported is the **Macro-averaged F1 score**.
 
 ### Download from:
 
-[https://github.com/dumitrescustefan/ronec](https://github.com/dumitrescustefan/ronec)
+[https://github.com/butnaruandrei/MOROCO](https://github.com/butnaruandrei/MOROCO)
 
 ### Starter code:
 
-Not yet available, please download directly from source.
+The following script loads the data samples into memory: [https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
+
+The following script can be used for the evaluation: [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
 
 ### Citation:
 
 If you use this dataset in a published work, please cite the following:
 
-
-> Dumitrescu, Stefan Daniel, and Andrei-Marius Avram. "Introducing RONEC--the Romanian Named Entity Corpus." arXiv preprint arXiv:1909.01247 (2019).
-
+> Andrei M. Butnaru, Radu Tudor Ionescu. MOROCO: The Moldavian and Romanian Dialectal Corpus. In Proceedings of ACL, 2019. [Read the fulll paper](https://www.aclweb.org/anthology/P19-1068/)
 
 or in .bibtex format:
 
-
->     @article{dumitrescu2019introducing,   
->       title={Introducing RONEC--the Romanian Named Entity Corpus},   
->       author={Dumitrescu, Stefan Daniel and Avram, Andrei-Marius},   
->       journal={arXiv preprint arXiv:1909.01247},   
->       year={2019}   
->     }
+>   @inproceedings{butnaru-ionescu-2019-moroco,
+>   title = "{MOROCO}: The {M}oldavian and {R}omanian Dialectal Corpus",
+>   author = "Butnaru, Andrei and Ionescu, Radu Tudor",
+>   booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+>   month = jul,
+>   year = "2019",
+>   url = "https://www.aclweb.org/anthology/P19-1068",
+>   doi = "10.18653/v1/P19-1068",
+>   pages = "688--698",
+>   }
