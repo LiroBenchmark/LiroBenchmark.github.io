@@ -14,9 +14,11 @@ The reported metric is the **Macro-averaged F1 score**.
 
 ### Starter code:
 
-The following script loads the data samples into memory: [https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
+The following script loads the data samples into memory: 
+[https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
 
-With minor changes, the following script can be used for the evaluation: [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
+With minor changes, the following script can be used for the evaluation: 
+[https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
 
 ### Citation:
 
