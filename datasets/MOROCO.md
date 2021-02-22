@@ -38,5 +38,5 @@ or in .bibtex format:
 >   year = "2019",
 >   url = "https://www.aclweb.org/anthology/P19-1068",
 >   doi = "10.18653/v1/P19-1068",
->   pages = "688--698",
+>   pages = "688--698"
 >   }
