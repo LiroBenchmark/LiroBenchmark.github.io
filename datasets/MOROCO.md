@@ -4,9 +4,9 @@ MOROCO, the Moldavian and Romanian Dialectal Corpus, contains Moldavian and Roma
 
 ### Input, Output and Metrics:
 
-Given the train & validation sets, the target is to maximize the macro-averaged F1 score on the test set.
+Given the training and validation sets, the target is to maximize the macro-averaged F1 score on the test set.
 
-Metric reported is the **Macro-averaged F1 score**.
+The reported metric is the **Macro-averaged F1 score**.
 
 ### Download from:
 
