@@ -4,7 +4,7 @@ MOROCO, the Moldavian and Romanian Dialectal Corpus, contains Moldavian and Roma
 
 ### Input, Output and Metrics:
 
-Given the training and validation sets, the target is to maximize the macro-averaged F1 score on the test set.
+The task is to classify each news article into one of the six classes. Given the training and validation sets, the target is to maximize the macro-averaged F1 score on the test set. 
 
 The reported metric is the **Macro-averaged F1 score**.
 
@@ -16,7 +16,7 @@ The reported metric is the **Macro-averaged F1 score**.
 
 The following script loads the data samples into memory: [https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
 
-The following script can be used for the evaluation: [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
+With minor changes, the following script can be used for the evaluation: [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
 
 ### Citation:
 
