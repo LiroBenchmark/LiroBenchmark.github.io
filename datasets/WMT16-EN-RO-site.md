@@ -1,18 +1,18 @@
 ### Description:
 
-RONEC, the ROmanian Named Entity Corpus, holds in its 1.0 version a number of 5127 sentences, annotated with 16 classes, having in total 26376 annotated entities.
+Workshop on Machine Translation (WMT) is a conference that builds on a series of annual workshops and conferences on 
+statistical machine translation, going back to 2006. In the year 2016, a dataset for Romanian-English translation was proposed,
+containing approximately 614k of parallel sentences taken from Europarl and SETTIMES2.
 
 ### Input, Output and Metrics:
 
-Given the train & validation sets, the target is to maximize the F1 score on the test set.
+Given the train & validation sets, the target is to maximize the BLEU score on the test set.
 
-Please see this [resource](http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/) to understand more about NER evaluation.
-
-Metric reported is the **Exact Match F1 score**.
+The reported metric is the **BLEU score**.
 
 ### Download from:
 
-[https://github.com/dumitrescustefan/ronec](https://github.com/dumitrescustefan/ronec)
+[https://www.statmt.org/wmt16/translation-task.html](https://www.statmt.org/wmt16/translation-task.html)
 
 ### Starter code:
 
@@ -23,15 +23,15 @@ Not yet available, please download directly from source.
 If you use this dataset in a published work, please cite the following:
 
 
-> Dumitrescu, Stefan Daniel, and Andrei-Marius Avram. "Introducing RONEC--the Romanian Named Entity Corpus." arXiv preprint arXiv:1909.01247 (2019).
+> Bojar, Ondřej, Rajen Chatterjee, Christian Federmann, Yvette Graham, Barry Haddow, Matthias Huck, Antonio Jimeno Yepes et al. "Findings of the 2016 conference on machine translation." In Proceedings of the First Conference on Machine Translation: Volume 2, Shared Task Papers, pp. 131-198. 2016.
 
 
 or in .bibtex format:
 
-
->     @article{dumitrescu2019introducing,   
->       title={Introducing RONEC--the Romanian Named Entity Corpus},   
->       author={Dumitrescu, Stefan Daniel and Avram, Andrei-Marius},   
->       journal={arXiv preprint arXiv:1909.01247},   
->       year={2019}   
+>     @inproceedings{bojar2016findings,
+>       title={Findings of the 2016 conference on machine translation},
+>       author={Bojar, Ond{\v{r}}ej and Chatterjee, Rajen and Federmann, Christian and Graham, Yvette and Haddow, Barry and Huck, Matthias and Yepes, Antonio Jimeno and Koehn, Philipp and Logacheva, Varvara and Monz, Christof and others},
+>       booktitle={Proceedings of the First Conference on Machine Translation: Volume 2, Shared Task Papers},
+>       pages={131--198},
+>       year={2016}
 >     }
