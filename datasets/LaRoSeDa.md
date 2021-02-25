@@ -23,7 +23,7 @@ The following script loads the data samples into memory:
 If you use this dataset in a published work, please cite the following:
 
 
-> Anca Maria Tache, Mihaela Gaman, Radu Tudor Ionescu. "Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa - A Large Romanian Sentiment Data Set". arXiv preprint arXiv:2101.04197, 2021. [Read the fulll paper](https://arxiv.org/abs/2101.04197).
+> Anca Maria Tache, Mihaela Gaman, Radu Tudor Ionescu. "Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa - A Large Romanian Sentiment Data Set". arXiv preprint arXiv:2101.04197, 2021. [Read the full paper](https://arxiv.org/abs/2101.04197).
 
 
 or in .bibtex format:
