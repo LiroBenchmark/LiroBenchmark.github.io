@@ -5,14 +5,34 @@
             "id": "text-classification",
             "task_name": "Text Classification",
             "task_description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "moroco",
+                    "dataset_name": "MOROCO",
+                    "metric": "F1",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": ""
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "ner",
             "task_name": "NER",
             "task_description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ronec-romanian-named-entity-corpus-v1-0",
+                    "dataset_name": "RONEC - Romanian Named Entity Corpus v1.0",
+                    "metric": "Exact Match F1",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": ""
+                }
+            ]
         },
         {
             "area": "NLP",
@@ -125,7 +145,17 @@
             "id": "sentiment-analysis",
             "task_name": "Sentiment Analysis",
             "task_description": "read description from md",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "laroseda",
+                    "dataset_name": "LaRoSeDa",
+                    "metric": "F1",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": ""
+                }
+            ]
         }
     ]
 }
