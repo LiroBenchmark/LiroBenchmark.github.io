@@ -408,7 +408,7 @@ class TasksDetailsBuilder(object):
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
         description_files_root: str
-            The directory containing task description files in markdown format.        
+            The directory containing task description files in markdown format.
         """
         super(TasksDetailsBuilder, self).__init__()
         self.tasks = tasks
@@ -473,9 +473,11 @@ class TasksDetailsBuilder(object):
                 logging.warning(
                     "No best model found for dataset '{}' and metric '{}'.".
                     format(dataset, pref_metric))
-                continue
-            paper_title, paper_link, source_link = self._get_model_properties(
-                model)
+                paper_title, paper_link, source_link = '', '', ''
+                model = ''
+            else:
+                paper_title, paper_link, source_link = self._get_model_properties(
+                    model)
             datasets.append({
                 "dataset_id": build_id_string(dataset),
                 "dataset_name": dataset,
