@@ -27,23 +27,35 @@ class TaskDetails extends React.Component {
     return { paper_title };
   }
 
+  renderModelName(model_name, dataset_id) {
+    if (!model_name) {
+      return '';
+    }
+
+    return <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>;
+  }
+
+  renderSourceLink(source_link) {
+    if (!source_link) {
+      return '';
+    }
+    return (
+      <a href={source_link} target="_blank" rel="noopener noreferrer">
+        <CodeIcon />
+      </a>
+    );
+  }
+
   renderModelRow(dataset) {
     const { dataset_name, dataset_id, model_name, paper_title, paper_link, source_link } = dataset;
     return (
       <tr key={model_name}>
         <td>
-          {' '}
           <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{dataset_name}</a>
         </td>
-        <td>{model_name && <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>}</td>
+        <td>{this.renderModelName(model_name, dataset_id)}</td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
-        <td>
-          {source_link && (
-            <a href={source_link} target="_blank" rel="noopener noreferrer">
-              <CodeIcon />
-            </a>
-          )}
-        </td>
+        <td>{this.renderSourceLink(source_link)}</td>
       </tr>
     );
   }
