@@ -13,6 +13,10 @@ class TaskDetails extends React.Component {
   }
 
   renderPaper(paper_link, paper_title) {
+    if (!paper_title) {
+      return '';
+    }
+
     if (paper_link) {
       return (
         <a href={paper_link} target="_blank" rel="noopener noreferrer">
@@ -31,10 +35,7 @@ class TaskDetails extends React.Component {
           {' '}
           <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{dataset_name}</a>
         </td>
-        <td>
-          {' '}
-          <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>
-        </td>
+        <td>{model_name && <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>}</td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
         <td>
           {source_link && (
