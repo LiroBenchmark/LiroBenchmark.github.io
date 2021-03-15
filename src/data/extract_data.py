@@ -11,6 +11,19 @@ import markdown as md
 from pathlib import PurePath
 
 
+class DatasetColumns:
+    """Defines column name constants for DATASETS sheet from input file.
+    """
+    Task = 'TASK'
+    DatasetName = 'DATASET NAME'
+    DatasetLink = 'DATASET LINK'
+    PreferredMetric = 'PREFERRED METRIC'
+    License = 'LICENSE'
+    LicenseURL = 'LICENSE URL'
+    DescriptionFile = 'DATASET DESCRIPTION FILE'
+    Description = 'DATASET DESCRIPTION'
+
+
 def build_id_string(name):
     """Builds an URL-friendly id from the name
 
@@ -359,29 +372,31 @@ class DatasetsDetailsBuilder(object):
         dict
             The dataset object as a dictionary.
         """
-        dataset_id = build_id_string(row['DATASET NAME'])
+        dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
-        if not row['DATASET DESCRIPTION FILE']:
+        if not row[DatasetColumns.DescriptionFile]:
             logging.warning(
                 "The dataset {} does not have a description file.".format(
                     dataset_id))
             logging.info(
-                "Reading dataset description from 'DATASET DESCRIPTION' column."
-            )
-            description = row['DATASET DESCRIPTION']
+                "Reading dataset description from '{}' column.".format(
+                    DatasetColumns.Description))
+            description = row[DatasetColumns.Description]
         else:
             description = parse_description_file(
-                self.description_files_root, row['DATASET DESCRIPTION FILE'],
-                'dataset')
+                self.description_files_root,
+                row[DatasetColumns.DescriptionFile], 'dataset')
+        license = row[DatasetColumns.License] if row[
+            DatasetColumns.License] else "Not specified"
         return {
-            "task": row['TASK'],
+            "task": row[DatasetColumns.Task],
             "id": dataset_id,
-            "dataset_name": row['DATASET NAME'],
+            "dataset_name": row[DatasetColumns.DatasetName],
             "dataset_description": description,
-            "dataset_link": row['DATASET LINK'],
-            "preferred_metric": row['PREFERRED METRIC'],
-            "license": row['LICENSE'] if row['LICENSE'] else "Not specified",
-            "license_url": row['LICENSE URL'],
+            "dataset_link": row[DatasetColumns.DatasetLink],
+            "preferred_metric": row[DatasetColumns.PreferredMetric],
+            "license": license,
+            "license_url": row[DatasetColumns.LicenseURL],
             "models": []
         }
 
@@ -464,10 +479,10 @@ class TasksDetailsBuilder(object):
             The list of datasets for current task.
         """
         datasets = []
-        df = self.datasets[self.datasets['TASK'] == task_name]
+        df = self.datasets[self.datasets[DatasetColumns.Task] == task_name]
         for _, row in df.iterrows():
-            dataset = row['DATASET NAME']
-            pref_metric = row['PREFERRED METRIC']
+            dataset = row[DatasetColumns.DatasetName]
+            pref_metric = row[DatasetColumns.PreferredMetric]
             model = self._get_best_model(dataset, pref_metric)
             if not model:
                 logging.warning(
@@ -595,14 +610,14 @@ class AreasDetailsBuilder(object):
         dict
             The number of datasets for this task and sumbission count.
         """
-        datasets = self.datasets[self.datasets['TASK'] == task]
+        datasets = self.datasets[self.datasets[DatasetColumns.Task] == task]
         results = pd.merge(datasets,
                            self.results,
                            how='inner',
-                           left_on='DATASET NAME',
+                           left_on=DatasetColumns.DatasetName,
                            right_on='DATASET')
         return {
-            "dataset_count": int(datasets['DATASET NAME'].count()),
+            "dataset_count": int(datasets[DatasetColumns.DatasetName].count()),
             "submission_count": int(results['MODEL'].nunique())
         }
 
