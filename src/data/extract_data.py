@@ -20,7 +20,7 @@ class DatasetColumns:
     PreferredMetric = 'PREFERRED METRIC'
     License = 'LICENSE'
     LicenseURL = 'LICENSE URL'
-    DescriptionFile = 'DATASET DESCRIPTION FILE'
+    ShortDescription = 'SHORT DESCRIPTION FILE'
 
 
 class ResultsColumns:
@@ -418,7 +418,7 @@ class DatasetsDetailsBuilder(object):
         """
         dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
-        if not row[DatasetColumns.DescriptionFile]:
+        if not row[DatasetColumns.ShortDescription]:
             logging.warning(
                 "The dataset {} does not have a description file.".format(
                     dataset_id))
@@ -426,7 +426,7 @@ class DatasetsDetailsBuilder(object):
         else:
             description = parse_description_file(
                 self.description_files_root,
-                row[DatasetColumns.DescriptionFile], 'dataset')
+                row[DatasetColumns.ShortDescription], 'dataset')
         license = row[DatasetColumns.License] if row[
             DatasetColumns.License] else "Not specified"
         return {
