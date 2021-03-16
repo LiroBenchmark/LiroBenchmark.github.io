@@ -33,6 +33,15 @@ class ResultsColumns:
     Value = 'VALUE'
 
 
+class TasksColumns:
+    """Defines column name constants for TASKS sheet from input file.
+    """
+    Area = 'AREA'
+    Name = 'NAME'
+    Description = 'DESCRIPTION'
+    DescriptionFile = 'DESCRIPTION FILE'
+
+
 def build_id_string(name):
     """Builds an URL-friendly id from the name
 
@@ -452,25 +461,27 @@ class TasksDetailsBuilder(object):
         """
         tasks = []
         for _, row in self.tasks.iterrows():
-            task_id = build_id_string(row['NAME'])
+            task_id = build_id_string(row[TasksColumns.Name])
             logging.info("Building task {}.".format(task_id))
-            has_description_file = ('DESCRIPTION FILE'
-                                    in row.keys()) and row['DESCRIPTION FILE']
+            has_description_file = (TasksColumns.DescriptionFile in row.keys()
+                                    ) and row[TasksColumns.DescriptionFile]
             if has_description_file:
                 description = parse_description_file(
-                    self.description_files_root, row['DESCRIPTION FILE'],
-                    'task')
+                    self.description_files_root,
+                    row[TasksColumns.DescriptionFile], 'task')
             else:
                 logging.info(
-                    "Reading task description from 'DESCRIPTION' column.")
-                description = row['DESCRIPTION']
+                    "Reading task description from '{}' column.".format(
+                        TasksColumns.Description))
+                description = row[TasksColumns.Description]
 
+            datasets = self._build_task_datasets(row[TasksColumns.Name])
             tasks.append({
-                "area": row['AREA'],
+                "area": row[TasksColumns.Area],
                 "id": task_id,
-                "task_name": row['NAME'],
+                "task_name": row[TasksColumns.Name],
                 "task_description": description,
-                "datasets": self._build_task_datasets(row['NAME'])
+                "datasets": datasets
             })
         return tasks
 
@@ -590,12 +601,15 @@ class AreasDetailsBuilder(object):
         list
             The list of areas and their associated tasks.
         """
-        task_details = [{
-            "area": row['AREA'],
-            "id": build_id_string(row['NAME']),
-            "name": row['NAME'],
-            "summary": self._build_task_summary(row['NAME'])
-        } for _, row in self.tasks.iterrows()]
+        task_details = []
+        for _, row in self.tasks.iterrows():
+            summary = self._build_task_summary(row[TasksColumns.Name])
+            task_details.append({
+                "area": row[TasksColumns.Area],
+                "id": build_id_string(row[TasksColumns.Name]),
+                "name": row[TasksColumns.Name],
+                "summary": summary
+            })
 
         result = []
         for area, tasks in groupby(task_details, lambda t: t["area"]):
