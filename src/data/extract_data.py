@@ -21,6 +21,7 @@ class DatasetColumns:
     License = 'LICENSE'
     LicenseURL = 'LICENSE URL'
     ShortDescription = 'SHORT DESCRIPTION FILE'
+    LongDescription = 'LONG DESCRIPTION FILE'
 
 
 class ResultsColumns:
@@ -422,11 +423,13 @@ class DatasetsDetailsBuilder(object):
         dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
 
-        description = parse_description_file(
-            self.description_files_root, row[DatasetColumns.ShortDescription],
-            'dataset')
-        if not description:
-            message = "Could not parse short description for dataset {}."
+        description = self._get_dataset_description(
+            row, DatasetColumns.ShortDescription)
+        dataset_info = self._get_dataset_description(
+            row, DatasetColumns.LongDescription)
+        if not dataset_info:
+            message = "Could not parse long description for dataset {}."
+            logging.warning(message.format(dataset_id))
 
         license = row[DatasetColumns.License] if row[
             DatasetColumns.License] else "Not specified"
@@ -435,12 +438,38 @@ class DatasetsDetailsBuilder(object):
             "id": dataset_id,
             "dataset_name": row[DatasetColumns.DatasetName],
             "dataset_description": description,
+            "dataset_info": dataset_info,
             "dataset_link": row[DatasetColumns.DatasetLink],
             "preferred_metric": row[DatasetColumns.PreferredMetric],
             "license": license,
             "license_url": row[DatasetColumns.LicenseURL],
             "models": []
         }
+
+    def _get_dataset_description(self, row, column):
+        """Loads the descripton for the dataset from the description file.
+
+        Parameters
+        ----------
+        row: pandas.Series
+            The series containing dataset properties.
+        column: str
+            The name of the description column.
+
+        Returns
+        -------
+        description: str
+            The dataset description if available or an empty string.
+        """
+        dataset_id = build_id_string(row[DatasetColumns.DatasetName])
+        description = parse_description_file(self.description_files_root,
+                                             row[column], 'dataset')
+        if not description:
+            message = "Could not parse {} description for dataset {}."
+            desc_type = 'short' if column == DatasetColumns.ShortDescription else 'long'
+            logging.warning(message.format(dataset_id, desc_type))
+
+        return description
 
 
 class TasksDetailsBuilder(object):
