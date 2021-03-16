@@ -421,15 +421,13 @@ class DatasetsDetailsBuilder(object):
         """
         dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
-        if not row[DatasetColumns.ShortDescription]:
-            logging.warning(
-                "The dataset {} does not have a description file.".format(
-                    dataset_id))
-            description = ''
-        else:
-            description = parse_description_file(
-                self.description_files_root,
-                row[DatasetColumns.ShortDescription], 'dataset')
+
+        description = parse_description_file(
+            self.description_files_root, row[DatasetColumns.ShortDescription],
+            'dataset')
+        if not description:
+            message = "Could not parse short description for dataset {}."
+
         license = row[DatasetColumns.License] if row[
             DatasetColumns.License] else "Not specified"
         return {
