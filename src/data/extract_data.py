@@ -21,7 +21,6 @@ class DatasetColumns:
     License = 'LICENSE'
     LicenseURL = 'LICENSE URL'
     DescriptionFile = 'DATASET DESCRIPTION FILE'
-    Description = 'DATASET DESCRIPTION'
 
 
 class ResultsColumns:
@@ -423,10 +422,7 @@ class DatasetsDetailsBuilder(object):
             logging.warning(
                 "The dataset {} does not have a description file.".format(
                     dataset_id))
-            logging.info(
-                "Reading dataset description from '{}' column.".format(
-                    DatasetColumns.Description))
-            description = row[DatasetColumns.Description]
+            description = ''
         else:
             description = parse_description_file(
                 self.description_files_root,
