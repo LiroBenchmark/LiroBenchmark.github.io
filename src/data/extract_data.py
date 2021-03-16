@@ -24,6 +24,15 @@ class DatasetColumns:
     Description = 'DATASET DESCRIPTION'
 
 
+class ResultsColumns:
+    """Defines column name constants for RESULTS sheet from input file.
+    """
+    Model = 'MODEL'
+    Dataset = 'DATASET'
+    Metric = 'METRIC'
+    Value = 'VALUE'
+
+
 def build_id_string(name):
     """Builds an URL-friendly id from the name
 
@@ -290,8 +299,8 @@ class DatasetsDetailsBuilder(object):
         list of objects
             The list of models with their data.
         """
-        df = self.results[self.results['DATASET'] == dataset_name]
-        models = list(df['MODEL'].unique())
+        df = self.results[self.results[ResultsColumns.Dataset] == dataset_name]
+        models = list(df[ResultsColumns.Model].unique())
         results = []
         for model in models:
             leaderboard = self.leaderboard
@@ -301,7 +310,7 @@ class DatasetsDetailsBuilder(object):
                 err = "No rows in leaderboard for model '{}' and dataset '{}'"
                 raise AssertionError(err.format(model, dataset_name))
             model_info = model_info.iloc[0]
-            model_results = df[df['MODEL'] == model]
+            model_results = df[df[ResultsColumns.Model] == model]
             model_size = model_info['MODEL SIZE']
             if model_size:
                 model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
@@ -314,7 +323,7 @@ class DatasetsDetailsBuilder(object):
                 "submission_date": self._build_submission_date(model_info),
                 "model_size": model_size,
                 "results": {
-                    row['METRIC']: row['VALUE']
+                    row[ResultsColumns.Metric]: row[ResultsColumns.Value]
                     for _, row in model_results.iterrows()
                 }
             }
@@ -355,8 +364,8 @@ class DatasetsDetailsBuilder(object):
         list of str
             The metrics of the dataset.
         """
-        df = self.results[self.results['DATASET'] == dataset_name]
-        metrics = list(df['METRIC'].unique())
+        df = self.results[self.results[ResultsColumns.Dataset] == dataset_name]
+        metrics = list(df[ResultsColumns.Metric].unique())
         return metrics
 
     def _build_dataset(self, row):
@@ -537,16 +546,17 @@ class TasksDetailsBuilder(object):
             The name of the best model.
         """
         results = self.results
-        results = results[(results['DATASET'] == dataset)
-                          & (results['METRIC'] == metric)]
+        results = results[(results[ResultsColumns.Dataset] == dataset)
+                          & (results[ResultsColumns.Metric] == metric)]
         metric = self.metrics[self.metrics['METRICS'] == metric]
         metric = metric.iloc[0]
         metric_type = metric['TYPE']
         sort_ascending = True if "high" in metric_type.lower() else False
-        results = results.sort_values(by='VALUE', ascending=sort_ascending)
+        results = results.sort_values(by=ResultsColumns.Value,
+                                      ascending=sort_ascending)
         if results.empty:
             return None
-        model = results.iloc[0]['MODEL']
+        model = results.iloc[0][ResultsColumns.Model]
         return model
 
 
@@ -615,10 +625,10 @@ class AreasDetailsBuilder(object):
                            self.results,
                            how='inner',
                            left_on=DatasetColumns.DatasetName,
-                           right_on='DATASET')
+                           right_on=ResultsColumns.Dataset)
         return {
             "dataset_count": int(datasets[DatasetColumns.DatasetName].count()),
-            "submission_count": int(results['MODEL'].nunique())
+            "submission_count": int(results[ResultsColumns.Model].nunique())
         }
 
 
