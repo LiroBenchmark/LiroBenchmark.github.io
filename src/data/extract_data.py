@@ -56,6 +56,15 @@ class LeaderboardColumns:
     ModelSize = 'MODEL SIZE'
 
 
+class MetricsColumns:
+    """Defines column name constants for METRICS sheet from input file.
+    """
+    Name = 'METRICS'
+    Type = 'TYPE'
+    Range = 'RANGE'
+    Description = 'DESCRIPTION'
+
+
 def build_id_string(name):
     """Builds an URL-friendly id from the name
 
@@ -579,9 +588,9 @@ class TasksDetailsBuilder(object):
         results = self.results
         results = results[(results[ResultsColumns.Dataset] == dataset)
                           & (results[ResultsColumns.Metric] == metric)]
-        metric = self.metrics[self.metrics['METRICS'] == metric]
+        metric = self.metrics[self.metrics[MetricsColumns.Name] == metric]
         metric = metric.iloc[0]
-        metric_type = metric['TYPE']
+        metric_type = metric[MetricsColumns.Type]
         sort_ascending = True if "high" in metric_type.lower() else False
         results = results.sort_values(by=ResultsColumns.Value,
                                       ascending=sort_ascending)
