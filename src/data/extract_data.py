@@ -42,6 +42,20 @@ class TasksColumns:
     DescriptionFile = 'DESCRIPTION FILE'
 
 
+class LeaderboardColumns:
+    """Defines column name constants for LEADERBOARD sheet from input file.
+    """
+    Dataset = 'DATASET'
+    ModelName = 'MODEL NAME'
+    PaperTitle = 'PAPER TITLE'
+    PaperLink = 'PAPER LINK'
+    SourceLink = 'SOURCE LINK'
+    ExtraTrainingData = 'EXTRA TRAINING DATA'
+    DateMonth = 'DATE MONTH'
+    DateYear = 'DATE YEAR'
+    ModelSize = 'MODEL SIZE'
+
+
 def build_id_string(name):
     """Builds an URL-friendly id from the name
 
@@ -313,22 +327,25 @@ class DatasetsDetailsBuilder(object):
         results = []
         for model in models:
             leaderboard = self.leaderboard
-            model_info = leaderboard[(leaderboard['MODEL NAME'] == model) &
-                                     (leaderboard['DATASET'] == dataset_name)]
+            model_info = leaderboard[
+                (leaderboard[LeaderboardColumns.ModelName] == model)
+                & (leaderboard[LeaderboardColumns.Dataset] == dataset_name)]
             if model_info.empty:
                 err = "No rows in leaderboard for model '{}' and dataset '{}'"
                 raise AssertionError(err.format(model, dataset_name))
             model_info = model_info.iloc[0]
             model_results = df[df[ResultsColumns.Model] == model]
-            model_size = model_info['MODEL SIZE']
+            model_size = model_info[LeaderboardColumns.ModelSize]
             if model_size:
                 model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
+            extra_training_data = bool(
+                model_info[LeaderboardColumns.ExtraTrainingData])
             item = {
                 "model": model,
-                "extra_training_data": bool(model_info['EXTRA TRAINING DATA']),
-                "paper_title": model_info['PAPER TITLE'],
-                "paper_link": model_info['PAPER LINK'],
-                "source_link": model_info['SOURCE LINK'],
+                "extra_training_data": extra_training_data,
+                "paper_title": model_info[LeaderboardColumns.PaperTitle],
+                "paper_link": model_info[LeaderboardColumns.PaperLink],
+                "source_link": model_info[LeaderboardColumns.SourceLink],
                 "submission_date": self._build_submission_date(model_info),
                 "model_size": model_size,
                 "results": {
@@ -353,8 +370,9 @@ class DatasetsDetailsBuilder(object):
         string
             The year and month of the submission.
         """
-        date = datetime.date(int(model['DATE YEAR']), int(model['DATE MONTH']),
-                             1)
+        month = int(model[LeaderboardColumns.DateMonth])
+        year = int(model[LeaderboardColumns.DateYear])
+        date = datetime.date(year, month, 1)
         return date.strftime("%Y-%m")
 
     def _get_dataset_metrics(self, dataset_name):
@@ -537,9 +555,11 @@ class TasksDetailsBuilder(object):
         (paper_title:string, paper_link:string, source_link:string)
             The properties of the model.
         """
-        props = self.leaderboard[self.leaderboard['MODEL NAME'] ==
-                                 model].iloc[0]
-        return props['PAPER TITLE'], props['PAPER LINK'], props['SOURCE LINK']
+        props = self.leaderboard[self.leaderboard[LeaderboardColumns.ModelName]
+                                 == model].iloc[0]
+        return (props[LeaderboardColumns.PaperTitle],
+                props[LeaderboardColumns.PaperLink],
+                props[LeaderboardColumns.SourceLink])
 
     def _get_best_model(self, dataset, metric):
         """Finds the best model for the specified dataset and metric.
