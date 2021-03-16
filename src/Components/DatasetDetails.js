@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import { Collapse } from 'react-collapse';
+import { FcCollapse, FcExpand } from 'react-icons/all';
 import './DatasetDetails.scss';
 import UrlBuilder from './UrlBuilder';
 import PlotBuilder from './PlotBuilder';
@@ -12,6 +14,30 @@ class DatasetDetails extends React.Component {
     this.datasetId = props.match.params.id;
     this.dataset = data.datasets.find((ds) => ds.id === this.datasetId);
     this.urlBuilder = new UrlBuilder();
+    this.state = { infoVisible: false };
+
+    this.toggleDatasetInfo = this.toggleDatasetInfo.bind(this);
+  }
+
+  toggleDatasetInfo() {
+    const { infoVisible } = this.state;
+    this.setState({ infoVisible: !infoVisible });
+  }
+
+  renderMoreInfoText() {
+    const { infoVisible } = this.state;
+    if (!infoVisible) {
+      return (
+        <span>
+          More details <FcExpand />
+        </span>
+      );
+    }
+    return (
+      <span>
+        Hide details <FcCollapse />
+      </span>
+    );
   }
 
   render() {
@@ -43,6 +69,15 @@ class DatasetDetails extends React.Component {
             </tr>
           </tbody>
         </table>
+        <div>
+          <div onClick={this.toggleDatasetInfo} className="collapse-trigger">
+            {this.renderMoreInfoText()}
+          </div>
+
+          <Collapse isOpened={this.state.infoVisible}>
+            <div>{ReactHtmlParser(this.dataset.dataset_info)}</div>
+          </Collapse>
+        </div>
         <div className="add-model-link">
           <a href={UrlBuilder.submitPageUrl}>Add model</a>
         </div>
