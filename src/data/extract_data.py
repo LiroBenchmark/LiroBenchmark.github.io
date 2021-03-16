@@ -140,7 +140,10 @@ def parse_description_file(directory, file_name, description_type):
     -------
     description: str
         The description as a HTML string.
+        If `file_name` is `None` or empty, returns empty string.
     """
+    if not file_name:
+        return ''
     description_file = PurePath(directory, file_name)
     logging.info("Reading {} description from {}.".format(
         description_type, str(description_file)))
