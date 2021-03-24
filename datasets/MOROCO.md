@@ -1,10 +1,6 @@
-### Description:
-
-MOROCO, the Moldavian and Romanian Dialectal Corpus, contains Moldavian and Romanian samples of text collected from the news domain. The samples belong to one of the following six topics: culture, finance, politics, science, sports, tech. The data set is divided into three subsets: training (21719 samples), validation (5921 samples), test (5924 samples).
-
 ### Input, Output and Metrics:
 
-The task is to classify each news article into one of the six classes. Given the training and validation sets, the target is to maximize the macro-averaged F1 score on the test set. 
+The task is to classify each news article into one of the six classes. Given the training and validation sets, the target is to maximize the macro-averaged F1 score on the test set.
 
 The reported metric is the **Macro-averaged F1 score**.
 
@@ -18,7 +14,7 @@ The following script loads the data samples into memory:
 
 [https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py](https://github.com/butnaruandrei/MOROCO/blob/master/loadDataSet.py)
 
-With minor changes, the following script can be used for the evaluation: 
+With minor changes, the following script can be used for the evaluation:
 
 [https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py](https://github.com/butnaruandrei/MOROCO/blob/master/MOROCO/Var-Dial-MRC-2019-eval/eval.py)
 

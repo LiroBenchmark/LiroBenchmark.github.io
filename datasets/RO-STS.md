@@ -1,7 +1,3 @@
-### Description:
-
-RO-STS, the Romanian Semantic Textual Similarity Dataset, contains 8628 pairs of sentences with their similarity score. This Romanian dataset is a high-quality translation of the English [STS](https://ixa2.si.ehu.eus/stswiki/index.php/STSbenchmark) dataset. The data set is divided into three subsets: training (5749 sentence pairs), validation (1500 sentence pairs), test (1379 sentence pairs).
-
 ### Input, Output and Metrics:
 
 The task is to measure how similar two given sentences are.

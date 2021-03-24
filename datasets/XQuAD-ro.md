@@ -1,7 +1,3 @@
-### Description:
-
-RONEC, the ROmanian Named Entity Corpus, holds in its 1.0 version a number of 5127 sentences, annotated with 16 classes, having in total 26376 annotated entities.
-
 ### Input, Output and Metrics:
 
 Given the train & validation sets, the target is to maximize the F1 score on the test set.
@@ -29,9 +25,9 @@ If you use this dataset in a published work, please cite the following:
 or in .bibtex format:
 
 
->     @article{dumitrescu2019introducing,   
->       title={Introducing RONEC--the Romanian Named Entity Corpus},   
->       author={Dumitrescu, Stefan Daniel and Avram, Andrei-Marius},   
->       journal={arXiv preprint arXiv:1909.01247},   
->       year={2019}   
+>     @article{dumitrescu2019introducing,
+>       title={Introducing RONEC--the Romanian Named Entity Corpus},
+>       author={Dumitrescu, Stefan Daniel and Avram, Andrei-Marius},
+>       journal={arXiv preprint arXiv:1909.01247},
+>       year={2019}
 >     }

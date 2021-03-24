@@ -1,10 +1,6 @@
-### Description:
-
-LaRoSeDa, the Large Romanian Sentiment Data Set, contains 15000 product reviews written in Romanian. There are 7500 positive (star ratings 4 and 5) and 7500 negative (star ratings 1 and 2) reviews. The data set is divided into two subsets: training (12000 samples) and test (3000 samples). 
-
 ### Input, Output and Metrics:
 
-The task is to classify each review according to its star rating. Given the training set, the target is to maximize the macro-averaged F1 score on the test set. 
+The task is to classify each review according to its star rating. Given the training set, the target is to maximize the macro-averaged F1 score on the test set.
 
 The reported metric is the **Macro-averaged F1 score**.
 
