@@ -39,7 +39,26 @@
             "id": "machine-translation",
             "task_name": "Machine Translation",
             "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "ro-sts-parallel",
+                    "dataset_name": "RO-STS-parallel",
+                    "metric": "BLEU",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": ""
+                },
+                {
+                    "dataset_id": "wmt16-en-ro",
+                    "dataset_name": "WMT16-EN-RO",
+                    "metric": "BLEU",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": ""
+                }
+            ]
         },
         {
             "area": "NLP",
@@ -137,14 +156,24 @@
             "area": "NLP",
             "id": "question-answering",
             "task_name": "Question Answering",
-            "task_description": "read description from md",
-            "datasets": []
+            "task_description": "Question Answering (QA) systems enable users to retrieve exact answers for questions posed in natural language. This task covers all QA systems for Romanian, with datasets that contain in-domain training data as well as zero-shot cross-linugal datasets.",
+            "datasets": [
+                {
+                    "dataset_id": "xquad-ro",
+                    "dataset_name": "XQuAD-ro",
+                    "metric": "F1",
+                    "model_name": "mBERT",
+                    "paper_title": "(results available online only, Romanian evaluated by DeepMind XQuAD dataset creators)",
+                    "paper_link": "https://github.com/deepmind/xquad",
+                    "source_link": ""
+                }
+            ]
         },
         {
             "area": "NLP",
             "id": "sentiment-analysis",
             "task_name": "Sentiment Analysis",
-            "task_description": "read description from md",
+            "task_description": "A sentiment analysis system combines natural language processing (NLP) and machine learning techniques to assign weighted sentiment scores to the entities, topics, themes and/or categories within a phrase, sentence or document.",
             "datasets": [
                 {
                     "dataset_id": "laroseda",
@@ -154,6 +183,23 @@
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": ""
+                }
+            ]
+        },
+        {
+            "area": "NLP",
+            "id": "semantic-textual-similarity",
+            "task_name": "Semantic Textual Similarity",
+            "task_description": "Semantic textual similarity deals with determining how similar two sentences or documents are. Similarity can be measured as an interval, like 1 (no relation between two texts) to 5 (the two texts fully convey the same meaning). Standard dataset measures include Pearson and Spearman correlations.",
+            "datasets": [
+                {
+                    "dataset_id": "ro-sts",
+                    "dataset_name": "RO-STS",
+                    "metric": "Pearson Correlation",
+                    "model_name": "RO-STS Baseline RNN",
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": "https://github.com/dumitrescustefan/RO-STS"
                 }
             ]
         }

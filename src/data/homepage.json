@@ -23,7 +23,7 @@
                     "id": "machine-translation",
                     "name": "Machine Translation",
                     "summary": {
-                        "dataset_count": 0,
+                        "dataset_count": 2,
                         "submission_count": 0
                     }
                 },
@@ -79,8 +79,8 @@
                     "id": "question-answering",
                     "name": "Question Answering",
                     "summary": {
-                        "dataset_count": 0,
-                        "submission_count": 0
+                        "dataset_count": 1,
+                        "submission_count": 2
                     }
                 },
                 {
@@ -89,6 +89,14 @@
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 0
+                    }
+                },
+                {
+                    "id": "semantic-textual-similarity",
+                    "name": "Semantic Textual Similarity",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 3
                     }
                 }
             ]
