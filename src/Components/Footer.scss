@@ -19,21 +19,15 @@ a:hover{
     font-size: 0.9em;
     .footer-content{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         border-top: 1px solid rgba(40,50,70,0.2);
         padding: 2em 0 2em 0;
-
-        .footer-message{
-            width: 45em;
-            color:  rgba(40,50,70,0.5);
-        }
-        .footer-space{
-            width: 100%;
-        }
-
-        .footer-link{
-            width: 10em;
-        }
+	align-items: center;
+	flex-direction: row;
+	align-content: space-between;
+	.footer-message{
+	    margin-left: 5px;
+	}
     }
 
 }
