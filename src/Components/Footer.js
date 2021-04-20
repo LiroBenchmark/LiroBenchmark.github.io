@@ -13,18 +13,10 @@ class Footer extends React.Component {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-message">
-            Contact us at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>. Follow us on{' '}
-            <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
+            Contact us at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>.
           </div>
-          <div className="footer-space"> </div>
-          <div className="footer-link">
-            <a href={UrlBuilder.aboutPageUrl}>About</a>
-          </div>
-          <div className="footer-link">
-            <a href={UrlBuilder.termsAndConditionsPageUrl}>Terms &amp; Conditions</a>
-          </div>
-          <div className="footer-link">
-            <a href={UrlBuilder.privacyStatementPageUrl}>Privacy statement</a>
+          <div className="footer-message">
+            Follow us on <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
           </div>
         </div>
       </footer>
