@@ -18,6 +18,7 @@ class Footer extends React.Component {
           <div className="footer-message">
             Follow us on <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
           </div>
+          <div className="footer-message">Logo design by Cristina Oneț.</div>
         </div>
       </footer>
     );
