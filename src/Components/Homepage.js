@@ -3,6 +3,7 @@ import { Collapse } from 'react-collapse';
 import data from '../data/homepage.json';
 import './Homepage.scss';
 import UrlBuilder from './UrlBuilder.js';
+import applicationLogo from '../assets/logo.png';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -90,7 +91,10 @@ class Homepage extends React.Component {
       this.setState({ activeArea: defaultArea.name });
     }
     return (
-      <>
+      <div className="banner">
+        <div className="logo">
+          <img src={applicationLogo} alt="LiRo benchmark" />
+        </div>
         <div className="intro">
           <p>
             LiRo (<em>Li</em>mba <em>Ro</em>mână) provides a benchmark for Romanian language tasks.
@@ -101,8 +105,9 @@ class Homepage extends React.Component {
             time.
           </p>
         </div>
+
         {areas.map((area) => this.renderArea(area))}
-      </>
+      </div>
     );
   }
 }
