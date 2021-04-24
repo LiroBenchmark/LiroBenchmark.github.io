@@ -3,7 +3,7 @@ import { Collapse } from 'react-collapse';
 import data from '../data/homepage.json';
 import './Homepage.scss';
 import UrlBuilder from './UrlBuilder.js';
-import applicationLogo from '../assets/logo.png';
+import bannerLogo from '../assets/logo-banner.png';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -91,23 +91,24 @@ class Homepage extends React.Component {
       this.setState({ activeArea: defaultArea.name });
     }
     return (
-      <div className="banner">
-        <div className="logo">
-          <img src={applicationLogo} alt="LiRo benchmark" />
+      <>
+        <div className="banner">
+          <div className="logo">
+            <img src={bannerLogo} alt="LiRo benchmark" />
+          </div>
+          <div className="intro">
+            <p>
+              LiRo (<em>Li</em>mba <em>Ro</em>mână) provides a benchmark for Romanian language tasks.
+            </p>
+            <p>
+              The project keeps track of performance of different published models on the datasets and tasks listed
+              below. This allows easy comparison of different models and monitoring progress on these tasks and datasets
+              over time.
+            </p>
+          </div>
         </div>
-        <div className="intro">
-          <p>
-            LiRo (<em>Li</em>mba <em>Ro</em>mână) provides a benchmark for Romanian language tasks.
-          </p>
-          <p>
-            The project keeps track of performance of different published models on the datasets and tasks listed below.
-            This allows easy comparison of different models and monitoring progress on these tasks and datasets over
-            time.
-          </p>
-        </div>
-
         {areas.map((area) => this.renderArea(area))}
-      </div>
+      </>
     );
   }
 }
