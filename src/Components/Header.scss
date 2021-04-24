@@ -4,15 +4,15 @@
     display: flex;
     justify-content: space-between;
     margin: 0;
-       
+
 }
 
 .logo-wrapper{
     a{
         display: flex;
         svg{
-            margin-top:10%; 
-            width:55px;
+            margin-top:5%;
+            width:70px;
         }
 
         .logo-text{
@@ -21,7 +21,7 @@
             border-left: 1px solid;
             text-transform: uppercase;
             font-size: 0.8em;
-            font-weight: 700;
+            font-weight: 500;
             letter-spacing: 0.07em;
             color: #444;
         }
@@ -45,19 +45,19 @@
     //width: 7em;
     border: 1px solid;
     border-color: #fff;
-    border-radius: 0.5em; 
+    border-radius: 0.5em;
 }
 
 .navbar-light .navbar-nav .code-btn:hover{
     color: #fff;
     border-color: rgb(76, 175, 76);
-    
+
 }
 
 .navbar-light .navbar-nav .code-btn:focus{
     color: #fff;
     border-color: rgb(76, 175, 76);
-    
+
 }
 
 .navbar-light .navbar-nav .code-btn{
@@ -75,4 +75,3 @@
 #code-btn{
     width: 6em;
 }
-
