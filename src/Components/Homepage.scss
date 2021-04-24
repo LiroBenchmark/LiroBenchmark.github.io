@@ -30,6 +30,25 @@ a.task-tile-link{
     padding: 0;
 }
 
+.banner{
+    display:flex;
+    flex-direction: row;
+
+    .logo{
+	margin-right: 25px;
+
+	img{
+	    height: 75px;
+	    margin-top: 15px;
+	}
+    }
+}
+
+@media screen and (max-width: 320px){
+    .logo{
+	display: none;
+    }
+}
 $task-wrapper-max-width: 1500px;
 $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
 .tile-wrapper{
@@ -63,7 +82,7 @@ $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
         cursor: pointer;
         word-wrap: break-word;
         position: relative;
-    
+
         h5{
             font-size: initial;
             //margin-left: 15px;
@@ -79,8 +98,8 @@ $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
 	    position: absolute;
 	    bottom: 1em;
         //left: 15px;
-        
-        
+
+
         table{
             table-layout: fixed;
             width: 100%;
@@ -90,7 +109,7 @@ $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
                     width: 10%;
                     //background: #ddd;
                     }
-                  
+
                 td:nth-child(2) {
                     width: 90%;
                     //background: #ccc;
