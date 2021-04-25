@@ -21,7 +21,7 @@ const Header = () => (
     <Navbar.Toggle aria-controls="menu-responsive" />
     <Navbar.Collapse id="menu-responsive" className="justify-content-end">
       <Nav>
-        <Nav.Link href="/ro_benchmark_leaderboard">Home</Nav.Link>
+        <Nav.Link href="/ro_benchmark_leaderboard">Tasks</Nav.Link>
         <Nav.Link href={UrlBuilder.submitPageUrl}>Submit</Nav.Link>
         <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
         <NavDropdown title="Legal" id="nav-dropdown-legal">
