@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Homepage from './Homepage';
+import Tasks from './Tasks';
 import UrlBuilder from './UrlBuilder';
 import TaskDetails from './TaskDetails';
 import DatasetDetails from './DatasetDetails';
@@ -19,7 +19,7 @@ const Dashboard = (props) => {
       <Route exact path={UrlBuilder.datasetUrlTemplate} component={DatasetDetails} />
       <Route exact path="/terms-and-conditions" component={TermsAndConditionsPage} />
       <Route exact path="/privacy-statement" component={PrivacyStatementPage} />
-      <Route path="/" component={Homepage} />
+      <Route path="/" component={Tasks} />
     </Switch>
   );
 };

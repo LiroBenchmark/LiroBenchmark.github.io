@@ -1,11 +1,11 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
 import data from '../data/homepage.json';
-import './Homepage.scss';
+import './Tasks.scss';
 import UrlBuilder from './UrlBuilder.js';
 import bannerLogo from '../assets/logo-banner.png';
 
-class Homepage extends React.Component {
+class Tasks extends React.Component {
   constructor(props) {
     super(props);
 
@@ -113,4 +113,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default Tasks;
