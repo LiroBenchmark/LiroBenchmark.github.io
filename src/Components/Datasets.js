@@ -43,8 +43,8 @@ class Datasets extends React.Component {
           <div className="row header-row">
             <h1>Datasets</h1>
             <p>
-              LiRo Benchmark contains {data.datasets.length} datasets. If you would like to submit another dataset
-              please send us an email at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>.
+              LiRo Benchmark contains {data.datasets.length} datasets. If you would like to add another dataset please
+              send us an email at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>.
             </p>
           </div>
           {data.datasets.map((ds) => this.renderDataset(ds))}
