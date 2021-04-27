@@ -1,0 +1,44 @@
+.header-row{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    align-items: stretch;
+
+    h1{
+	width: 100%;
+    }
+    p{
+	margin-top:15px;
+	width: 100%;
+    }
+}
+
+.dataset-row{
+    margin-top: 20px;
+    .dataset-description{
+	margin-top: 0em;
+	margin-bottom: 0px;
+    }
+    .dataset-info{
+	ul{
+	    list-style: none;
+	    padding: 0;
+	    margin-bottom: 10px;
+	    li{
+		display: inline;
+
+		span{
+		    text-transform: uppercase;
+		    font-size: 0.8em;
+		}
+	    }
+	    li:not(:last-child)::after{
+		content: "\2022";
+		margin: 0 .25em;
+	    }
+	}
+    }
+}
+
+.dataset-row:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
