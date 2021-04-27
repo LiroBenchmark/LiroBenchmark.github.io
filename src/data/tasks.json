@@ -9,10 +9,10 @@
                 {
                     "dataset_id": "moroco",
                     "dataset_name": "MOROCO",
-                    "metric": "F1",
-                    "model_name": "",
-                    "paper_title": "",
-                    "paper_link": "",
+                    "metric": "F1 (macro)",
+                    "model_name": "Ensemble based on Classifier Stacking",
+                    "paper_title": "The Unreasonable Effectiveness of Machine Learning in Moldavian versus Romanian Dialect Identification",
+                    "paper_link": "https://arxiv.org/abs/2007.15700",
                     "source_link": ""
                 }
             ]
@@ -161,7 +161,7 @@
                 {
                     "dataset_id": "xquad-ro",
                     "dataset_name": "XQuAD-ro",
-                    "metric": "F1",
+                    "metric": "F1 (macro)",
                     "model_name": "mBERT",
                     "paper_title": "(results available online only, Romanian evaluated by DeepMind XQuAD dataset creators)",
                     "paper_link": "https://github.com/deepmind/xquad",
@@ -178,11 +178,11 @@
                 {
                     "dataset_id": "laroseda",
                     "dataset_name": "LaRoSeDa",
-                    "metric": "F1",
-                    "model_name": "",
-                    "paper_title": "",
-                    "paper_link": "",
-                    "source_link": ""
+                    "metric": "F1 (macro)",
+                    "model_name": "HISK+BOWE-BERT with SOMs",
+                    "paper_title": "Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa -- A Large Romanian Sentiment Data Set",
+                    "paper_link": "https://www.aclweb.org/anthology/2021.eacl-main.81/",
+                    "source_link": "https://github.com/ancatache/LaRoSeDa"
                 }
             ]
         },
