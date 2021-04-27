@@ -3,6 +3,10 @@ class UrlBuilder {
     return '/ro_benchmark_leaderboard';
   }
 
+  static get datasetsPageUrl() {
+    return `${UrlBuilder.basePath}/datasets`;
+  }
+
   static get taskUrlTemplate() {
     return '/task/:id';
   }
@@ -61,7 +65,8 @@ class UrlBuilder {
   }
 
   isDatasetUrl(url) {
-    return this.getCanonicalUrl(url).startsWith('/dataset');
+    const canonicalUrl = this.getCanonicalUrl(url);
+    return canonicalUrl.startsWith('/dataset') && !canonicalUrl.startsWith('/datasets');
   }
 
   getDatasetId(url) {
