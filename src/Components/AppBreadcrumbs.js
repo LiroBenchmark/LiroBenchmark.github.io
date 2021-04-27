@@ -11,6 +11,7 @@ class AppBreadcrumbs extends React.Component {
     this.urlMap = {
       '/about': 'About',
       '/submit': 'Submit your model',
+      '/datasets': 'Datasets',
       '/terms-and-conditions': 'Terms and Conditions',
       '/privacy-statement': 'Privacy statement',
     };
