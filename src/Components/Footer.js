@@ -17,7 +17,7 @@ class Footer extends React.Component {
             Contact us at <ContactEmail />.
           </div>
           <div className="footer-message">
-            Follow us on <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
+            Follow us on <a href="https://twitter.com/RomaniaAi">Twitter</a>.
           </div>
           <div className="footer-message">
             Logo design by <a href="https://www.linkedin.com/in/cristina-one%C5%A3/">Cristina Oneț</a>.
