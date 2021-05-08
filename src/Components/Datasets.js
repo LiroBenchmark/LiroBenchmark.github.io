@@ -3,6 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import data from '../data/datasets.json';
 import './Datasets.scss';
 import UrlBuilder from './UrlBuilder.js';
+import ContactEmail from './ContactEmail';
 
 class Datasets extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class Datasets extends React.Component {
             <h1>Datasets</h1>
             <p>
               LiRo Benchmark contains {data.datasets.length} datasets. If you would like to add another dataset please
-              send us an email at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>.
+              send us an email at <ContactEmail />.
             </p>
           </div>
           {data.datasets.map((ds) => this.renderDataset(ds))}

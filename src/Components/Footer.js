@@ -1,5 +1,6 @@
 import React from 'react';
 import UrlBuilder from './UrlBuilder';
+import ContactEmail from './ContactEmail';
 import './Footer.scss';
 
 class Footer extends React.Component {
@@ -13,12 +14,14 @@ class Footer extends React.Component {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-message">
-            Contact us at <a href="mailto:contact@eeml.eu">contact@eeml.eu</a>.
+            Contact us at <ContactEmail />.
           </div>
           <div className="footer-message">
             Follow us on <a href="https://twitter.com/EEMLcommunity">Twitter</a>.
           </div>
-          <div className="footer-message">Logo design by Cristina Oneț.</div>
+          <div className="footer-message">
+            Logo design by <a href="https://www.linkedin.com/in/cristina-one%C5%A3/">Cristina Oneț</a>.
+          </div>
         </div>
       </footer>
     );
