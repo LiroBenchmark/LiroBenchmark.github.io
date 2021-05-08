@@ -20,7 +20,11 @@ class Footer extends React.Component {
             Follow us on <a href="https://twitter.com/RomaniaAi">Twitter</a>.
           </div>
           <div className="footer-message">
-            Logo design by <a href="https://www.linkedin.com/in/cristina-one%C5%A3/">Cristina Oneț</a>.
+            Logo design by{' '}
+            <a target="_blank" href="https://www.linkedin.com/in/cristina-one%C5%A3/" rel="noreferrer">
+              Cristina Oneț
+            </a>
+            .
           </div>
         </div>
       </footer>
