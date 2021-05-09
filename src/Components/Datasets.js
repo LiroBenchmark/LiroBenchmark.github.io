@@ -23,9 +23,6 @@ class Datasets extends React.Component {
         <div className="row dataset-info">
           <ul>
             <li>
-              <span>license:</span> {dataset.license}
-            </li>
-            <li>
               <span>submissions:</span> {dataset.models.length}
             </li>
             <li>
