@@ -280,7 +280,8 @@ class DatasetsDetailsBuilder(object):
     """Builds dataset details.
 
     """
-    def __init__(self, datasets, results, leaderboard, description_files_root):
+    def __init__(self, datasets, results, leaderboard, tasks,
+                 description_files_root):
         """Creates a new instance of DatasetsDetailsBuilder.
 
         Parameters
@@ -292,6 +293,8 @@ class DatasetsDetailsBuilder(object):
             The dataframe containing model scores.
         leaderboard: pandas.DataFrame
             The dataframe containing best performing model per task.
+        tasks: pandas.DataFrame
+            The dataframe containing task data.
         description_files_root: str
             The directory containing dataset description files in markdown format.
         """
@@ -299,6 +302,7 @@ class DatasetsDetailsBuilder(object):
         self.datasets = datasets
         self.results = results
         self.leaderboard = leaderboard
+        self.tasks = tasks
         self.description_files_root = description_files_root
 
     def build_dataset_details(self):
@@ -319,8 +323,26 @@ class DatasetsDetailsBuilder(object):
             points_builder = ChartDataBuilder(dataset['models'])
             dataset['time_range'] = points_builder.build_display_range()
             dataset['data_points'] = points_builder.build_data_points()
+            self._add_task_data(dataset)
             datasets.append(dataset)
         return datasets
+
+    def _add_task_data(self, dataset):
+        """Adds task-related properties to the dataset.
+
+        Parameters
+        ----------
+        dataset: object
+            The dataset to be augmented.
+        """
+        task_name = dataset['task']
+        tasks = self.tasks[self.tasks[TasksColumns.Name] == task_name]
+        if len(tasks) == 0:
+            logging.error("Could not filter tasks for dataset {}.".format(
+                dataset['dataset_name']))
+        task = tasks.iloc[0]
+        dataset['task_id'] = build_id_string(task[TasksColumns.Name])
+        dataset['area'] = task[TasksColumns.Area]
 
     def _get_dataset_models(self, dataset_name):
         """Gets all the models for specified dataset from results dataframe.
@@ -423,7 +445,6 @@ class DatasetsDetailsBuilder(object):
         dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
 
-        task_id = build_id_string(row[DatasetColumns.Task])
         description = self._get_dataset_description(
             row, DatasetColumns.ShortDescription)
         dataset_info = self._get_dataset_description(
@@ -436,7 +457,6 @@ class DatasetsDetailsBuilder(object):
             DatasetColumns.License] else "Not specified"
         return {
             "task": row[DatasetColumns.Task],
-            "task_id": task_id,
             "id": dataset_id,
             "dataset_name": row[DatasetColumns.DatasetName],
             "dataset_description": description,
@@ -712,7 +732,7 @@ def run(args):
     metrics = read_excel(args.excel_file, args.metrics_sheet)
 
     logging.info("Building dataset details...")
-    ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard,
+    ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard, tasks,
                                         args.dataset_descriptions_root)
     datasets_json = {"datasets": ds_builder.build_dataset_details()}
 
