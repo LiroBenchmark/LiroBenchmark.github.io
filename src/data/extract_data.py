@@ -455,11 +455,13 @@ class DatasetsDetailsBuilder(object):
 
         license = row[DatasetColumns.License] if row[
             DatasetColumns.License] else "Not specified"
+        short_description = self._get_dataset_short_description(description)
         return {
             "task": row[DatasetColumns.Task],
             "id": dataset_id,
             "dataset_name": row[DatasetColumns.DatasetName],
             "dataset_description": description,
+            "short_description": short_description,
             "dataset_info": dataset_info,
             "dataset_link": row[DatasetColumns.DatasetLink],
             "preferred_metric": row[DatasetColumns.PreferredMetric],
@@ -467,6 +469,29 @@ class DatasetsDetailsBuilder(object):
             "license_url": row[DatasetColumns.LicenseURL],
             "models": []
         }
+
+    def _get_dataset_short_description(self, html_description):
+        """Extracts first paragraph of the description.
+
+        Parameters
+        ----------
+        html_description: str
+            The string containing dataset description in HTML format.
+
+        Returns
+        -------
+        short_description: str
+            The first paragraph of the HTML description.
+        """
+        index = html_description.find('</p>')
+        if index <= 0:
+            logging.warning(
+                "Could not build short description from html string: {}.".
+                format(html_description))
+            return html_description
+        
+        return html_description[:index + len('</p>')]
+        
 
     def _get_dataset_description(self, row, column):
         """Loads the descripton for the dataset from the description file.
