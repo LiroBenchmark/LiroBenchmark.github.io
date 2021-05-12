@@ -23,6 +23,9 @@ class Datasets extends React.Component {
         <div className="row dataset-info">
           <ul>
             <li>
+              <span>area:</span> {dataset.area}
+            </li>
+            <li>
               <span>task:</span> <a href={this.urlBuilder.buildTaskUrl({ id: dataset.task_id })}>{dataset.task}</a>
             </li>
             <li>
