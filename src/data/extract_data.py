@@ -423,6 +423,7 @@ class DatasetsDetailsBuilder(object):
         dataset_id = build_id_string(row[DatasetColumns.DatasetName])
         logging.info("Building dataset {}.".format(dataset_id))
 
+        task_id = build_id_string(row[DatasetColumns.Task])
         description = self._get_dataset_description(
             row, DatasetColumns.ShortDescription)
         dataset_info = self._get_dataset_description(
@@ -435,6 +436,7 @@ class DatasetsDetailsBuilder(object):
             DatasetColumns.License] else "Not specified"
         return {
             "task": row[DatasetColumns.Task],
+            "task_id": task_id,
             "id": dataset_id,
             "dataset_name": row[DatasetColumns.DatasetName],
             "dataset_description": description,
