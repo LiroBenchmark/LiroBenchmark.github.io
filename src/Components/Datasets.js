@@ -19,7 +19,7 @@ class Datasets extends React.Component {
             <a href={this.urlBuilder.buildDatasetUrl(dataset)}>{dataset.dataset_name}</a>
           </h2>
         </div>
-        <div className="row dataset-description">{ReactHtmlParser(dataset.dataset_description)}</div>
+        <div className="row dataset-description">{ReactHtmlParser(dataset.short_description)}</div>
         <div className="row dataset-info">
           <ul>
             <li>
