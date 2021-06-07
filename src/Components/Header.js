@@ -12,10 +12,6 @@ const Header = () => (
     <div className="logo-wrapper">
       <Navbar.Brand href="/">
         <LogoIcon />
-        <div className="logo-text">
-          {' '}
-          LiRo <br /> BENCHMARK{' '}
-        </div>
       </Navbar.Brand>
     </div>
     <Navbar.Toggle aria-controls="menu-responsive" />
