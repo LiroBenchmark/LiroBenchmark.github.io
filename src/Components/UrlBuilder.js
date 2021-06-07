@@ -1,10 +1,10 @@
 class UrlBuilder {
   static get basePath() {
-    return '';
+    return '/';
   }
 
   static get datasetsPageUrl() {
-    return `${UrlBuilder.basePath}/datasets`;
+    return `/datasets`;
   }
 
   static get taskUrlTemplate() {
@@ -16,27 +16,23 @@ class UrlBuilder {
   }
 
   static get aboutPageUrl() {
-    return `${UrlBuilder.basePath}/about`;
+    return `/about`;
   }
 
   static get submitPageUrl() {
-    return `${UrlBuilder.basePath}/submit`;
+    return `/submit`;
   }
 
   static get termsAndConditionsPageUrl() {
-    return `${UrlBuilder.basePath}/terms-and-conditions`;
+    return `/terms-and-conditions`;
   }
 
   static get privacyStatementPageUrl() {
-    return `${UrlBuilder.basePath}/privacy-statement`;
-  }
-
-  normalizeUrl(url) {
-    return url.toLowerCase();
+    return `/privacy-statement`;
   }
 
   getCanonicalUrl(url) {
-    return this.normalizeUrl(url).replace(UrlBuilder.basePath, '');
+    return url.toLowerCase();
   }
 
   isHomeUrl(url) {
@@ -46,8 +42,8 @@ class UrlBuilder {
 
   buildTaskUrl(task) {
     const { id } = task;
-    const url = `${UrlBuilder.basePath}/task/${id}`;
-    return this.normalizeUrl(url);
+    const url = `/task/${id}`;
+    return this.getCanonicalUrl(url);
   }
 
   isTaskUrl(url) {
@@ -60,8 +56,8 @@ class UrlBuilder {
 
   buildDatasetUrl(dataset) {
     const { id } = dataset;
-    const url = `${UrlBuilder.basePath}/dataset/${id}`;
-    return this.normalizeUrl(url);
+    const url = `/dataset/${id}`;
+    return this.getCanonicalUrl(url);
   }
 
   isDatasetUrl(url) {
