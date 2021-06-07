@@ -11,7 +11,7 @@ WebFont.load({
 });
 
 ReactDOM.render(
-  <BrowserRouter basename="/ro_benchmark_leaderboard">
+  <BrowserRouter>
     <Route path="/" component={App} />
   </BrowserRouter>,
   document.getElementById('root'),

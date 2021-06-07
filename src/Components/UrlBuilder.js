@@ -1,6 +1,6 @@
 class UrlBuilder {
   static get basePath() {
-    return '/ro_benchmark_leaderboard';
+    return '';
   }
 
   static get datasetsPageUrl() {

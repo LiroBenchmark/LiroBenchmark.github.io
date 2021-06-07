@@ -8,7 +8,7 @@ class DomainTile extends Component {
     const { id, name, submissions, datasets } = domainTask;
     return (
       <div className="task-tile" key={id}>
-        <a href={`/ro_benchmark_leaderboard/task/${id}`}>
+        <a href={`/task/${id}`}>
           <div>
             <div className="task-name tile-col">
               <div className="task-logo" />

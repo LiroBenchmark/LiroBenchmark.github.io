@@ -10,7 +10,7 @@ import './Header.scss';
 const Header = () => (
   <Navbar collapseOnSelect expand="lg">
     <div className="logo-wrapper">
-      <Navbar.Brand href="/ro_benchmark_leaderboard">
+      <Navbar.Brand href="/">
         <LogoIcon />
         <div className="logo-text">
           {' '}
@@ -21,7 +21,7 @@ const Header = () => (
     <Navbar.Toggle aria-controls="menu-responsive" />
     <Navbar.Collapse id="menu-responsive" className="justify-content-end">
       <Nav>
-        <Nav.Link href="/ro_benchmark_leaderboard">Tasks</Nav.Link>
+        <Nav.Link href="/">Tasks</Nav.Link>
         <Nav.Link href={UrlBuilder.datasetsPageUrl}>Datasets</Nav.Link>
         <Nav.Link href={UrlBuilder.submitPageUrl}>Submit</Nav.Link>
         <Nav.Link href={UrlBuilder.aboutPageUrl}>About</Nav.Link>
@@ -31,7 +31,7 @@ const Header = () => (
         </NavDropdown>
         <Nav.Link
           className="code-btn"
-          href="https://github.com/eemlcommunity/ro_benchmark_leaderboard"
+          href="https://github.com/LiroBenchmark/LiroBenchmark.github.io/"
           target="_blank"
           rel="noopener noreferrer"
           id="code-btn"

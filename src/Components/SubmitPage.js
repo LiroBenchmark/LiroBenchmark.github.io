@@ -7,7 +7,7 @@ const SubmitPage = () => (
     <h1 id="guide-on-how-to-submit-a-new-model">Guide on how to submit a new model</h1>
     <p>
       Submitting a new model to the leaderboard is easy! Simply{' '}
-      <a href="https://github.com/eemlcommunity/ro_benchmark_leaderboard/issues/new/choose">create a new issue</a> and
+      <a href="https://github.com/LiroBenchmark/LiroBenchmark.github.io/issues/new/choose">create a new issue</a> and
       click on the <code>Get started</code> button to the right of the <code>Submit new model</code> template. Please
       fill in with all the info requested in the template, as well as all extra info you wish to let us know about your
       model. We’ll review your submission and add it to the leaderboard, that’s it!
@@ -114,7 +114,7 @@ const SubmitPage = () => (
       </li>
     </ul>
     <hr />
-    <Button variant="primary" href="https://github.com/eemlcommunity/ro_benchmark_leaderboard/issues/new/choose">
+    <Button variant="primary" href="https://github.com/LiroBenchmark/LiroBenchmark.github.io/issues/new/choose">
       Submit your model
     </Button>
   </>
