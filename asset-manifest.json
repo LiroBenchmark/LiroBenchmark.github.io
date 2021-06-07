@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ro_benchmark_leaderboard/static/css/main.48c8a664.chunk.css",
+    "main.js": "/ro_benchmark_leaderboard/static/js/main.b9c339ca.chunk.js",
+    "main.js.map": "/ro_benchmark_leaderboard/static/js/main.b9c339ca.chunk.js.map",
+    "runtime-main.js": "/ro_benchmark_leaderboard/static/js/runtime-main.64355ccd.js",
+    "runtime-main.js.map": "/ro_benchmark_leaderboard/static/js/runtime-main.64355ccd.js.map",
+    "static/js/2.1dd72051.chunk.js": "/ro_benchmark_leaderboard/static/js/2.1dd72051.chunk.js",
+    "static/js/2.1dd72051.chunk.js.map": "/ro_benchmark_leaderboard/static/js/2.1dd72051.chunk.js.map",
+    "index.html": "/ro_benchmark_leaderboard/index.html",
+    "static/css/main.48c8a664.chunk.css.map": "/ro_benchmark_leaderboard/static/css/main.48c8a664.chunk.css.map",
+    "static/js/2.1dd72051.chunk.js.LICENSE.txt": "/ro_benchmark_leaderboard/static/js/2.1dd72051.chunk.js.LICENSE.txt",
+    "static/media/logo-banner.75fcd774.png": "/ro_benchmark_leaderboard/static/media/logo-banner.75fcd774.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64355ccd.js",
+    "static/js/2.1dd72051.chunk.js",
+    "static/css/main.48c8a664.chunk.css",
+    "static/js/main.b9c339ca.chunk.js"
+  ]
+}
