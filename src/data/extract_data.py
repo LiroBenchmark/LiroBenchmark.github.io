@@ -9,6 +9,7 @@ import datetime
 import functools
 import markdown as md
 from pathlib import PurePath
+import sys
 
 
 class DatasetColumns:
@@ -63,6 +64,13 @@ class MetricsColumns:
     Type = 'TYPE'
     Range = 'RANGE'
     Description = 'DESCRIPTION'
+
+
+class AreasColumns:
+    """Defines column name constants for AREAS sheet from the input file.
+    """
+    Name = "NAME"
+    DisplayRank = "RANK"
 
 
 def build_id_string(name):
@@ -489,9 +497,8 @@ class DatasetsDetailsBuilder(object):
                 "Could not build short description from html string: {}.".
                 format(html_description))
             return html_description
-        
+
         return html_description[:index + len('</p>')]
-        
 
     def _get_dataset_description(self, row, column):
         """Loads the descripton for the dataset from the description file.
@@ -677,7 +684,7 @@ class AreasDetailsBuilder(object):
     """Builds details for areas.
 
     """
-    def __init__(self, datasets, tasks, results):
+    def __init__(self, datasets, tasks, results, areas):
         """Creates a new instance of AreasDetailsBuilder.
 
         Parameters
@@ -689,11 +696,17 @@ class AreasDetailsBuilder(object):
             The dataframe containing tasks definitions.
         results: pandas.DataFrame
             The dataframe containing model scores.
+        areas: pandas.DataFrame
+            The dataframe containing area names and display ranks.
         """
         super(AreasDetailsBuilder, self).__init__()
         self.datasets = datasets
         self.tasks = tasks
         self.results = results
+        self.areas = {
+            row[AreasColumns.Name]: row[AreasColumns.DisplayRank]
+            for _, row in areas.iterrows()
+        }
 
     def build_area_details(self):
         """Builds the details of areas in the format required for front-end.
@@ -712,7 +725,7 @@ class AreasDetailsBuilder(object):
                 "name": row[TasksColumns.Name],
                 "summary": summary
             })
-
+        task_details = sorted(task_details, key=self._get_area_display_rank)
         result = []
         for area, tasks in groupby(task_details, lambda t: t["area"]):
             area_tasks = [{
@@ -722,6 +735,24 @@ class AreasDetailsBuilder(object):
             } for t in tasks]
             result.append({"name": area, "tasks": area_tasks})
         return result
+
+    def _get_area_display_rank(self, task):
+        """Returns the display rank of the task area.
+
+        Parameters
+        ----------
+        task: dict
+            The task for which to get the area display rank.
+
+        Returns
+        -------
+        display_rank: int
+            The area display rank if area is found in the areas field; sys.maxint otherwise.
+        """
+        area = task['area']
+        if area not in self.areas:
+            return sys.maxint
+        return self.areas[area]
 
     def _build_task_summary(self, task):
         """Counts the number of datasets and submissions for current task.
@@ -755,6 +786,7 @@ def run(args):
     datasets = read_excel(args.excel_file, args.datasets_sheet)
     tasks = read_excel(args.excel_file, args.tasks_sheet)
     metrics = read_excel(args.excel_file, args.metrics_sheet)
+    areas = read_excel(args.excel_file, args.areas_sheet)
 
     logging.info("Building dataset details...")
     ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard, tasks,
@@ -767,7 +799,7 @@ def run(args):
     tasks_json = {"tasks": t_builder.build_task_details()}
 
     logging.info("Building area details...")
-    ab = AreasDetailsBuilder(datasets, tasks, results)
+    ab = AreasDetailsBuilder(datasets, tasks, results, areas)
     homepage_json = {"areas": ab.build_area_details()}
 
     logging.info("Writing data...")
@@ -809,6 +841,10 @@ def parse_arguments():
     parser.add_argument('--metrics-sheet',
                         help="The name of the metrics sheet.",
                         default="METRICS")
+    parser.add_argument(
+        '--areas-sheet',
+        help="The name of the sheet containing area names and their order.",
+        default="AREAS")
     parser.add_argument(
         '--dataset-descriptions-root',
         help=
