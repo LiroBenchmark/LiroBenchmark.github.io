@@ -61,7 +61,7 @@
             ]
         },
         {
-            "area": "NLP",
+            "area": "Additional tasks and Resources",
             "id": "tokenization",
             "task_name": "Tokenization",
             "task_description": "Tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. The list of tokens becomes input for further processing such as parsing or text mining.",
@@ -78,7 +78,7 @@
             ]
         },
         {
-            "area": "NLP",
+            "area": "Additional tasks and Resources",
             "id": "sentence-segmentation",
             "task_name": "Sentence Segmentation",
             "task_description": "Sentence segmentation is the task of splitting a sentence into its component phrases.",
@@ -95,7 +95,7 @@
             ]
         },
         {
-            "area": "NLP",
+            "area": "Additional tasks and Resources",
             "id": "lemmatization",
             "task_name": "Lemmatization",
             "task_description": "Lemmatization is the process of identifying the lemma of a given word or sequence of words.",
@@ -112,7 +112,7 @@
             ]
         },
         {
-            "area": "NLP",
+            "area": "Additional tasks and Resources",
             "id": "pos-tagging",
             "task_name": "POS Tagging",
             "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
@@ -129,7 +129,7 @@
             ]
         },
         {
-            "area": "NLP",
+            "area": "Additional tasks and Resources",
             "id": "dependency-parsing",
             "task_name": "Dependency Parsing",
             "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",

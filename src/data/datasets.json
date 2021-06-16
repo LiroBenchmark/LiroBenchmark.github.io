@@ -80,7 +80,7 @@
                 }
             ],
             "task_id": "tokenization",
-            "area": "NLP"
+            "area": "Additional tasks and Resources"
         },
         {
             "task": "Sentence Segmentation",
@@ -141,7 +141,7 @@
                 }
             ],
             "task_id": "sentence-segmentation",
-            "area": "NLP"
+            "area": "Additional tasks and Resources"
         },
         {
             "task": "Lemmatization",
@@ -202,7 +202,7 @@
                 }
             ],
             "task_id": "lemmatization",
-            "area": "NLP"
+            "area": "Additional tasks and Resources"
         },
         {
             "task": "POS Tagging",
@@ -281,7 +281,7 @@
                 }
             ],
             "task_id": "pos-tagging",
-            "area": "NLP"
+            "area": "Additional tasks and Resources"
         },
         {
             "task": "Dependency Parsing",
@@ -347,7 +347,7 @@
                 }
             ],
             "task_id": "dependency-parsing",
-            "area": "NLP"
+            "area": "Additional tasks and Resources"
         },
         {
             "task": "Sentiment Analysis",

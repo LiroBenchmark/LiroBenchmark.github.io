@@ -28,6 +28,43 @@
                     }
                 },
                 {
+                    "id": "language-modeling",
+                    "name": "Language Modeling",
+                    "summary": {
+                        "dataset_count": 0,
+                        "submission_count": 0
+                    }
+                },
+                {
+                    "id": "question-answering",
+                    "name": "Question Answering",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 2
+                    }
+                },
+                {
+                    "id": "sentiment-analysis",
+                    "name": "Sentiment Analysis",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
+                    }
+                },
+                {
+                    "id": "semantic-textual-similarity",
+                    "name": "Semantic Textual Similarity",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 3
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Additional tasks and Resources",
+            "tasks": [
+                {
                     "id": "tokenization",
                     "name": "Tokenization",
                     "summary": {
@@ -65,38 +102,6 @@
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 2
-                    }
-                },
-                {
-                    "id": "language-modeling",
-                    "name": "Language Modeling",
-                    "summary": {
-                        "dataset_count": 0,
-                        "submission_count": 0
-                    }
-                },
-                {
-                    "id": "question-answering",
-                    "name": "Question Answering",
-                    "summary": {
-                        "dataset_count": 1,
-                        "submission_count": 2
-                    }
-                },
-                {
-                    "id": "sentiment-analysis",
-                    "name": "Sentiment Analysis",
-                    "summary": {
-                        "dataset_count": 1,
-                        "submission_count": 1
-                    }
-                },
-                {
-                    "id": "semantic-textual-similarity",
-                    "name": "Semantic Textual Similarity",
-                    "summary": {
-                        "dataset_count": 1,
-                        "submission_count": 3
                     }
                 }
             ]
