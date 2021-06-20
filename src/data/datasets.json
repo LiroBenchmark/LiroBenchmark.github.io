@@ -11,13 +11,35 @@
             "preferred_metric": "Exact Match F1",
             "license": "MIT",
             "license_url": "",
-            "models": [],
-            "metrics": [],
-            "time_range": [
-                "May '21",
-                "Jun '21"
+            "models": [
+                {
+                    "model": "Romanian BERT Baseline",
+                    "extra_training_data": false,
+                    "paper_title": "The birth of Romanian BERT",
+                    "paper_link": "https://www.aclweb.org/anthology/2020.findings-emnlp.387/",
+                    "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers",
+                    "submission_date": "2020-11",
+                    "model_size": "",
+                    "results": {
+                        "Exact Match F1": 85.88
+                    }
+                }
             ],
-            "data_points": [],
+            "metrics": [
+                "Exact Match F1"
+            ],
+            "time_range": [
+                "Oct '20",
+                "Nov '20",
+                "Dec '20"
+            ],
+            "data_points": [
+                {
+                    "model": "Romanian BERT Baseline",
+                    "submission_date": "Nov '20",
+                    "Exact Match F1": 85.88
+                }
+            ],
             "task_id": "ner",
             "area": "NLP"
         },
@@ -35,7 +57,7 @@
             "models": [
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -47,7 +69,7 @@
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -96,7 +118,7 @@
             "models": [
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -108,7 +130,7 @@
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -157,7 +179,7 @@
             "models": [
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -169,7 +191,7 @@
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -218,7 +240,7 @@
             "models": [
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -230,7 +252,7 @@
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -297,7 +319,7 @@
             "models": [
                 {
                     "model": "NLP-Cube v1.0 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -310,7 +332,7 @@
                 },
                 {
                     "model": "NLP-Cube v1.1 [end-to-end]",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
                     "source_link": "https://github.com/adobe/NLP-Cube",
@@ -363,7 +385,7 @@
             "models": [
                 {
                     "model": "HISK+BOWE-BERT with SOMs",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa -- A Large Romanian Sentiment Data Set",
                     "paper_link": "https://www.aclweb.org/anthology/2021.eacl-main.81/",
                     "source_link": "https://github.com/ancatache/LaRoSeDa",
@@ -393,7 +415,7 @@
             "area": "NLP"
         },
         {
-            "task": "Text Classification",
+            "task": "Text Categorization by Topic",
             "id": "moroco",
             "dataset_name": "MOROCO",
             "dataset_description": "<p><strong>MOROCO</strong>, the Moldavian and Romanian Dialectal Corpus, contains Moldavian and Romanian samples of text collected from the news domain. The samples belong to one of the following six topics: culture, finance, politics, science, sports, tech. The data set is divided into three subsets: training (21719 samples), validation (5921 samples), test (5924 samples). The task is to classify each news article into its correct topic (category).</p>",
@@ -406,7 +428,7 @@
             "models": [
                 {
                     "model": "Ensemble based on Classifier Stacking",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "The Unreasonable Effectiveness of Machine Learning in Moldavian versus Romanian Dialect Identification",
                     "paper_link": "https://arxiv.org/abs/2007.15700",
                     "source_link": "",
@@ -432,7 +454,7 @@
                     "F1 (macro)": 88.03
                 }
             ],
-            "task_id": "text-classification",
+            "task_id": "text-categorization-by-topic",
             "area": "NLP"
         },
         {
@@ -449,7 +471,7 @@
             "models": [
                 {
                     "model": "RO-STS Baseline RNN",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/RO-STS",
@@ -462,7 +484,7 @@
                 },
                 {
                     "model": "RO-STS Baseline Romanian BERT v1 (uncased)",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/RO-STS",
@@ -475,7 +497,7 @@
                 },
                 {
                     "model": "RO-STS Baseline mBERT (uncased)",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/RO-STS",
@@ -551,13 +573,35 @@
             "preferred_metric": "BLEU",
             "license": "Not specified",
             "license_url": "",
-            "models": [],
-            "metrics": [],
-            "time_range": [
-                "May '21",
-                "Jun '21"
+            "models": [
+                {
+                    "model": "mBART",
+                    "extra_training_data": false,
+                    "paper_title": "Multilingual Denoising Pre-training for Neural Machine Translation",
+                    "paper_link": "https://arxiv.org/abs/2001.08210",
+                    "source_link": "",
+                    "submission_date": "2020-01",
+                    "model_size": "",
+                    "results": {
+                        "BLEU": 38.5
+                    }
+                }
             ],
-            "data_points": [],
+            "metrics": [
+                "BLEU"
+            ],
+            "time_range": [
+                "Dec '19",
+                "Jan '20",
+                "Feb '20"
+            ],
+            "data_points": [
+                {
+                    "model": "mBART",
+                    "submission_date": "Jan '20",
+                    "BLEU": 38.5
+                }
+            ],
             "task_id": "machine-translation",
             "area": "NLP"
         },
@@ -624,6 +668,178 @@
                 }
             ],
             "task_id": "question-answering",
+            "area": "NLP"
+        },
+        {
+            "task": "Cross-domain POS Tagging",
+            "id": "ud-romanian-rrt-treebank-v2-5-cross-domain-pos-tagging",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain PoS tagging",
+            "dataset_description": "<p><strong>Universal Dependencies</strong> (<a href=\"https://universaldependencies.org/\">UD</a>) is a framework for consistent annotation of grammar across different human languages, and the <strong>Romanian RRT v2.5</strong> is the <a href=\"https://universaldependencies.org/treebanks/ro_rrt/index.html\">standard treebank</a> for the Romanian language.</p>\n<p>The treebank contains over 200K tokens, and is composed of annotated sentences belonging to a set of different genres. On this dataset the following tasks can be performed: <strong>tokenization</strong>, <strong>sentence segmentation</strong>, <strong>lemmatization</strong>, <strong>part-of-speech tagging</strong> and <strong>dependency parsing</strong>.</p>",
+            "short_description": "<p><strong>Universal Dependencies</strong> (<a href=\"https://universaldependencies.org/\">UD</a>) is a framework for consistent annotation of grammar across different human languages, and the <strong>Romanian RRT v2.5</strong> is the <a href=\"https://universaldependencies.org/treebanks/ro_rrt/index.html\">standard treebank</a> for the Romanian language.</p>",
+            "dataset_info": "<h3>Description:</h3>\n<p><a href=\"https://universaldependencies.org/\">Universal Dependencies</a> (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. </p>\n<p>The Romanian RRT Treebank is the standard treebank for Romanian. </p>\n<p>This page is common for the following tasks:</p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Tokenization</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Sentence Segmentation</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Lemmatization</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>POS Tagging</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Dependency parsing</strong></p>\n<h3>Input, Output and Metrics:</h3>\n<p>There are train, dev and test files, in raw format (text) and in the CoNLL-U.\nFull details on the CoNLL-U format are found <a href=\"https://universaldependencies.org/format.html\">here</a></p>\n<p>To perform evaluation, please use the official script available <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>. It offers both prediction_file/gold_file and in-memory functions, evaluating all target metrics in one go.</p>\n<p>Per task metrics (as given by the evaluation script above):</p>\n<p>\u2022 <strong>Tokenization</strong>: <strong>Tokens</strong> F1 score</p>\n<p>\u2022 <strong>Sentence Segmentation</strong>: <strong>Sentences</strong> F1 score</p>\n<p>\u2022 <strong>Lemmatization</strong>: <strong>Lemma</strong> F1 score</p>\n<p>\u2022 <strong>POS Tagging</strong>: <strong>UPOS</strong>, <strong>XPOS</strong> and <strong>AllTags</strong>  F1 scores</p>\n<p>\u2022 <strong>Dependency parsing</strong>: <strong>UAS</strong> and <strong>LAS</strong> F1 scores</p>\n<h3>Download from:</h3>\n<p>Download the treebank from <a href=\"https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3105/ud-treebanks-v2.5.tgz?sequence=1&amp;isAllowed=y\">here</a>. Unzip the file.</p>\n<h3>Starter code:</h3>\n<p>Not yet available, please download directly from source.</p>\n<h3>Citation:</h3>\n<p>If you use this dataset in a published work, please cite the following:</p>\n<blockquote>\n<p>Joakim Nivre, Marie-Catherine de Marneffe, Filip Ginter, Yoav Goldberg, Jan Haji\u010d, Christopher D. Manning, Ryan McDonald, Slav Petrov, Sampo Pyysalo, Natalia Silveira, Reut Tsarfaty, Daniel Zeman. 2016. Universal Dependencies v1: A Multilingual Treebank Collection. In Proceedings of LREC.</p>\n</blockquote>\n<p>or, in bibtex format:</p>\n<blockquote>\n<p>@inproceedings{nivre-etal-2016-universal,\n   title = \"{U}niversal {D}ependencies v1: A Multilingual Treebank Collection\",\n   author = \"Nivre, Joakim  and\n     de Marneffe, Marie-Catherine  and\n     Ginter, Filip  and\n     Goldberg, Yoav  and\n     Haji{\\v{c}}, Jan  and\n     Manning, Christopher D.  and\n     McDonald, Ryan  and\n     Petrov, Slav  and\n     Pyysalo, Sampo  and\n     Silveira, Natalia  and\n     Tsarfaty, Reut  and\n     Zeman, Daniel\",\n   booktitle = \"Proceedings of the Tenth International Conference on Language Resources and Evaluation ({LREC}'16)\",\n   month = may,\n   year = \"2016\",\n   address = \"Portoro{\\v{z}}, Slovenia\",\n   publisher = \"European Language Resources Association (ELRA)\",\n   url = \"https://www.aclweb.org/anthology/L16-1262\",\n   pages = \"1659--1666\",\n   abstract = \"Cross-linguistically consistent annotation is necessary for sound comparative evaluation and cross-lingual learning experiments. It is also useful for multilingual system development and comparative linguistic studies. Universal Dependencies is an open community effort to create cross-linguistically consistent treebank annotation for many languages within a dependency-based lexicalist framework. In this paper, we describe v1 of the universal guidelines, the underlying design principles, and the currently available treebanks for 33 languages.\",\n}</p>\n</blockquote>",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "UPOS F1",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "models": [
+                {
+                    "model": "LiRo Baseline Stanza",
+                    "extra_training_data": false,
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": "",
+                    "submission_date": "2021-05",
+                    "model_size": "",
+                    "results": {
+                        "UPOS F1": 95.73
+                    }
+                }
+            ],
+            "metrics": [
+                "UPOS F1"
+            ],
+            "time_range": [
+                "Apr '21",
+                "May '21",
+                "Jun '21"
+            ],
+            "data_points": [
+                {
+                    "model": "LiRo Baseline Stanza",
+                    "submission_date": "May '21",
+                    "UPOS F1": 95.73
+                }
+            ],
+            "task_id": "cross-domain-pos-tagging",
+            "area": "NLP"
+        },
+        {
+            "task": "Cross-domain Dependency Parsing",
+            "id": "ud-romanian-rrt-treebank-v2-5-cross-domain-dependency-parsing",
+            "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain Dependency Parsing",
+            "dataset_description": "<p><strong>Universal Dependencies</strong> (<a href=\"https://universaldependencies.org/\">UD</a>) is a framework for consistent annotation of grammar across different human languages, and the <strong>Romanian RRT v2.5</strong> is the <a href=\"https://universaldependencies.org/treebanks/ro_rrt/index.html\">standard treebank</a> for the Romanian language.</p>\n<p>The treebank contains over 200K tokens, and is composed of annotated sentences belonging to a set of different genres. On this dataset the following tasks can be performed: <strong>tokenization</strong>, <strong>sentence segmentation</strong>, <strong>lemmatization</strong>, <strong>part-of-speech tagging</strong> and <strong>dependency parsing</strong>.</p>",
+            "short_description": "<p><strong>Universal Dependencies</strong> (<a href=\"https://universaldependencies.org/\">UD</a>) is a framework for consistent annotation of grammar across different human languages, and the <strong>Romanian RRT v2.5</strong> is the <a href=\"https://universaldependencies.org/treebanks/ro_rrt/index.html\">standard treebank</a> for the Romanian language.</p>",
+            "dataset_info": "<h3>Description:</h3>\n<p><a href=\"https://universaldependencies.org/\">Universal Dependencies</a> (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. </p>\n<p>The Romanian RRT Treebank is the standard treebank for Romanian. </p>\n<p>This page is common for the following tasks:</p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Tokenization</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Sentence Segmentation</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Lemmatization</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>POS Tagging</strong></p>\n<p>\u2022 UD Romanian RRT Treebank 2.5 - <strong>Dependency parsing</strong></p>\n<h3>Input, Output and Metrics:</h3>\n<p>There are train, dev and test files, in raw format (text) and in the CoNLL-U.\nFull details on the CoNLL-U format are found <a href=\"https://universaldependencies.org/format.html\">here</a></p>\n<p>To perform evaluation, please use the official script available <a href=\"http://universaldependencies.org/conll18/evaluation.html\">here</a>. It offers both prediction_file/gold_file and in-memory functions, evaluating all target metrics in one go.</p>\n<p>Per task metrics (as given by the evaluation script above):</p>\n<p>\u2022 <strong>Tokenization</strong>: <strong>Tokens</strong> F1 score</p>\n<p>\u2022 <strong>Sentence Segmentation</strong>: <strong>Sentences</strong> F1 score</p>\n<p>\u2022 <strong>Lemmatization</strong>: <strong>Lemma</strong> F1 score</p>\n<p>\u2022 <strong>POS Tagging</strong>: <strong>UPOS</strong>, <strong>XPOS</strong> and <strong>AllTags</strong>  F1 scores</p>\n<p>\u2022 <strong>Dependency parsing</strong>: <strong>UAS</strong> and <strong>LAS</strong> F1 scores</p>\n<h3>Download from:</h3>\n<p>Download the treebank from <a href=\"https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3105/ud-treebanks-v2.5.tgz?sequence=1&amp;isAllowed=y\">here</a>. Unzip the file.</p>\n<h3>Starter code:</h3>\n<p>Not yet available, please download directly from source.</p>\n<h3>Citation:</h3>\n<p>If you use this dataset in a published work, please cite the following:</p>\n<blockquote>\n<p>Joakim Nivre, Marie-Catherine de Marneffe, Filip Ginter, Yoav Goldberg, Jan Haji\u010d, Christopher D. Manning, Ryan McDonald, Slav Petrov, Sampo Pyysalo, Natalia Silveira, Reut Tsarfaty, Daniel Zeman. 2016. Universal Dependencies v1: A Multilingual Treebank Collection. In Proceedings of LREC.</p>\n</blockquote>\n<p>or, in bibtex format:</p>\n<blockquote>\n<p>@inproceedings{nivre-etal-2016-universal,\n   title = \"{U}niversal {D}ependencies v1: A Multilingual Treebank Collection\",\n   author = \"Nivre, Joakim  and\n     de Marneffe, Marie-Catherine  and\n     Ginter, Filip  and\n     Goldberg, Yoav  and\n     Haji{\\v{c}}, Jan  and\n     Manning, Christopher D.  and\n     McDonald, Ryan  and\n     Petrov, Slav  and\n     Pyysalo, Sampo  and\n     Silveira, Natalia  and\n     Tsarfaty, Reut  and\n     Zeman, Daniel\",\n   booktitle = \"Proceedings of the Tenth International Conference on Language Resources and Evaluation ({LREC}'16)\",\n   month = may,\n   year = \"2016\",\n   address = \"Portoro{\\v{z}}, Slovenia\",\n   publisher = \"European Language Resources Association (ELRA)\",\n   url = \"https://www.aclweb.org/anthology/L16-1262\",\n   pages = \"1659--1666\",\n   abstract = \"Cross-linguistically consistent annotation is necessary for sound comparative evaluation and cross-lingual learning experiments. It is also useful for multilingual system development and comparative linguistic studies. Universal Dependencies is an open community effort to create cross-linguistically consistent treebank annotation for many languages within a dependency-based lexicalist framework. In this paper, we describe v1 of the universal guidelines, the underlying design principles, and the currently available treebanks for 33 languages.\",\n}</p>\n</blockquote>",
+            "dataset_link": "https://universaldependencies.org/",
+            "preferred_metric": "UAS F1",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "models": [
+                {
+                    "model": "LiRo Baseline Stanza",
+                    "extra_training_data": false,
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": "",
+                    "submission_date": "2021-05",
+                    "model_size": "",
+                    "results": {
+                        "UAS F1": 88.97
+                    }
+                }
+            ],
+            "metrics": [
+                "UAS F1"
+            ],
+            "time_range": [
+                "Apr '21",
+                "May '21",
+                "Jun '21"
+            ],
+            "data_points": [
+                {
+                    "model": "LiRo Baseline Stanza",
+                    "submission_date": "May '21",
+                    "UAS F1": 88.97
+                }
+            ],
+            "task_id": "cross-domain-dependency-parsing",
+            "area": "NLP"
+        },
+        {
+            "task": "Language Modeling",
+            "id": "wiki-ro",
+            "dataset_name": "Wiki-Ro",
+            "dataset_description": "",
+            "short_description": "",
+            "dataset_info": "",
+            "dataset_link": "https://dumps.wikimedia.org/rowiki/20210401/",
+            "preferred_metric": "Perplexity",
+            "license": "Not specified",
+            "license_url": "",
+            "models": [
+                {
+                    "model": "LiRo Baseline ro-Bert",
+                    "extra_training_data": false,
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": "",
+                    "submission_date": "2021-05",
+                    "model_size": "",
+                    "results": {
+                        "Perplexity": 28.0
+                    }
+                }
+            ],
+            "metrics": [
+                "Perplexity"
+            ],
+            "time_range": [
+                "Apr '21",
+                "May '21",
+                "Jun '21"
+            ],
+            "data_points": [
+                {
+                    "model": "LiRo Baseline ro-Bert",
+                    "submission_date": "May '21",
+                    "Perplexity": 28.0
+                }
+            ],
+            "task_id": "language-modeling",
+            "area": "NLP"
+        },
+        {
+            "task": "Gender debiasing",
+            "id": "romanian-word-embeddings",
+            "dataset_name": "Romanian word embeddings",
+            "dataset_description": "",
+            "short_description": "",
+            "dataset_info": "",
+            "dataset_link": "https://corola.racai.ro/",
+            "preferred_metric": "Modified-WEAT",
+            "license": "Not specified",
+            "license_url": "",
+            "models": [
+                {
+                    "model": "LiRo Baseline gender debiasing",
+                    "extra_training_data": false,
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": "",
+                    "submission_date": "2021-05",
+                    "model_size": "",
+                    "results": {
+                        "Modified-WEAT": 2.57
+                    }
+                }
+            ],
+            "metrics": [
+                "Modified-WEAT"
+            ],
+            "time_range": [
+                "Apr '21",
+                "May '21",
+                "Jun '21"
+            ],
+            "data_points": [
+                {
+                    "model": "LiRo Baseline gender debiasing",
+                    "submission_date": "May '21",
+                    "Modified-WEAT": 2.57
+                }
+            ],
+            "task_id": "gender-debiasing",
             "area": "NLP"
         }
     ]

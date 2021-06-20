@@ -2,9 +2,9 @@
     "tasks": [
         {
             "area": "NLP",
-            "id": "text-classification",
-            "task_name": "Text Classification",
-            "task_description": "Text classification is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
+            "id": "text-categorization-by-topic",
+            "task_name": "Text Categorization by Topic",
+            "task_description": "Text Categorization by Topic is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
             "datasets": [
                 {
                     "dataset_id": "moroco",
@@ -27,10 +27,10 @@
                     "dataset_id": "ronec-romanian-named-entity-corpus-v1-0",
                     "dataset_name": "RONEC - Romanian Named Entity Corpus v1.0",
                     "metric": "Exact Match F1",
-                    "model_name": "",
-                    "paper_title": "",
-                    "paper_link": "",
-                    "source_link": ""
+                    "model_name": "Romanian BERT Baseline",
+                    "paper_title": "The birth of Romanian BERT",
+                    "paper_link": "https://www.aclweb.org/anthology/2020.findings-emnlp.387/",
+                    "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers"
                 }
             ]
         },
@@ -53,9 +53,9 @@
                     "dataset_id": "wmt16-en-ro",
                     "dataset_name": "WMT16-EN-RO",
                     "metric": "BLEU",
-                    "model_name": "",
-                    "paper_title": "",
-                    "paper_link": "",
+                    "model_name": "mBART",
+                    "paper_title": "Multilingual Denoising Pre-training for Neural Machine Translation",
+                    "paper_link": "https://arxiv.org/abs/2001.08210",
                     "source_link": ""
                 }
             ]
@@ -150,7 +150,17 @@
             "id": "language-modeling",
             "task_name": "Language Modeling",
             "task_description": "Language modeling is the task of predicting the next word or character in a document.",
-            "datasets": []
+            "datasets": [
+                {
+                    "dataset_id": "wiki-ro",
+                    "dataset_name": "Wiki-Ro",
+                    "metric": "Perplexity",
+                    "model_name": "LiRo Baseline ro-Bert",
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": ""
+                }
+            ]
         },
         {
             "area": "NLP",
@@ -200,6 +210,57 @@
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/RO-STS"
+                }
+            ]
+        },
+        {
+            "area": "NLP",
+            "id": "cross-domain-pos-tagging",
+            "task_name": "Cross-domain POS Tagging",
+            "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-cross-domain-pos-tagging",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain PoS tagging",
+                    "metric": "UPOS F1",
+                    "model_name": "LiRo Baseline Stanza",
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": ""
+                }
+            ]
+        },
+        {
+            "area": "NLP",
+            "id": "cross-domain-dependency-parsing",
+            "task_name": "Cross-domain Dependency Parsing",
+            "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
+            "datasets": [
+                {
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-cross-domain-dependency-parsing",
+                    "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain Dependency Parsing",
+                    "metric": "UAS F1",
+                    "model_name": "LiRo Baseline Stanza",
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": ""
+                }
+            ]
+        },
+        {
+            "area": "NLP",
+            "id": "gender-debiasing",
+            "task_name": "Gender debiasing",
+            "task_description": "Gender debiasing is the task of reducing bias \u00een Romanian word embeddings.",
+            "datasets": [
+                {
+                    "dataset_id": "romanian-word-embeddings",
+                    "dataset_name": "Romanian word embeddings",
+                    "metric": "Modified-WEAT",
+                    "model_name": "LiRo Baseline gender debiasing",
+                    "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
+                    "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
+                    "source_link": ""
                 }
             ]
         }

@@ -4,8 +4,8 @@
             "name": "NLP",
             "tasks": [
                 {
-                    "id": "text-classification",
-                    "name": "Text Classification",
+                    "id": "text-categorization-by-topic",
+                    "name": "Text Categorization by Topic",
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 1
@@ -16,7 +16,7 @@
                     "name": "NER",
                     "summary": {
                         "dataset_count": 1,
-                        "submission_count": 0
+                        "submission_count": 1
                     }
                 },
                 {
@@ -24,15 +24,15 @@
                     "name": "Machine Translation",
                     "summary": {
                         "dataset_count": 2,
-                        "submission_count": 0
+                        "submission_count": 1
                     }
                 },
                 {
                     "id": "language-modeling",
                     "name": "Language Modeling",
                     "summary": {
-                        "dataset_count": 0,
-                        "submission_count": 0
+                        "dataset_count": 1,
+                        "submission_count": 1
                     }
                 },
                 {
@@ -57,6 +57,30 @@
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 3
+                    }
+                },
+                {
+                    "id": "cross-domain-pos-tagging",
+                    "name": "Cross-domain POS Tagging",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
+                    }
+                },
+                {
+                    "id": "cross-domain-dependency-parsing",
+                    "name": "Cross-domain Dependency Parsing",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
+                    }
+                },
+                {
+                    "id": "gender-debiasing",
+                    "name": "Gender debiasing",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
                     }
                 }
             ]
