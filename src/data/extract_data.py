@@ -10,6 +10,7 @@ import functools
 import markdown as md
 from pathlib import PurePath
 import sys
+from distutils.util import strtobool
 
 
 class DatasetColumns:
@@ -380,8 +381,8 @@ class DatasetsDetailsBuilder(object):
             model_size = model_info[LeaderboardColumns.ModelSize]
             if model_size:
                 model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
-            extra_training_data = bool(
-                model_info[LeaderboardColumns.ExtraTrainingData])
+            extra_training_data = bool(strtobool(
+                model_info[LeaderboardColumns.ExtraTrainingData]))
             item = {
                 "model": model,
                 "extra_training_data": extra_training_data,
