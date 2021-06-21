@@ -69,9 +69,13 @@ jobs:
         ssh-add ~/.ssh/id_rsa
         ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
     - name: Checkout master
-      uses: actions/checkout@v2
+      #uses: actions/checkout@v2
+      #with:
+      #  ssh-key: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
+      uses: actions/checkout@master 
       with:
-        ssh-key: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
+        persist-credentials: false 
+        fetch-depth: 0 
     - name: Config Git
       run: |
         git config --local user.email "action@github.com"
