@@ -41,7 +41,7 @@
                 }
             ],
             "task_id": "ner",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Tokenization",
@@ -412,7 +412,7 @@
                 }
             ],
             "task_id": "sentiment-analysis",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Text Categorization by Topic",
@@ -455,7 +455,7 @@
                 }
             ],
             "task_id": "text-categorization-by-topic",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Semantic Textual Similarity",
@@ -539,7 +539,7 @@
                 }
             ],
             "task_id": "semantic-textual-similarity",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Machine Translation",
@@ -560,7 +560,7 @@
             ],
             "data_points": [],
             "task_id": "machine-translation",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Machine Translation",
@@ -603,7 +603,7 @@
                 }
             ],
             "task_id": "machine-translation",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Question Answering",
@@ -668,7 +668,7 @@
                 }
             ],
             "task_id": "question-answering",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Cross-domain POS Tagging",
@@ -711,7 +711,7 @@
                 }
             ],
             "task_id": "cross-domain-pos-tagging",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Cross-domain Dependency Parsing",
@@ -754,7 +754,7 @@
                 }
             ],
             "task_id": "cross-domain-dependency-parsing",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Language Modeling",
@@ -797,7 +797,7 @@
                 }
             ],
             "task_id": "language-modeling",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         },
         {
             "task": "Gender debiasing",
@@ -840,7 +840,7 @@
                 }
             ],
             "task_id": "gender-debiasing",
-            "area": "NLP"
+            "area": "NLP Benchmark"
         }
     ]
 }
