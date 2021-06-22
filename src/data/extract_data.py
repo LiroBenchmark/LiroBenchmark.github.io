@@ -72,6 +72,7 @@ class AreasColumns:
     """
     Name = "NAME"
     DisplayRank = "RANK"
+    Remarks = "REMARKS"
 
 
 def build_id_string(name):
@@ -704,8 +705,12 @@ class AreasDetailsBuilder(object):
         self.datasets = datasets
         self.tasks = tasks
         self.results = results
-        self.areas = {
+        self.area_ranks = {
             row[AreasColumns.Name]: row[AreasColumns.DisplayRank]
+            for _, row in areas.iterrows()
+        }
+        self.area_remarks={
+            row[AreasColumns.Name]: row[AreasColumns.Remarks] if len(row[AreasColumns.Remarks])>0 else None
             for _, row in areas.iterrows()
         }
 
@@ -734,7 +739,7 @@ class AreasDetailsBuilder(object):
                 "name": t["name"],
                 "summary": t["summary"]
             } for t in tasks]
-            result.append({"name": area, "tasks": area_tasks})
+            result.append({"name": area,"remarks":self.area_remarks[area], "tasks": area_tasks})
         return result
 
     def _get_area_display_rank(self, task):
@@ -751,9 +756,9 @@ class AreasDetailsBuilder(object):
             The area display rank if area is found in the areas field; sys.maxint otherwise.
         """
         area = task['area']
-        if area not in self.areas:
+        if area not in self.area_ranks:
             return sys.maxint
-        return self.areas[area]
+        return self.area_ranks[area]
 
     def _build_task_summary(self, task):
         """Counts the number of datasets and submissions for current task.
