@@ -2,6 +2,7 @@
     "areas": [
         {
             "name": "NLP Benchmark",
+            "remarks": null,
             "tasks": [
                 {
                     "id": "text-categorization-by-topic",
@@ -87,6 +88,7 @@
         },
         {
             "name": "Additional tasks and Resources",
+            "remarks": "Not part of the official benchmark.",
             "tasks": [
                 {
                     "id": "tokenization",
