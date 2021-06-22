@@ -49,6 +49,9 @@ a.task-tile-link{
 	display: none;
     }
 }
+p.area-remarks{
+    color:rgb(82, 82, 82);
+}
 $task-wrapper-max-width: 1500px;
 $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
 .tile-wrapper{
@@ -116,7 +119,6 @@ $task-wrapper-padding: calc(100% - #{$task-wrapper-max-width});
                     }
             }
         }
-
         }
     }
 }

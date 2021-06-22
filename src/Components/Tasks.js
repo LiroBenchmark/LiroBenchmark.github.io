@@ -65,14 +65,17 @@ class Tasks extends React.Component {
 
   renderArea(area) {
     const { activeArea } = this.state;
-    const { tasks, name } = area;
+    const { tasks, name, remarks } = area;
 
     const isTileOpened = activeArea === name;
 
     return (
       <div key={area.name} className="tile-wrapper">
         <div onClick={() => this.updateactiveArea(name)} className="collapse-trigger">
-          <h4>{area.name}</h4>
+          <header>
+            <h4>{area.name}</h4>
+            {remarks && <p className="area-remarks">{area.remarks}</p>}
+          </header>
         </div>
         <Collapse isOpened={isTileOpened}>
           <div className="task-wrapper">
