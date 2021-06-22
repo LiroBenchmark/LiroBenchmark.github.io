@@ -806,7 +806,7 @@
             "dataset_description": "",
             "short_description": "",
             "dataset_info": "",
-            "dataset_link": "https://corola.racai.ro/",
+            "dataset_link": "https://github.com/LiroBenchmark/gender-bias/tree/main/embeddings_ro",
             "preferred_metric": "Modified-WEAT",
             "license": "Not specified",
             "license_url": "",
