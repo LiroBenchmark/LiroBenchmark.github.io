@@ -1,6 +1,6 @@
 ### Input, Output and Metrics:
 
-Given the first 1 million embeddings, the target is to maximize the Modified Word Embedding Association Test (`MWEAT`) score.
+Given the [fastText Romanian embeddings](https://github.com/facebookresearch/MUSE), the target is to maximize the Modified Word Embedding Association Test (`MWEAT`) score.
 
 Please see the [paper describing the original debiasing experiment](https://arxiv.org/abs/1909.02224) for more info on `MWEAT`.
 
