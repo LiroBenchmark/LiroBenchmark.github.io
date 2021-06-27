@@ -7,7 +7,7 @@ The goal of this dataset is to provide standardized fine-tuning and evaluation o
 
 ### Download from:
 
-[https://dumps.wikimedia.org/rowiki/20210401/](https://dumps.wikimedia.org/rowiki/20210401/)
+[https://github.com/dumitrescustefan/wiki-ro](https://github.com/dumitrescustefan/wiki-ro)
 
 ### Starter code:
 
