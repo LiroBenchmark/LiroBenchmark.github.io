@@ -220,8 +220,8 @@
             "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-cross-domain-pos-tagging",
-                    "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain PoS tagging",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-8-cross-domain-pos-tagging",
+                    "dataset_name": "UD Romanian RRT Treebank v2.8 \u2013 cross-domain PoS tagging",
                     "metric": "UPOS F1",
                     "model_name": "LiRo Baseline Stanza",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
@@ -237,8 +237,8 @@
             "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
             "datasets": [
                 {
-                    "dataset_id": "ud-romanian-rrt-treebank-v2-5-cross-domain-dependency-parsing",
-                    "dataset_name": "UD Romanian RRT Treebank v2.5 \u2013 cross-domain Dependency Parsing",
+                    "dataset_id": "ud-romanian-rrt-treebank-v2-8-cross-domain-dependency-parsing",
+                    "dataset_name": "UD Romanian RRT Treebank v2.8 \u2013 cross-domain Dependency Parsing",
                     "metric": "UAS F1",
                     "model_name": "LiRo Baseline Stanza",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
