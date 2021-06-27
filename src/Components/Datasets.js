@@ -51,7 +51,15 @@ class Datasets extends React.Component {
               send us an email at <ContactEmail />.
             </p>
           </div>
-          {data.datasets.map((ds) => this.renderDataset(ds))}
+          {data.datasets
+            .sort((a, b) => {
+              const ds_name_a = a.dataset_name;
+              const ds_name_b = b.dataset_name;
+              if (ds_name_a < ds_name_b) return -1;
+              if (ds_name_a > ds_name_b) return 1;
+              return 0;
+            })
+            .map((ds) => this.renderDataset(ds))}
         </div>
       </>
     );
