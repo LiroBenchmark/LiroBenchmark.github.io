@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaFileCode } from 'react-icons/fa';
 import data from '../data/tasks.json';
 import UrlBuilder from './UrlBuilder';
 import './TaskDetails.scss';
+import StarterCodeIcon from './StarterCodeIcon';
 
 class TaskDetails extends React.Component {
   constructor(props) {
@@ -35,17 +35,6 @@ class TaskDetails extends React.Component {
     return <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>;
   }
 
-  renderStarterCode(starter_code) {
-    if (!starter_code) {
-      return '';
-    }
-    return (
-      <a href={starter_code} target="_blank" rel="noopener noreferrer">
-        <FaFileCode />
-      </a>
-    );
-  }
-
   renderModelRow(dataset) {
     const { dataset_name, dataset_id, model_name, paper_title, paper_link, starter_code } = dataset;
     return (
@@ -55,7 +44,9 @@ class TaskDetails extends React.Component {
         </td>
         <td>{this.renderModelName(model_name, dataset_id)}</td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
-        <td>{this.renderStarterCode(starter_code)}</td>
+        <td>
+          <StarterCodeIcon url={starter_code} />
+        </td>
       </tr>
     );
   }

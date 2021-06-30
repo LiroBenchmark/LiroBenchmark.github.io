@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import { FaFileCode } from 'react-icons/fa';
 import data from '../data/datasets.json';
 import './Datasets.scss';
 import UrlBuilder from './UrlBuilder.js';
 import ContactEmail from './ContactEmail';
+import StarterCodeIcon from './StarterCodeIcon';
 
 class Datasets extends React.Component {
   constructor(props) {
@@ -38,9 +38,7 @@ class Datasets extends React.Component {
             {dataset.starter_code && (
               <li>
                 <span>starter code: </span>
-                <a href={dataset.starter_code} target="_blank" rel="noopener noreferrer">
-                  <FaFileCode />
-                </a>
+                <StarterCodeIcon url={dataset.starter_code} />
               </li>
             )}
           </ul>

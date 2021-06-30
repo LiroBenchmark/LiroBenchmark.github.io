@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './DatasetInfo.scss';
+import StarterCodeIcon from './StarterCodeIcon';
 
 export class DatasetInfo extends Component {
   constructor(props) {
@@ -51,9 +52,7 @@ export class DatasetInfo extends Component {
       <tr>
         <th>Starter code</th>
         <td>
-          <a href={this.starterCodeUrl} target="_blank" rel="noopener noreferrer">
-            {this.starterCodeUrl}
-          </a>
+          <StarterCodeIcon url={this.starterCodeUrl} />
         </td>
       </tr>
     );
