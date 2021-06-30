@@ -22,6 +22,7 @@ class DatasetColumns:
     PreferredMetric = 'PREFERRED METRIC'
     License = 'LICENSE'
     LicenseURL = 'LICENSE URL'
+    StarterCode = 'STARTER CODE'
     ShortDescription = 'SHORT DESCRIPTION FILE'
     LongDescription = 'LONG DESCRIPTION FILE'
 
@@ -617,11 +618,11 @@ class TasksDetailsBuilder(object):
                 logging.warning(
                     "No best model found for dataset '{}' and metric '{}'.".
                     format(dataset, pref_metric))
-                paper_title, paper_link, source_link = '', '', ''
-                model = ''
+                paper_title, paper_link, model = '', '', ''
             else:
-                paper_title, paper_link, source_link = self._get_model_properties(
+                paper_title, paper_link = self._get_model_properties(
                     model)
+            starter_code = row[DatasetColumns.StarterCode]
             datasets.append({
                 "dataset_id": build_id_string(dataset),
                 "dataset_name": dataset,
@@ -629,7 +630,7 @@ class TasksDetailsBuilder(object):
                 "model_name": model,
                 "paper_title": paper_title,
                 "paper_link": paper_link,
-                "source_link": source_link
+                "starter_code": starter_code
             })
         return datasets
 
@@ -643,14 +644,13 @@ class TasksDetailsBuilder(object):
 
         Returns
         -------
-        (paper_title:string, paper_link:string, source_link:string)
+        (paper_title:string, paper_link:string)
             The properties of the model.
         """
         props = self.leaderboard[self.leaderboard[LeaderboardColumns.ModelName]
                                  == model].iloc[0]
         return (props[LeaderboardColumns.PaperTitle],
-                props[LeaderboardColumns.PaperLink],
-                props[LeaderboardColumns.SourceLink])
+                props[LeaderboardColumns.PaperLink])
 
     def _get_best_model(self, dataset, metric):
         """Finds the best model for the specified dataset and metric.
