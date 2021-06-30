@@ -1,6 +1,6 @@
 import React from 'react';
+import { FaFileCode } from 'react-icons/fa';
 import data from '../data/tasks.json';
-import { CodeIcon } from '../assets/icons';
 import UrlBuilder from './UrlBuilder';
 import './TaskDetails.scss';
 
@@ -41,7 +41,7 @@ class TaskDetails extends React.Component {
     }
     return (
       <a href={starter_code} target="_blank" rel="noopener noreferrer">
-        <CodeIcon />
+        <FaFileCode />
       </a>
     );
   }
