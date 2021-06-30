@@ -13,7 +13,7 @@
                     "model_name": "Ensemble based on Classifier Stacking",
                     "paper_title": "The Unreasonable Effectiveness of Machine Learning in Moldavian versus Romanian Dialect Identification",
                     "paper_link": "https://arxiv.org/abs/2007.15700",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -30,7 +30,7 @@
                     "model_name": "Romanian BERT Baseline",
                     "paper_title": "The birth of Romanian BERT",
                     "paper_link": "https://www.aclweb.org/anthology/2020.findings-emnlp.387/",
-                    "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers"
+                    "starter_code": ""
                 }
             ]
         },
@@ -47,7 +47,7 @@
                     "model_name": "",
                     "paper_title": "",
                     "paper_link": "",
-                    "source_link": ""
+                    "starter_code": ""
                 },
                 {
                     "dataset_id": "wmt16-en-ro",
@@ -56,7 +56,7 @@
                     "model_name": "mBART",
                     "paper_title": "Multilingual Denoising Pre-training for Neural Machine Translation",
                     "paper_link": "https://arxiv.org/abs/2001.08210",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -73,7 +73,7 @@
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
-                    "source_link": "https://github.com/adobe/NLP-Cube"
+                    "starter_code": ""
                 }
             ]
         },
@@ -90,7 +90,7 @@
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
-                    "source_link": "https://github.com/adobe/NLP-Cube"
+                    "starter_code": ""
                 }
             ]
         },
@@ -107,7 +107,7 @@
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
-                    "source_link": "https://github.com/adobe/NLP-Cube"
+                    "starter_code": ""
                 }
             ]
         },
@@ -124,7 +124,7 @@
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
-                    "source_link": "https://github.com/adobe/NLP-Cube"
+                    "starter_code": ""
                 }
             ]
         },
@@ -141,7 +141,7 @@
                     "model_name": "NLP-Cube v1.1 [end-to-end]",
                     "paper_title": "NLP-Cube: End-to-End Raw Text Processing With Neural Networks",
                     "paper_link": "http://www.aclweb.org/anthology/K18-2017",
-                    "source_link": "https://github.com/adobe/NLP-Cube"
+                    "starter_code": ""
                 }
             ]
         },
@@ -158,7 +158,7 @@
                     "model_name": "LiRo Baseline ro-Bert",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
                     "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -175,7 +175,7 @@
                     "model_name": "mBERT",
                     "paper_title": "(results available online only, Romanian evaluated by DeepMind XQuAD dataset creators)",
                     "paper_link": "https://github.com/deepmind/xquad",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -192,7 +192,7 @@
                     "model_name": "HISK+BOWE-BERT with SOMs",
                     "paper_title": "Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa -- A Large Romanian Sentiment Data Set",
                     "paper_link": "https://www.aclweb.org/anthology/2021.eacl-main.81/",
-                    "source_link": "https://github.com/ancatache/LaRoSeDa"
+                    "starter_code": ""
                 }
             ]
         },
@@ -209,7 +209,7 @@
                     "model_name": "RO-STS Baseline RNN",
                     "paper_title": "",
                     "paper_link": "",
-                    "source_link": "https://github.com/dumitrescustefan/RO-STS"
+                    "starter_code": ""
                 }
             ]
         },
@@ -221,12 +221,12 @@
             "datasets": [
                 {
                     "dataset_id": "ud-romanian-rrt-treebank-v2-8-cross-domain-pos-tagging",
-                    "dataset_name": "UD Romanian RRT Treebank v2.8 \u2013 cross-domain PoS tagging",
+                    "dataset_name": "UD Romanian RRT Treebank v2.8 - cross-domain PoS tagging",
                     "metric": "UPOS F1",
                     "model_name": "LiRo Baseline Stanza",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
                     "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -238,12 +238,12 @@
             "datasets": [
                 {
                     "dataset_id": "ud-romanian-rrt-treebank-v2-8-cross-domain-dependency-parsing",
-                    "dataset_name": "UD Romanian RRT Treebank v2.8 \u2013 cross-domain Dependency Parsing",
+                    "dataset_name": "UD Romanian RRT Treebank v2.8 - cross-domain Dependency Parsing",
                     "metric": "UAS F1",
                     "model_name": "LiRo Baseline Stanza",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
                     "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
-                    "source_link": ""
+                    "starter_code": ""
                 }
             ]
         },
@@ -260,7 +260,7 @@
                     "model_name": "LiRo Baseline gender debiasing",
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
                     "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
-                    "source_link": ""
+                    "starter_code": "https://github.com/LiroBenchmark/gender-bias/blob/main/bias_embed_ro.ipynb"
                 }
             ]
         }
