@@ -7,6 +7,10 @@ class UrlBuilder {
     return `/datasets`;
   }
 
+  static get starterCodePageUrl() {
+    return `/starter-code`;
+  }
+
   static get taskUrlTemplate() {
     return '/task/:id';
   }
