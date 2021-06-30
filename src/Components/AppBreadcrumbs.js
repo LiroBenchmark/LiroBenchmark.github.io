@@ -8,14 +8,13 @@ class AppBreadcrumbs extends React.Component {
   constructor(props) {
     super(props);
     this.urlBuilder = new UrlBuilder();
-    this.urlMap = {
-      '/about': 'About',
-      '/submit': 'Submit your model',
-      '/datasets': 'Datasets',
-      '/starter-code': 'Starter code',
-      '/terms-and-conditions': 'Terms and Conditions',
-      '/privacy-statement': 'Privacy statement',
-    };
+    this.urlMap = {};
+    this.urlMap[UrlBuilder.aboutPageUrl] = 'About';
+    this.urlMap[UrlBuilder.submitPageUrl] = 'Submit your model';
+    this.urlMap[UrlBuilder.datasetsPageUrl] = 'Datasets';
+    this.urlMap[UrlBuilder.starterCodePageUrl] = 'Starter code';
+    this.urlMap[UrlBuilder.termsAndConditionsPageUrl] = 'Terms and Conditions';
+    this.urlMap[UrlBuilder.privacyStatementPageUrl] = 'Privacy statement';
   }
 
   getTaskName(url) {
