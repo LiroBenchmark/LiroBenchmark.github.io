@@ -15,14 +15,14 @@ const Dashboard = (props) => {
   const { location } = props;
   return (
     <Switch location={location}>
-      <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/submit" component={SubmitPage} />
+      <Route exact path={UrlBuilder.aboutPageUrl} component={AboutPage} />
+      <Route exact path={UrlBuilder.submitPageUrl} component={SubmitPage} />
       <Route exact path={UrlBuilder.taskUrlTemplate} component={TaskDetails} />
       <Route exact path={UrlBuilder.datasetUrlTemplate} component={DatasetDetails} />
-      <Route exact path="/datasets" component={Datasets} />
+      <Route exact path={UrlBuilder.datasetsPageUrl} component={Datasets} />
       <Route exact path={UrlBuilder.starterCodePageUrl} component={StarterCode} />
-      <Route exact path="/terms-and-conditions" component={TermsAndConditionsPage} />
-      <Route exact path="/privacy-statement" component={PrivacyStatementPage} />
+      <Route exact path={UrlBuilder.termsAndConditionsPageUrl} component={TermsAndConditionsPage} />
+      <Route exact path={UrlBuilder.privacyStatementPageUrl} component={PrivacyStatementPage} />
       <Route path="/" component={Tasks} />
     </Switch>
   );
