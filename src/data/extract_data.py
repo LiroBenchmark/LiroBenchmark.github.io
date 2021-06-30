@@ -476,6 +476,7 @@ class DatasetsDetailsBuilder(object):
             "dataset_info": dataset_info,
             "dataset_link": row[DatasetColumns.DatasetLink],
             "preferred_metric": row[DatasetColumns.PreferredMetric],
+            "starter_code": row[DatasetColumns.StarterCode],
             "license": license,
             "license_url": row[DatasetColumns.LicenseURL],
             "models": []
