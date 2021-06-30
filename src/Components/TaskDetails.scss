@@ -16,7 +16,10 @@
 
     table{
         @extend .rola-table;
+
+	tbody > tr > td > a > svg > path{
+	    fill:#000;
+	}
     }
 
 }
-
