@@ -5,6 +5,7 @@ import { FcCollapse, FcExpand } from 'react-icons/all';
 import './DatasetDetails.scss';
 import UrlBuilder from './UrlBuilder';
 import PlotBuilder from './PlotBuilder';
+import DatasetInfo from './DatasetInfo';
 import ModelScoresTable from './ModelScoresTable';
 import data from '../data/datasets.json';
 
@@ -45,30 +46,7 @@ class DatasetDetails extends React.Component {
       <>
         <h3 className="dataset-title">{this.dataset.dataset_name}</h3>
         <div className="dataset-description">{ReactHtmlParser(this.dataset.dataset_description)}</div>
-        <table className="dataset-info">
-          <tbody>
-            <tr>
-              <th>Source</th>
-              <td>
-                <a href={this.dataset.dataset_link} target="_blank" rel="noopener noreferrer">
-                  {this.dataset.dataset_link}
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th>License</th>
-              <td>
-                {this.dataset.license_url ? (
-                  <a href={this.dataset.license_url} target="_blank" rel="noopener noreferrer">
-                    {this.dataset.license}
-                  </a>
-                ) : (
-                  this.dataset.license
-                )}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <DatasetInfo dataset={this.dataset} />
         <div>
           <div onClick={this.toggleDatasetInfo} className="collapse-trigger">
             {this.renderMoreInfoText()}
