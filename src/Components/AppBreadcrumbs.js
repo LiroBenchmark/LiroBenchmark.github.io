@@ -12,6 +12,7 @@ class AppBreadcrumbs extends React.Component {
       '/about': 'About',
       '/submit': 'Submit your model',
       '/datasets': 'Datasets',
+      '/starter-code': 'Starter code',
       '/terms-and-conditions': 'Terms and Conditions',
       '/privacy-statement': 'Privacy statement',
     };
