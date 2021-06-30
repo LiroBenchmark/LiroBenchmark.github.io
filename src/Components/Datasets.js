@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import { FaFileCode } from 'react-icons/fa';
 import data from '../data/datasets.json';
 import './Datasets.scss';
 import UrlBuilder from './UrlBuilder.js';
@@ -34,6 +35,14 @@ class Datasets extends React.Component {
             <li>
               <span>preferred metric:</span> {dataset.preferred_metric}
             </li>
+            {dataset.starter_code && (
+              <li>
+                <span>starter code: </span>
+                <a href={dataset.starter_code} target="_blank" rel="noopener noreferrer">
+                  <FaFileCode />
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
