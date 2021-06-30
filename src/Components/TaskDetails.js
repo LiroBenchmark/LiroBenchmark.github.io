@@ -35,19 +35,19 @@ class TaskDetails extends React.Component {
     return <a href={this.urlBuilder.buildDatasetUrl({ id: dataset_id })}>{model_name}</a>;
   }
 
-  renderSourceLink(source_link) {
-    if (!source_link) {
+  renderStarterCode(starter_code) {
+    if (!starter_code) {
       return '';
     }
     return (
-      <a href={source_link} target="_blank" rel="noopener noreferrer">
+      <a href={starter_code} target="_blank" rel="noopener noreferrer">
         <CodeIcon />
       </a>
     );
   }
 
   renderModelRow(dataset) {
-    const { dataset_name, dataset_id, model_name, paper_title, paper_link, source_link } = dataset;
+    const { dataset_name, dataset_id, model_name, paper_title, paper_link, starter_code } = dataset;
     return (
       <tr key={model_name}>
         <td>
@@ -55,7 +55,7 @@ class TaskDetails extends React.Component {
         </td>
         <td>{this.renderModelName(model_name, dataset_id)}</td>
         <td>{this.renderPaper(paper_link, paper_title)}</td>
-        <td>{this.renderSourceLink(source_link)}</td>
+        <td>{this.renderStarterCode(starter_code)}</td>
       </tr>
     );
   }
@@ -71,8 +71,8 @@ class TaskDetails extends React.Component {
           <tr>
             <td>Dataset</td>
             <td>Best model</td>
-            <td>Paper</td>
-            <td>Code</td>
+            <td>Best model paper</td>
+            <td>Starter code</td>
           </tr>
         </thead>
         <tbody>{datasets.map((ds) => this.renderModelRow(ds))}</tbody>
