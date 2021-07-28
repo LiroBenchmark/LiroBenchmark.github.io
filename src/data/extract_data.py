@@ -97,22 +97,24 @@ def build_id_string(name):
     return url.lower()
 
 
-def read_excel(file_name, sheet_name):
+def read_csv_data(file_name, separator=',', header=True):
     """Imports the data from the specified file and sheet into a DataFrame.
 
     Parameters
     ----------
-    file_name: string
-        The name of the Excel file.
-    sheet_name: string
-        The name of the sheet from where to load data.
+    file_name: string, required
+        The name of the CSV file.
+    separator: string, optional
+        The separator of the CSV fields. Default is ','.
+    header: bool, optional
+        Specifies whether the file has a header row or not. Default is True.
 
     Returns
     -------
     pandas.DataFrame
         The DataFrame containing the sheet data.
     """
-    df = pd.read_excel(file_name, sheet_name=sheet_name)
+    df = pd.read_csv(file_name, sep=separator, header=0 if header else None)
     return df.replace(np.nan, '', regex=True)
 
 
@@ -383,8 +385,8 @@ class DatasetsDetailsBuilder(object):
             model_size = model_info[LeaderboardColumns.ModelSize]
             if model_size:
                 model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
-            extra_training_data = bool(strtobool(
-                model_info[LeaderboardColumns.ExtraTrainingData]))
+            extra_training_data = bool(
+                strtobool(model_info[LeaderboardColumns.ExtraTrainingData]))
             item = {
                 "model": model,
                 "extra_training_data": extra_training_data,
@@ -621,8 +623,7 @@ class TasksDetailsBuilder(object):
                     format(dataset, pref_metric))
                 paper_title, paper_link, model = '', '', ''
             else:
-                paper_title, paper_link = self._get_model_properties(
-                    model)
+                paper_title, paper_link = self._get_model_properties(model)
             starter_code = row[DatasetColumns.StarterCode]
             datasets.append({
                 "dataset_id": build_id_string(dataset),
@@ -710,8 +711,9 @@ class AreasDetailsBuilder(object):
             row[AreasColumns.Name]: row[AreasColumns.DisplayRank]
             for _, row in areas.iterrows()
         }
-        self.area_remarks={
-            row[AreasColumns.Name]: row[AreasColumns.Remarks] if len(row[AreasColumns.Remarks])>0 else None
+        self.area_remarks = {
+            row[AreasColumns.Name]: row[AreasColumns.Remarks]
+            if len(row[AreasColumns.Remarks]) > 0 else None
             for _, row in areas.iterrows()
         }
 
@@ -740,7 +742,11 @@ class AreasDetailsBuilder(object):
                 "name": t["name"],
                 "summary": t["summary"]
             } for t in tasks]
-            result.append({"name": area,"remarks":self.area_remarks[area], "tasks": area_tasks})
+            result.append({
+                "name": area,
+                "remarks": self.area_remarks[area],
+                "tasks": area_tasks
+            })
         return result
 
     def _get_area_display_rank(self, task):
@@ -787,13 +793,13 @@ class AreasDetailsBuilder(object):
 
 
 def run(args):
-    logging.info("Start extracting data from {}...".format(args.excel_file))
-    leaderboard = read_excel(args.excel_file, args.leaderboard_sheet)
-    results = read_excel(args.excel_file, args.results_sheet)
-    datasets = read_excel(args.excel_file, args.datasets_sheet)
-    tasks = read_excel(args.excel_file, args.tasks_sheet)
-    metrics = read_excel(args.excel_file, args.metrics_sheet)
-    areas = read_excel(args.excel_file, args.areas_sheet)
+    logging.info("Start extracting data...")
+    leaderboard = read_csv_data(args.leaderboard_table)
+    results = read_csv_data(args.results_table)
+    datasets = read_csv_data(args.datasets_table)
+    tasks = read_csv_data(args.tasks_table)
+    metrics = read_csv_data(args.metrics_table)
+    areas = read_csv_data(args.areas_table)
 
     logging.info("Building dataset details...")
     ds_builder = DatasetsDetailsBuilder(datasets, results, leaderboard, tasks,
@@ -818,9 +824,6 @@ def run(args):
 
 def parse_arguments():
     parser = ArgumentParser()
-    parser.add_argument('--excel-file',
-                        help="The path to the input Excel file.",
-                        default="LEADERBOARD.xlsx")
     parser.add_argument(
         '--area-details-file',
         help="The path to the output file containing area details.",
@@ -833,25 +836,31 @@ def parse_arguments():
         '--dataset-details-file',
         help="The path to the output file containing dataset details.",
         default="datasets.json")
-    parser.add_argument('--leaderboard-sheet',
-                        help="The name of the leaderboard sheet.",
-                        default="LEADERBOARD")
-    parser.add_argument('--results-sheet',
-                        help="The name of the results sheet.",
-                        default="RESULTS")
-    parser.add_argument('--datasets-sheet',
-                        help="The name of the datasets sheet.",
-                        default="DATASETS")
-    parser.add_argument('--tasks-sheet',
-                        help="The name of the tasks sheet.",
-                        default="TASKS")
-    parser.add_argument('--metrics-sheet',
-                        help="The name of the metrics sheet.",
-                        default="METRICS")
+
     parser.add_argument(
-        '--areas-sheet',
-        help="The name of the sheet containing area names and their order.",
-        default="AREAS")
+        '--leaderboard-table',
+        help="The path of the CSV file containing leaderboard table.",
+        default="./db/leaderboard.csv")
+    parser.add_argument(
+        '--results-table',
+        help="The path of the CSV file cointaining the results.",
+        default="./db/results.csv")
+    parser.add_argument(
+        '--datasets-table',
+        help="The path of the CSV file containing the datasets table.",
+        default="./db/datasets.csv")
+    parser.add_argument(
+        '--tasks-table',
+        help="The path of the CSV file containing the tasks table.",
+        default="./db/tasks.csv")
+    parser.add_argument(
+        '--metrics-table',
+        help="The path of the CSV file containing the metrics.",
+        default="./db/metrics.csv")
+    parser.add_argument(
+        '--areas-table',
+        help="The path of the CSV file containing area names and their order.",
+        default="./db/areas.csv")
     parser.add_argument(
         '--dataset-descriptions-root',
         help=
