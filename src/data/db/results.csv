@@ -1,0 +1,32 @@
+"MODEL","DATASET","METRIC","VALUE"
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Tokenization","Tokens F1",99.74
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Sentence Segmentation","Sentences F1",95.56
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Lemmatization","Lemma F1",96.91
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","UPOS F1",97.42
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Dependency Parsing","UAS F1",90.38
+"NLP-Cube v1.0 [end-to-end]","UD Romanian RRT Treebank v2.5 - Dependency Parsing","LAS F1",85.23
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Tokenization","Tokens F1",99.71
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Sentence Segmentation","Sentences F1",95.42
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Lemmatization","Lemma F1",96.57
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","UPOS F1",96.96
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Dependency Parsing","UAS F1",90.14
+"NLP-Cube v1.1 [end-to-end]","UD Romanian RRT Treebank v2.5 - Dependency Parsing","LAS F1",85.06
+"Romanian BERT Baseline (bert-base-romanian-uncased-v1)","UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","UPOS F1",98.18
+"mBERT","XQuAD-ro","F1 (macro)",72.7
+"XLM-R Large","XQuAD-ro","F1 (macro)",83.6
+"mBERT","XQuAD-ro","EM",59.9
+"XLM-R Large","XQuAD-ro","EM",69.7
+"RO-STS Baseline RNN","RO-STS","Pearson Correlation",0.6744
+"RO-STS Baseline RNN","RO-STS","Spearman Correlation",0.6662
+"RO-STS Baseline Romanian BERT v1 (uncased)","RO-STS","Pearson Correlation",0.8159
+"RO-STS Baseline Romanian BERT v1 (uncased)","RO-STS","Spearman Correlation",0.8086
+"RO-STS Baseline mBERT (uncased)","RO-STS","Pearson Correlation",0.769
+"RO-STS Baseline mBERT (uncased)","RO-STS","Spearman Correlation",0.765
+"Ensemble based on Classifier Stacking","MOROCO","F1 (macro)",88.03
+"HISK+BOWE-BERT with SOMs","LaRoSeDa","F1 (macro)",54.3
+"LiRo Baseline Stanza","UD Romanian RRT Treebank v2.8 - cross-domain PoS tagging","UPOS F1",95.73
+"LiRo Baseline Stanza","UD Romanian RRT Treebank v2.8 - cross-domain Dependency Parsing","UAS F1",88.97
+"Romanian BERT Baseline","RONEC - Romanian Named Entity Corpus v1.0","Exact Match F1",85.88
+"mBART","WMT16-EN-RO","BLEU",38.5
+"LiRo Baseline ro-Bert","Wiki-Ro","Perplexity",28
+"LiRo Baseline gender debiasing","Romanian word embeddings","Modified-WEAT",2.57

@@ -1,0 +1,21 @@
+"METRICS","TYPE","RANGE","DESCRIPTION"
+"F1 (macro)","Higher-is-better","[0,100]","General purpose macro-averaged F1 measure"
+"Precision","Higher-is-better","[0,100]",
+"Recall","Higher-is-better","[0,100]",
+"Accuracy","Higher-is-better","[0,100]",
+"Perplexity","Lower-is-better","[0-INFINITY]","For Language Modeling"
+"Spearman Correlation","Higher-is-better","[-1,1]","For STS"
+"Pearson Correlation","Higher-is-better","[-1,1]","For STS"
+"UAS F1","Higher-is-better","[0,100]","For UD Dependency Parsing"
+"LAS F1","Higher-is-better","[0,100]","For UD Dependency Parsing"
+"Tokens F1","Higher-is-better","[0,100]","For UD Dependency Parsing"
+"Sentences F1","Higher-is-better","[0,100]","For UD Sentence Segmentation"
+"Lemma F1","Higher-is-better","[0,100]","For UD Lemmatization"
+"XPOS F1","Higher-is-better","[0,100]","For UD POS Tagging"
+"UPOS F1","Higher-is-better","[0,100]","For UD POS Tagging"
+"AllTags F1","Higher-is-better","[0,100]","For UD POS Tagging"
+"Exact Match F1","Higher-is-better","[0, 100]","For NER"
+"BLEU","Higher-is-better","[0, 100]","For MT"
+"ROUGE-L","Higher-is-better","[0, 100]","For MT"
+"EM","Higher-is-better","[0, 100]","For QA (EM = exact match)"
+"Modified-WEAT","Higher-is-better","[0-INFINITY]","For Gender debiasing"

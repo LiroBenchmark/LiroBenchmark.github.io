@@ -1,0 +1,26 @@
+"DATASET","MODEL NAME","PAPER TITLE","PAPER LINK","SOURCE LINK","EXTRA TRAINING DATA","DATE MONTH","DATE YEAR","MODEL SIZE"
+"UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","Romanian BERT Baseline (bert-base-romanian-uncased-v1)",,,"https://github.com/dumitrescustefan/Romanian-Transformers","Yes",5,2020,
+"UD Romanian RRT Treebank v2.5 - Tokenization","NLP-Cube v1.0 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",10,2018,
+"UD Romanian RRT Treebank v2.5 - Sentence Segmentation","NLP-Cube v1.0 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",10,2018,
+"UD Romanian RRT Treebank v2.5 - Lemmatization","NLP-Cube v1.0 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",10,2018,
+"UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","NLP-Cube v1.0 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",10,2018,
+"UD Romanian RRT Treebank v2.5 - Dependency Parsing","NLP-Cube v1.0 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",10,2018,
+"UD Romanian RRT Treebank v2.5 - Tokenization","NLP-Cube v1.1 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",4,2019,
+"UD Romanian RRT Treebank v2.5 - Sentence Segmentation","NLP-Cube v1.1 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",4,2019,
+"UD Romanian RRT Treebank v2.5 - Lemmatization","NLP-Cube v1.1 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",4,2019,
+"UD Romanian RRT Treebank v2.5 - Part of Speech Tagging","NLP-Cube v1.1 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",4,2019,
+"UD Romanian RRT Treebank v2.5 - Dependency Parsing","NLP-Cube v1.1 [end-to-end]","NLP-Cube: End-to-End Raw Text Processing With Neural Networks","http://www.aclweb.org/anthology/K18-2017","https://github.com/adobe/NLP-Cube","No",4,2019,
+"XQuAD-ro","mBERT","(results available online only, Romanian evaluated by DeepMind XQuAD dataset creators)","https://github.com/deepmind/xquad",,"Yes",1,2020,178
+"XQuAD-ro","XLM-R Large","(results available online only, Romanian evaluated by DeepMind XQuAD dataset creators)","https://github.com/deepmind/xquad",,"Yes",1,2020,550
+"WMT16-EN-RO","DeLighT","DeLighT: Deep and Light-weight Transformer","https://arxiv.org/pdf/2008.00623v2.pdf","https://github.com/sacmehta/delight","No",1,2020,53
+"RO-STS","RO-STS Baseline RNN",,,"https://github.com/dumitrescustefan/RO-STS","No",2,2020,167
+"RO-STS","RO-STS Baseline Romanian BERT v1 (uncased)",,,"https://github.com/dumitrescustefan/RO-STS","No",2,2020,124
+"RO-STS","RO-STS Baseline mBERT (uncased)",,,"https://github.com/dumitrescustefan/RO-STS","No",2,2020,167
+"MOROCO","Ensemble based on Classifier Stacking","The Unreasonable Effectiveness of Machine Learning in Moldavian versus Romanian Dialect Identification","https://arxiv.org/abs/2007.15700",,"No",7,2020,
+"LaRoSeDa","HISK+BOWE-BERT with SOMs","Clustering Word Embeddings with Self-Organizing Maps. Application on LaRoSeDa -- A Large Romanian Sentiment Data Set","https://www.aclweb.org/anthology/2021.eacl-main.81/","https://github.com/ancatache/LaRoSeDa","No",1,2021,
+"UD Romanian RRT Treebank v2.8 - cross-domain PoS tagging","LiRo Baseline Stanza","LiRo: Benchmark and leaderboard for Romanian language tasks","https://openreview.net/forum?id=JH61CD7afTv",,"No",5,2021,
+"UD Romanian RRT Treebank v2.8 - cross-domain Dependency Parsing","LiRo Baseline Stanza","LiRo: Benchmark and leaderboard for Romanian language tasks","https://openreview.net/forum?id=JH61CD7afTv",,"No",5,2021,
+"RONEC - Romanian Named Entity Corpus v1.0","Romanian BERT Baseline","The birth of Romanian BERT","https://www.aclweb.org/anthology/2020.findings-emnlp.387/","https://github.com/dumitrescustefan/Romanian-Transformers","No",11,2020,
+"WMT16-EN-RO","mBART","Multilingual Denoising Pre-training for Neural Machine Translation","https://arxiv.org/abs/2001.08210",,"No",1,2020,
+"Wiki-Ro","LiRo Baseline ro-Bert","LiRo: Benchmark and leaderboard for Romanian language tasks","https://openreview.net/forum?id=JH61CD7afTv",,"No",5,2021,
+"Romanian word embeddings","LiRo Baseline gender debiasing","LiRo: Benchmark and leaderboard for Romanian language tasks","https://openreview.net/forum?id=JH61CD7afTv","https://github.com/LiroBenchmark/gender-bias/blob/main/bias_embed_ro.ipynb","No",5,2021,
