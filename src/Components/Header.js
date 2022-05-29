@@ -26,6 +26,9 @@ const Header = () => (
           <Nav.Link href={UrlBuilder.termsAndConditionsPageUrl}>Terms & Conditions</Nav.Link>
           <Nav.Link href={UrlBuilder.privacyStatementPageUrl}>Privacy statement</Nav.Link>
         </NavDropdown>
+        <Nav.Link href="https://openreview.net/forum?id=JH61CD7afTv" target="_blank" rel="noopener noreferrer">
+          Paper
+        </Nav.Link>
         <Nav.Link
           className="code-btn"
           href="https://github.com/LiroBenchmark/LiroBenchmark.github.io/"
