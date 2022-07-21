@@ -54,9 +54,9 @@ jobs:
     needs: [build]
     steps:
     - name: Update distribution
-      run: sudo apt update && sudo apt upgrade -y
+      run: sudo apt-get update && sudo apt-get upgrade -y
     - name: Install node.js
-      run: sudo apt install -y nodejs
+      run: sudo apt-get install -y nodejs npm
     - name: Setup SSH auth
       env:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
