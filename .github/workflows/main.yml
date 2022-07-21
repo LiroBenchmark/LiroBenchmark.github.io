@@ -53,8 +53,10 @@ jobs:
     runs-on: ubuntu-22.04 
     needs: [build]
     steps:
-    - name: Setup node.js
-      uses: actions/setup-node@v3.4.1
+    - name: Update distribution
+      run: sudo apt update && sudo apt upgrade -y
+    - name: Install node.js
+      run: sudo apt install -y nodejs
     - name: Setup SSH auth
       env:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
