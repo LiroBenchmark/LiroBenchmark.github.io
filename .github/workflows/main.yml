@@ -14,7 +14,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -50,11 +50,11 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
   deploy: 
-    runs-on: ubuntu-18.04 
+    runs-on: ubuntu-22.04 
     needs: [build]
     steps:
     - name: Setup node.js
-      uses: actions/setup-node@v2.1.2
+      uses: actions/setup-node@v3.4.1
     - name: Setup SSH auth
       env:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
