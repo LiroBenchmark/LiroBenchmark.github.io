@@ -56,7 +56,7 @@ jobs:
     - name: Update distribution
       run: sudo apt-get update && sudo apt-get upgrade -y
     - name: Install node.js
-      run: sudo apt-get install -y nodejs npm python2
+      uses: actions/setup-node@v3.4.1
     - name: Setup SSH auth
       env:
         SSH_PRIVATE_KEY: ${{secrets.DEPLOY_AGENT_PRIVATE_KEY}}
@@ -85,6 +85,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+    - name: Remove package-lock.json
+      run: rm package-lock.json
     - name: Install npm dependencies
       run: npm install
     - name: Deploy
