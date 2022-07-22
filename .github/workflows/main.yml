@@ -86,7 +86,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
     - name: Remove package-lock.json
-      run: rm package-lock.json
+      run: | 
+        rm package-lock.json
+        ls -al
     - name: Install npm dependencies
       run: npm install
     - name: Deploy
