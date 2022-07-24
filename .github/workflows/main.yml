@@ -56,9 +56,10 @@ jobs:
     - name: Update distribution
       run: sudo apt-get update && sudo apt-get upgrade -y
     - name: Set up Python
-      uses: actions/setup-python@v4.1.0
-      with:
-        python-version: 2.x
+      run: sudo apt-get install -y python2
+      #uses: actions/setup-python@v4.1.0
+      #with:
+      #  python-version: 2.x
     - name: Install node.js
       uses: actions/setup-node@v3.4.1
     - name: Setup SSH auth
