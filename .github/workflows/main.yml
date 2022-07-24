@@ -94,6 +94,8 @@ jobs:
       run: | 
         rm package-lock.json
         ls -al
+    - name: Remove node_modules
+      run: rm -rf node_modules
     - name: Install npm dependencies
       run: npm install
     - name: Deploy
