@@ -1,7 +1,7 @@
 {
     "tasks": [
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "text-categorization-by-topic",
             "task_name": "Text Categorization by Topic",
             "task_description": "Text Categorization by Topic is the task of assigning a sentence or document an appropriate category. The categories depend on the chosen dataset and can range from topics.",
@@ -18,24 +18,24 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "ner",
             "task_name": "NER",
             "task_description": "Named entity recognition (NER) is the task of tagging entities in text with their corresponding type. Approaches typically use BIO notation, which differentiates the beginning (B) and the inside (I) of entities. O is used for non-entity tokens.",
             "datasets": [
                 {
-                    "dataset_id": "ronec-romanian-named-entity-corpus-v1-0",
-                    "dataset_name": "RONEC - Romanian Named Entity Corpus v1.0",
-                    "metric": "Exact Match F1",
-                    "model_name": "Romanian BERT Baseline",
-                    "paper_title": "The birth of Romanian BERT",
-                    "paper_link": "https://www.aclweb.org/anthology/2020.findings-emnlp.387/",
+                    "dataset_id": "ronec-romanian-named-entity-corpus-v2-0",
+                    "dataset_name": "RONEC - Romanian Named Entity Corpus v2.0",
+                    "metric": "Strict Match F1",
+                    "model_name": "",
+                    "paper_title": "",
+                    "paper_link": "",
                     "starter_code": ""
                 }
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "machine-translation",
             "task_name": "Machine Translation",
             "task_description": "Machine translation is the task of translating a sentence in a source language to a different target language",
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "language-modeling",
             "task_name": "Language Modeling",
             "task_description": "Language modeling is the task of predicting the next word or character in a document.",
@@ -163,7 +163,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "question-answering",
             "task_name": "Question Answering",
             "task_description": "Question Answering (QA) systems enable users to retrieve exact answers for questions posed in natural language. This task covers all QA systems for Romanian, with datasets that contain in-domain training data as well as zero-shot cross-linugal datasets.",
@@ -180,7 +180,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "sentiment-analysis",
             "task_name": "Sentiment Analysis",
             "task_description": "A sentiment analysis system combines natural language processing (NLP) and machine learning techniques to assign weighted sentiment scores to the entities, topics, themes and/or categories within a phrase, sentence or document.",
@@ -197,7 +197,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "semantic-textual-similarity",
             "task_name": "Semantic Textual Similarity",
             "task_description": "Semantic textual similarity deals with determining how similar two sentences or documents are. Similarity can be measured as an interval, like 1 (no relation between two texts) to 5 (the two texts fully convey the same meaning). Standard dataset measures include Pearson and Spearman correlations.",
@@ -214,7 +214,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Additional tasks and Resources",
             "id": "cross-domain-pos-tagging",
             "task_name": "Cross-domain POS Tagging",
             "task_description": "Part-of-speech tagging (POS tagging) is the task of tagging a word in a text with its part of speech. A part of speech is a category of words with similar grammatical properties.",
@@ -231,7 +231,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Additional tasks and Resources",
             "id": "cross-domain-dependency-parsing",
             "task_name": "Cross-domain Dependency Parsing",
             "task_description": "Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between \"head\" words and words, which modify those heads.",
@@ -248,7 +248,7 @@
             ]
         },
         {
-            "area": "NLP Benchmark",
+            "area": "Natural Language Processing",
             "id": "gender-debiasing",
             "task_name": "Gender debiasing",
             "task_description": "Gender debiasing is the task of reducing bias \u00een Romanian word embeddings.",

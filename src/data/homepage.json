@@ -1,7 +1,7 @@
 {
     "areas": [
         {
-            "name": "NLP Benchmark",
+            "name": "Natural Language Processing",
             "remarks": null,
             "tasks": [
                 {
@@ -17,7 +17,7 @@
                     "name": "NER",
                     "summary": {
                         "dataset_count": 1,
-                        "submission_count": 1
+                        "submission_count": 0
                     }
                 },
                 {
@@ -58,22 +58,6 @@
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 3
-                    }
-                },
-                {
-                    "id": "cross-domain-pos-tagging",
-                    "name": "Cross-domain POS Tagging",
-                    "summary": {
-                        "dataset_count": 1,
-                        "submission_count": 1
-                    }
-                },
-                {
-                    "id": "cross-domain-dependency-parsing",
-                    "name": "Cross-domain Dependency Parsing",
-                    "summary": {
-                        "dataset_count": 1,
-                        "submission_count": 1
                     }
                 },
                 {
@@ -128,6 +112,22 @@
                     "summary": {
                         "dataset_count": 1,
                         "submission_count": 2
+                    }
+                },
+                {
+                    "id": "cross-domain-pos-tagging",
+                    "name": "Cross-domain POS Tagging",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
+                    }
+                },
+                {
+                    "id": "cross-domain-dependency-parsing",
+                    "name": "Cross-domain Dependency Parsing",
+                    "summary": {
+                        "dataset_count": 1,
+                        "submission_count": 1
                     }
                 }
             ]
