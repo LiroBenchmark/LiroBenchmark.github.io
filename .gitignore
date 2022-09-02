@@ -1,4 +1,6 @@
 # Ignore auto-created files by github action at new push to master
+.vscode/
+~*
 src/data/datasets.json
 src/data/homepage.json
 src/data/tasks.json

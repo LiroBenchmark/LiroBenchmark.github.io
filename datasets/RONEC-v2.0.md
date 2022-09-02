@@ -1,10 +1,10 @@
 ### Input, Output and Metrics:
 
-Given the train & validation sets, the target is to maximize the F1 score on the test set.
+Given the train & validation sets, the target is to maximize the F1 strict score on the test set.
 
 Please see this [resource](http://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/) to understand more about NER evaluation.
 
-Metric reported is the **Exact Match F1 score**.
+Metric reported is the **Strict Match F1 score**.
 
 ### Download from:
 
