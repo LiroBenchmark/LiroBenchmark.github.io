@@ -1,0 +1,1 @@
+**RONEC** the **RO**manian **N**amed **E**ntity **C**orpus (RONEC), at version 2.0, holds 12330 sentences with over 0.5M tokens, annotated with 15 classes, to a total of 80.283 distinctly annotated entities. The target is to correctly label each token or span of tokens into its appropriate class.
