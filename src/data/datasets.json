@@ -12,13 +12,35 @@
             "starter_code": "",
             "license": "MIT",
             "license_url": "https://mit-license.org/",
-            "models": [],
-            "metrics": [],
-            "time_range": [
-                "Aug '22",
-                "Sep '22"
+            "models": [
+                {
+                    "model": "bert-base-romanian-cased-v1",
+                    "extra_training_data": false,
+                    "paper_title": "The birth of Romanian BERT",
+                    "paper_link": "https://www.aclweb.org/anthology/2020.findings-emnlp.387/",
+                    "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers",
+                    "submission_date": "2020-11",
+                    "model_size": "124",
+                    "results": {
+                        "Strict Match F1": 88.15
+                    }
+                }
             ],
-            "data_points": [],
+            "metrics": [
+                "Strict Match F1"
+            ],
+            "time_range": [
+                "Oct '20",
+                "Nov '20",
+                "Dec '20"
+            ],
+            "data_points": [
+                {
+                    "model": "bert-base-romanian-cased-v1",
+                    "submission_date": "Nov '20",
+                    "Strict Match F1": 88.15
+                }
+            ],
             "task_id": "ner",
             "area": "Natural Language Processing"
         },
@@ -247,7 +269,7 @@
                 },
                 {
                     "model": "Romanian BERT Baseline (bert-base-romanian-uncased-v1)",
-                    "extra_training_data": true,
+                    "extra_training_data": false,
                     "paper_title": "",
                     "paper_link": "",
                     "source_link": "https://github.com/dumitrescustefan/Romanian-Transformers",
@@ -470,7 +492,7 @@
                     }
                 },
                 {
-                    "model": "RO-STS Baseline Romanian BERT v1 (uncased)",
+                    "model": "bert-base-romanian-uncased-v1",
                     "extra_training_data": false,
                     "paper_title": "",
                     "paper_link": "",
@@ -513,7 +535,7 @@
                     "Spearman Correlation": 0.6662
                 },
                 {
-                    "model": "RO-STS Baseline Romanian BERT v1 (uncased)",
+                    "model": "bert-base-romanian-uncased-v1",
                     "submission_date": "Feb '20",
                     "Pearson Correlation": 0.8159,
                     "Spearman Correlation": 0.8086
@@ -762,13 +784,13 @@
             "license_url": "https://mit-license.org/",
             "models": [
                 {
-                    "model": "LiRo Baseline ro-Bert",
+                    "model": "bert-base-romanian-cased-v1",
                     "extra_training_data": false,
                     "paper_title": "LiRo: Benchmark and leaderboard for Romanian language tasks",
                     "paper_link": "https://openreview.net/forum?id=JH61CD7afTv",
                     "source_link": "",
                     "submission_date": "2021-05",
-                    "model_size": "",
+                    "model_size": "124",
                     "results": {
                         "Perplexity": 28.0
                     }
@@ -784,7 +806,7 @@
             ],
             "data_points": [
                 {
-                    "model": "LiRo Baseline ro-Bert",
+                    "model": "bert-base-romanian-cased-v1",
                     "submission_date": "May '21",
                     "Perplexity": 28.0
                 }
@@ -834,6 +856,50 @@
                 }
             ],
             "task_id": "gender-debiasing",
+            "area": "Natural Language Processing"
+        },
+        {
+            "task": "Sentiment Analysis",
+            "id": "romanian-emotions-datasets-v2-redv2",
+            "dataset_name": "Romanian Emotions Datasets v2 (REDv2)",
+            "dataset_description": "",
+            "short_description": "",
+            "dataset_info": "",
+            "dataset_link": "https://github.com/Alegzandra/RED-Romanian-Emotions-Dataset",
+            "preferred_metric": "Hamming Loss",
+            "starter_code": "",
+            "license": "MIT",
+            "license_url": "https://mit-license.org/",
+            "models": [
+                {
+                    "model": "bert-base-romanian-uncased-v1",
+                    "extra_training_data": false,
+                    "paper_title": "",
+                    "paper_link": "",
+                    "source_link": "dumitrescustefan/Romanian-Transformers: This repo is the home of Romanian Transformers. (github.com)",
+                    "submission_date": "2022-03",
+                    "model_size": "124",
+                    "results": {
+                        "Hamming Loss": 0.1038
+                    }
+                }
+            ],
+            "metrics": [
+                "Hamming Loss"
+            ],
+            "time_range": [
+                "Feb '22",
+                "Mar '22",
+                "Apr '22"
+            ],
+            "data_points": [
+                {
+                    "model": "bert-base-romanian-uncased-v1",
+                    "submission_date": "Mar '22",
+                    "Hamming Loss": 0.1038
+                }
+            ],
+            "task_id": "sentiment-analysis",
             "area": "Natural Language Processing"
         }
     ]
