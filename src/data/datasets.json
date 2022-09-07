@@ -874,9 +874,9 @@
                 {
                     "model": "bert-base-romanian-uncased-v1",
                     "extra_training_data": false,
-                    "paper_title": "",
-                    "paper_link": "",
-                    "source_link": "dumitrescustefan/Romanian-Transformers: This repo is the home of Romanian Transformers. (github.com)",
+                    "paper_title": "RED v2: Enhancing RED Dataset for Multi-Label Emotion Detection",
+                    "paper_link": "http://www.lrec-conf.org/proceedings/lrec2022/pdf/2022.lrec-1.149.pdf",
+                    "source_link": "https://github.com/Alegzandra/RED-Romanian-Emotions-Dataset/tree/main/REDv2",
                     "submission_date": "2022-03",
                     "model_size": "124",
                     "results": {
