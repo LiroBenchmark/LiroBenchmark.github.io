@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+"""Extracts and aggegates the data for the application.""" ""
 import json
 import pandas as pd
 import numpy as np
@@ -14,8 +16,8 @@ from distutils.util import strtobool
 
 
 class DatasetColumns:
-    """Defines column name constants for DATASETS sheet from input file.
-    """
+    """Defines column name constants for DATASETS sheet from input file."""
+
     Task = 'TASK'
     DatasetName = 'DATASET NAME'
     DatasetLink = 'DATASET LINK'
@@ -28,8 +30,8 @@ class DatasetColumns:
 
 
 class ResultsColumns:
-    """Defines column name constants for RESULTS sheet from input file.
-    """
+    """Defines column name constants for RESULTS sheet from input file."""
+
     Model = 'MODEL'
     Dataset = 'DATASET'
     Metric = 'METRIC'
@@ -37,8 +39,8 @@ class ResultsColumns:
 
 
 class TasksColumns:
-    """Defines column name constants for TASKS sheet from input file.
-    """
+    """Defines column name constants for TASKS sheet from input file."""
+
     Area = 'AREA'
     Name = 'NAME'
     Description = 'DESCRIPTION'
@@ -46,8 +48,8 @@ class TasksColumns:
 
 
 class LeaderboardColumns:
-    """Defines column name constants for LEADERBOARD sheet from input file.
-    """
+    """Defines column name constants for LEADERBOARD sheet from input file."""
+
     Dataset = 'DATASET'
     ModelName = 'MODEL NAME'
     PaperTitle = 'PAPER TITLE'
@@ -60,8 +62,8 @@ class LeaderboardColumns:
 
 
 class MetricsColumns:
-    """Defines column name constants for METRICS sheet from input file.
-    """
+    """Defines column name constants for METRICS sheet from input file."""
+
     Name = 'METRICS'
     Type = 'TYPE'
     Range = 'RANGE'
@@ -69,15 +71,15 @@ class MetricsColumns:
 
 
 class AreasColumns:
-    """Defines column name constants for AREAS sheet from the input file.
-    """
+    """Defines column name constants for AREAS sheet from the input file."""
+
     Name = "NAME"
     DisplayRank = "RANK"
     Remarks = "REMARKS"
 
 
 def build_id_string(name):
-    """Builds an URL-friendly id from the name
+    """Builds an URL-friendly id from the name.
 
     This method replaces non-alphanumeric characters with a dash
     and collapses sequences of dashes into a single one.
@@ -157,18 +159,33 @@ def parse_description_file(directory, file_name, description_type):
     if not file_name:
         return ''
     description_file = PurePath(directory, file_name)
-    logging.info("Reading {} description from {}.".format(
-        description_type, str(description_file)))
-    with open(str(description_file), 'r') as f:
+    logging.info("Reading %s description from %s.", description_type,
+                 str(description_file))
+    return parse_markdown_file(str(description_file))
+
+
+def parse_markdown_file(file_path: str) -> str:
+    """Parses the contents of the specified markdown file and returns contents as a HTML string.
+
+    Parameters
+    ----------
+    file_path: str, required
+        The path of the markdown file.
+
+    Returns
+    -------
+    contents: str
+        The contents of the markdown file as a HTML string.
+    """ ""
+    with open(file_path, 'r', encoding='utf8') as f:
         text = f.read()
-        description = md.markdown(text)
-        return description
+        contents = md.markdown(text)
+        return contents
 
 
-class ChartDataBuilder(object):
-    """Builds the data for displaying dataset results in a chart.
+class ChartDataBuilder:
+    """Builds the data for displaying dataset results in a chart."""
 
-    """
     def __init__(self, models, date_format="%b '%y"):
         """Creates a new instance of ChartDataBuilder.
 
@@ -182,7 +199,6 @@ class ChartDataBuilder(object):
             name and two digit year separated by apostrophe.
             Example: September 10, 2020 => Sep '20
         """
-        super(ChartDataBuilder, self).__init__()
         self.models = models
         self.date_format = date_format
 
@@ -287,10 +303,9 @@ class ChartDataBuilder(object):
         return date
 
 
-class DatasetsDetailsBuilder(object):
-    """Builds dataset details.
+class DatasetsDetailsBuilder:
+    """Builds dataset details."""
 
-    """
     def __init__(self, datasets, results, leaderboard, tasks,
                  description_files_root):
         """Creates a new instance of DatasetsDetailsBuilder.
@@ -309,7 +324,6 @@ class DatasetsDetailsBuilder(object):
         description_files_root: str
             The directory containing dataset description files in markdown format.
         """
-        super(DatasetsDetailsBuilder, self).__init__()
         self.datasets = datasets
         self.results = results
         self.leaderboard = leaderboard
@@ -383,8 +397,8 @@ class DatasetsDetailsBuilder(object):
             model_size = model_info[LeaderboardColumns.ModelSize]
             if model_size:
                 model_size = '{0:,}'.format(int(model_size)).replace(',', ' ')
-            extra_training_data = bool(strtobool(
-                model_info[LeaderboardColumns.ExtraTrainingData]))
+            extra_training_data = bool(
+                strtobool(model_info[LeaderboardColumns.ExtraTrainingData]))
             item = {
                 "model": model,
                 "extra_training_data": extra_training_data,
@@ -530,10 +544,9 @@ class DatasetsDetailsBuilder(object):
         return description
 
 
-class TasksDetailsBuilder(object):
-    """Builds task details.
+class TasksDetailsBuilder:
+    """Builds task details."""
 
-    """
     def __init__(self, tasks, datasets, results, metrics, leaderboard,
                  description_files_root):
         """Creates a new instance of TasksDetailsBuilder.
@@ -554,7 +567,6 @@ class TasksDetailsBuilder(object):
         description_files_root: str
             The directory containing task description files in markdown format.
         """
-        super(TasksDetailsBuilder, self).__init__()
         self.tasks = tasks
         self.datasets = datasets
         self.results = results
@@ -621,8 +633,7 @@ class TasksDetailsBuilder(object):
                     format(dataset, pref_metric))
                 paper_title, paper_link, model = '', '', ''
             else:
-                paper_title, paper_link = self._get_model_properties(
-                    model)
+                paper_title, paper_link = self._get_model_properties(model)
             starter_code = row[DatasetColumns.StarterCode]
             datasets.append({
                 "dataset_id": build_id_string(dataset),
@@ -687,6 +698,7 @@ class AreasDetailsBuilder(object):
     """Builds details for areas.
 
     """
+
     def __init__(self, datasets, tasks, results, areas):
         """Creates a new instance of AreasDetailsBuilder.
 
@@ -710,8 +722,9 @@ class AreasDetailsBuilder(object):
             row[AreasColumns.Name]: row[AreasColumns.DisplayRank]
             for _, row in areas.iterrows()
         }
-        self.area_remarks={
-            row[AreasColumns.Name]: row[AreasColumns.Remarks] if len(row[AreasColumns.Remarks])>0 else None
+        self.area_remarks = {
+            row[AreasColumns.Name]: row[AreasColumns.Remarks]
+            if len(row[AreasColumns.Remarks]) > 0 else None
             for _, row in areas.iterrows()
         }
 
@@ -740,7 +753,11 @@ class AreasDetailsBuilder(object):
                 "name": t["name"],
                 "summary": t["summary"]
             } for t in tasks]
-            result.append({"name": area,"remarks":self.area_remarks[area], "tasks": area_tasks})
+            result.append({
+                "name": area,
+                "remarks": self.area_remarks[area],
+                "tasks": area_tasks
+            })
         return result
 
     def _get_area_display_rank(self, task):
@@ -808,6 +825,7 @@ def run(args):
     logging.info("Building area details...")
     ab = AreasDetailsBuilder(datasets, tasks, results, areas)
     homepage_json = {"areas": ab.build_area_details()}
+    homepage_json["citation"] = parse_markdown_file(args.citation_file)
 
     logging.info("Writing data...")
     save_json(datasets_json, args.dataset_details_file)
@@ -861,6 +879,10 @@ def parse_arguments():
         '--task-descriptions-root',
         help="The directory containing markdown files with task descriptions",
         default='../../tasks/')
+    parser.add_argument(
+        '--citation-file',
+        help="The path of the markdown file containing citation.",
+        default='./citation.md')
     return parser.parse_args()
 
 
