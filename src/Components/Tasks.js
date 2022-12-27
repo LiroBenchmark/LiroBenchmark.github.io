@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
+import ReactHtmlParser from 'react-html-parser';
 import data from '../data/homepage.json';
 import './Tasks.scss';
 import UrlBuilder from './UrlBuilder.js';
@@ -88,7 +89,7 @@ class Tasks extends React.Component {
   }
 
   render() {
-    const { areas } = data;
+    const { areas, citation } = data;
     if (!this.state.activeArea) {
       const defaultArea = areas[0];
       this.setState({ activeArea: defaultArea.name });
@@ -110,6 +111,7 @@ class Tasks extends React.Component {
             </p>
           </div>
         </div>
+        <div>{ReactHtmlParser(citation)}</div>
         {areas.map((area) => this.renderArea(area))}
       </>
     );
